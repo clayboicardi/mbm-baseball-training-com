@@ -1,0 +1,20 @@
+---
+import site from "../data/site.json";
+const year = new Date().getFullYear();
+---
+<footer class="footer footer-center bg-neutral text-neutral-content p-10">
+  <aside>
+    <p class="font-heading text-xl">{site.business.name}</p>
+    <p class="text-neutral-content/70">{site.business.location}</p>
+    <div class="flex flex-wrap gap-4 mt-2 justify-center">
+      <a href={site.business.phoneHref} class="link link-hover">{site.business.phone}</a>
+      <a href={`mailto:${site.business.email}`} class="link link-hover">Email</a>
+      <a href={site.business.instagram} target="_blank" rel="noopener" class="link link-hover">Instagram</a>
+    </div>
+    <nav class="mt-2 flex gap-4 text-sm text-neutral-content/60 justify-center">
+      <a href="/privacy" class="link link-hover">Privacy</a>
+      <a href="/terms" class="link link-hover">Terms</a>
+    </nav>
+    <p class="mt-2 text-xs text-neutral-content/50">© {year} {site.business.name}. All rights reserved.</p>
+  </aside>
+</footer>

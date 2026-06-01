@@ -1,0 +1,14 @@
+---
+import site from "../data/site.json";
+---
+<section id="contact" class="py-20 px-4 bg-primary text-primary-content">
+  <div class="max-w-3xl mx-auto text-center">
+    <h2 class="text-3xl font-heading font-bold uppercase">Ready to Get Started?</h2>
+    <p class="mt-2 text-primary-content/80">Book your free first lesson or reach out with any questions.</p>
+    <div class="mt-6 flex flex-wrap gap-4 justify-center">
+      <a href={site.business.phoneHref} class="btn btn-accent btn-lg">Call / Text {site.business.phone}</a>
+      <a href={`mailto:${site.business.email}`} class="btn btn-lg btn-outline border-white text-white hover:bg-white hover:text-primary">Email Coach Myles</a>
+    </div>
+    <p class="mt-4 text-primary-content/70">{site.business.serviceArea}</p>
+  </div>
+</section>

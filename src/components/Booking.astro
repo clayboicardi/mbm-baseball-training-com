@@ -1,0 +1,34 @@
+---
+import site from "../data/site.json";
+const { calcom, tallyEliteEmbed } = site.booking;
+const hasCalcom = Boolean(calcom.base);
+const hasTally = Boolean(tallyEliteEmbed);
+---
+<section id="book" class="py-20 px-4 bg-base-200/50">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl font-heading font-bold text-primary uppercase">Book a Session</h2>
+    <p class="mt-2 text-base-content/70">Pick a time that works for you — or ask about the Elite program.</p>
+
+    <div class="mt-8">
+      {hasCalcom ? (
+        <iframe title="Book a session" src={`https://cal.com/${calcom.base}`} class="w-full rounded-box border border-base-300" style="height:700px" loading="lazy"></iframe>
+      ) : (
+        <div class="card bg-base-100 border border-base-300 p-8">
+          <p class="text-base-content/70">Online scheduling is being set up. To book your free first lesson now, call or text
+            <a class="link link-primary font-semibold" href={site.business.phoneHref}>{site.business.phone}</a>.</p>
+        </div>
+      )}
+    </div>
+
+    <div id="elite-inquiry" class="mt-12">
+      <h3 class="text-2xl font-heading text-primary">Elite Program Inquiry</h3>
+      {hasTally ? (
+        <iframe title="Elite program inquiry" src={`https://tally.so/embed/${tallyEliteEmbed}`} class="w-full rounded-box border border-base-300 mt-4" style="height:500px" loading="lazy"></iframe>
+      ) : (
+        <p class="mt-4 text-base-content/70">For the Elite Package, call/text
+          <a class="link link-primary font-semibold" href={site.business.phoneHref}>{site.business.phone}</a> or email
+          <a class="link link-primary font-semibold" href={`mailto:${site.business.email}`}>{site.business.email}</a>.</p>
+      )}
+    </div>
+  </div>
+</section>
