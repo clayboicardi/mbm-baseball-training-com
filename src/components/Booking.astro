@@ -11,7 +11,7 @@ const hasTally = Boolean(tallyEliteEmbed);
 
     <div class="mt-8">
       {hasCalcom ? (
-        <iframe title="Book a session" src={`https://cal.com/${calcom.base}`} sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-top-navigation-by-user-activation" referrerpolicy="strict-origin-when-cross-origin" class="w-full rounded-box border border-base-300" style="height:700px" loading="lazy"></iframe>
+        <iframe title="Book a session" src={`https://cal.com/${calcom.base}`} sandbox="allow-scripts allow-forms allow-same-origin allow-popups" referrerpolicy="strict-origin-when-cross-origin" class="w-full rounded-box border border-base-300" style="height:700px" loading="lazy"></iframe>
       ) : (
         <div class="card bg-base-100 border border-base-300 p-8">
           <p class="text-base-content/70">Online scheduling is being set up. To book your free first lesson now, call or text
@@ -23,7 +23,7 @@ const hasTally = Boolean(tallyEliteEmbed);
     <div id="elite-inquiry" class="mt-12">
       <h3 class="text-2xl font-heading text-primary">Elite Program Inquiry</h3>
       {hasTally ? (
-        <iframe title="Elite program inquiry" src={`https://tally.so/embed/${tallyEliteEmbed}`} sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-top-navigation-by-user-activation" referrerpolicy="strict-origin-when-cross-origin" class="w-full rounded-box border border-base-300 mt-4" style="height:500px" loading="lazy"></iframe>
+        <iframe title="Elite program inquiry" src={`https://tally.so/embed/${tallyEliteEmbed}`} sandbox="allow-scripts allow-forms allow-same-origin allow-popups" referrerpolicy="strict-origin-when-cross-origin" class="w-full rounded-box border border-base-300 mt-4" style="height:500px" loading="lazy"></iframe>
       ) : (
         <p class="mt-4 text-base-content/70">For the Elite Package, call/text
           <a class="link link-primary font-semibold" href={site.business.phoneHref}>{site.business.phone}</a> or email
