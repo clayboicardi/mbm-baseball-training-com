@@ -1,0 +1,45 @@
+@import "tailwindcss";
+@import "@fontsource/oswald/400.css";
+@import "@fontsource/oswald/600.css";
+@import "@fontsource/oswald/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/700.css";
+
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "mbm";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+
+  --color-primary: #005A9C;
+  --color-primary-content: #FFFFFF;
+  --color-secondary: #FFFFFF;
+  --color-secondary-content: #005A9C;
+  --color-accent: #EF3E42;
+  --color-accent-content: #FFFFFF;
+  --color-base-100: #FFFFFF;
+  --color-base-200: #F4F7FA;
+  --color-base-300: #E5EBF1;
+  --color-base-content: #0B1A2B;
+  --color-neutral: #0B1A2B;
+  --color-neutral-content: #FFFFFF;
+  --color-info: #005A9C;
+  --color-info-content: #FFFFFF;
+  --color-success: #1A8F4C;
+  --color-success-content: #FFFFFF;
+  --color-warning: #E0A106;
+  --color-warning-content: #0B1A2B;
+  --color-error: #EF3E42;
+  --color-error-content: #FFFFFF;
+
+  --radius-box: 0.75rem;
+  --radius-field: 0.5rem;
+  --radius-selector: 0.5rem;
+}
+
+:root { --font-heading: "Oswald", system-ui, sans-serif; --font-body: "Inter", system-ui, sans-serif; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); }
+h1, h2, h3, .font-heading { font-family: var(--font-heading); letter-spacing: 0.01em; }
