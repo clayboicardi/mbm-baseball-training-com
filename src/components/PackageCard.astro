@@ -4,13 +4,14 @@ interface Props {
   name: string;
   price: number;
   priceLabel?: string;
+  priceNote?: string;
   duration?: string;
   features: string[];
   addOns?: AddOn[];
   featured?: boolean;
   cta: { label: string; target: string };
 }
-const { name, price, priceLabel, duration, features, addOns = [], featured, cta } = Astro.props;
+const { name, price, priceLabel, priceNote, duration, features, addOns = [], featured, cta } = Astro.props;
 const displayPrice = priceLabel ?? (price === 0 ? "Free" : `$${price}`);
 ---
 <div class={`card border-2 bg-base-100 h-full ${featured ? "border-accent shadow-xl" : "border-base-300"}`}>
@@ -18,7 +19,8 @@ const displayPrice = priceLabel ?? (price === 0 ? "Free" : `$${price}`);
     {featured && <span class="badge badge-accent self-start">Best Value</span>}
     <h3 class="card-title font-heading text-2xl">{name}</h3>
     {duration && <p class="text-sm text-base-content/60">{duration}</p>}
-    <p class="mt-2"><span class="text-3xl font-bold text-primary">{displayPrice}</span></p>
+    <p class="mt-2"><span class="text-3xl font-bold text-primary break-words">{displayPrice}</span></p>
+    {priceNote && <p class="text-sm text-base-content/60">{priceNote}</p>}
     <ul class="mt-4 space-y-2 text-sm">
       {features.map((f) => <li class="flex gap-2"><span class="text-accent font-bold">✓</span><span>{f}</span></li>)}
     </ul>

@@ -4,7 +4,7 @@ import packagesData from "../data/packages.json";
 
 interface AddOn { label: string; price: number; blurb?: string; }
 interface Tier {
-  id: string; name: string; price: number; priceLabel?: string;
+  id: string; name: string; price: number; priceLabel?: string; priceNote?: string;
   duration: string; features: string[]; addOns?: string[];
   featured?: boolean; cta: { label: string; target: string };
 }
@@ -20,7 +20,7 @@ const tiers = (packagesData.tiers as Tier[]).map((t) => ({
     <p class="text-center mt-2 text-base-content/70">Start with a free lesson. Train at your pace.</p>
     <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 items-stretch">
       {tiers.map((t) => (
-        <PackageCard name={t.name} price={t.price} priceLabel={t.priceLabel} duration={t.duration} features={t.features} addOns={t.resolvedAddOns} featured={t.featured} cta={t.cta} />
+        <PackageCard name={t.name} price={t.price} priceLabel={t.priceLabel} priceNote={t.priceNote} duration={t.duration} features={t.features} addOns={t.resolvedAddOns} featured={t.featured} cta={t.cta} />
       ))}
     </div>
   </div>
