@@ -1,6 +1,93 @@
-[
-  { "name": "Free First Lesson", "price": "Free", "duration": "30 minutes", "description": "Try it risk-free.", "features": ["Initial skill evaluation", "Training plan preview", "Q&A with coach"], "featured": false, "ctaLabel": "Book Free Lesson", "ctaHref": "#book" },
-  { "name": "30-Minute Session", "price": "$45", "cadence": "/ session", "duration": "30 minutes", "description": "Focused 1-on-1 training for quick skill work.", "features": ["Personalized drills", "Mechanics breakdown", "Progress tracking"], "addon": "+$100 for video analysis", "featured": false, "ctaLabel": "Book 30-Min", "ctaHref": "#book" },
-  { "name": "60-Minute Session", "price": "$65", "cadence": "/ session", "duration": "60 minutes", "description": "Full intensive session for comprehensive training.", "features": ["Extended personalized drills", "Deep mechanics breakdown", "Progress tracking"], "addon": "+$100 for video analysis", "featured": true, "ctaLabel": "Book 60-Min", "ctaHref": "#book" },
-  { "name": "Elite Package", "price": "$1,500", "cadence": "/ full season", "duration": "30 sessions (60 min each)", "description": "The ultimate program for athletes committed to the next level.", "features": ["30 sessions (60 min each)", "Priority scheduling", "Video analysis included", "Custom training program", "Game film review"], "featured": false, "ctaLabel": "Inquire About Elite", "ctaHref": "#book-elite" }
-]
+{
+  "currency": "USD",
+  "note": "Pricing validated against Long Beach market research 2026-06-01. Video add-on corrected from $100 to $40. 60-min and Elite payment plan flagged for Myles's final call.",
+  "addOnsCatalog": {
+    "video_breakdown": {
+      "label": "Swing/Mechanics Video Breakdown",
+      "price": 40,
+      "blurb": "Slow-motion video of your swing or mechanics with frame-by-frame coach feedback and 2–3 focus drills."
+    }
+  },
+  "tiers": [
+    {
+      "id": "free-first-lesson",
+      "name": "Free First Lesson",
+      "price": 0,
+      "priceLabel": "Free",
+      "duration": "30 min",
+      "features": [
+        "Skill evaluation",
+        "Personalized training-plan preview",
+        "Q&A with Coach Myles",
+        "No obligation"
+      ],
+      "addOns": [],
+      "featured": false,
+      "cta": { "label": "Claim Your Free First Lesson", "target": "#book" }
+    },
+    {
+      "id": "session-30",
+      "name": "30-Minute Session",
+      "price": 45,
+      "duration": "30 min",
+      "features": [
+        "Focused 1-on-1 instruction",
+        "Hitting, fielding, throwing, or baseball IQ",
+        "Quick tune-up between games"
+      ],
+      "addOns": ["video_breakdown"],
+      "featured": false,
+      "cta": { "label": "Book a 30-Minute Session", "target": "#book" }
+    },
+    {
+      "id": "session-60",
+      "name": "60-Minute Session",
+      "price": 75,
+      "priceFlag": "DECISION: $75 (recommended) vs $65 (value play) — Myles to confirm",
+      "duration": "60 min",
+      "features": [
+        "Full 1-on-1 session — multiple skills",
+        "Slow-motion video clip + feedback included",
+        "Custom focus areas + take-home drills"
+      ],
+      "addOns": ["video_breakdown"],
+      "featured": false,
+      "cta": { "label": "Book a 60-Minute Session", "target": "#book" }
+    },
+    {
+      "id": "package-10",
+      "name": "10-Session Package",
+      "price": 585,
+      "priceLabel": "$585 ($58.50/session)",
+      "duration": "10 × 60 min",
+      "features": [
+        "~10% off the 60-min rate",
+        "Video breakdown included",
+        "Consistent development plan across sessions",
+        "Flexible scheduling"
+      ],
+      "addOns": [],
+      "featured": false,
+      "cta": { "label": "Start a 10-Session Plan", "target": "#book" }
+    },
+    {
+      "id": "elite-season",
+      "name": "Elite Season Program",
+      "price": 1500,
+      "priceLabel": "$1,500 / season — or ask about monthly",
+      "paymentPlan": "Payment plan available (e.g. 3 × $525 or ~$275/mo) — confirm with Myles",
+      "duration": "30 × 60 min (full season)",
+      "features": [
+        "30 one-on-one 60-minute sessions",
+        "Priority scheduling",
+        "Video analysis included",
+        "Custom season-long development program",
+        "Game-film review",
+        "Best per-session value (~$50/session)"
+      ],
+      "addOns": [],
+      "featured": true,
+      "cta": { "label": "Apply for the Elite Program", "target": "#elite-inquiry" }
+    }
+  ]
+}
