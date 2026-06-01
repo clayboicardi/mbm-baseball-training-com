@@ -6,3 +6,8 @@ dist/
 .DS_Store
 *.log
 .remember/
+
+# Brand source masters — huge + reproducible via scripts/brand_pipeline.py
+assets-incoming/brand/mbm-emblem-master.png
+assets-incoming/brand/mbm-emblem-on-white.png
+assets-incoming/brand/_preview/
