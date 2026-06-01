@@ -1,0 +1,27 @@
+---
+import PackageCard from "./PackageCard.astro";
+import packagesData from "../data/packages.json";
+
+interface AddOn { label: string; price: number; blurb?: string; }
+interface Tier {
+  id: string; name: string; price: number; priceLabel?: string;
+  duration: string; features: string[]; addOns?: string[];
+  featured?: boolean; cta: { label: string; target: string };
+}
+const catalog = (packagesData.addOnsCatalog ?? {}) as Record<string, AddOn>;
+const tiers = (packagesData.tiers as Tier[]).map((t) => ({
+  ...t,
+  resolvedAddOns: (t.addOns ?? []).map((k) => catalog[k]).filter(Boolean),
+}));
+---
+<section id="packages" class="py-20 px-4 bg-base-100">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-heading font-bold text-primary uppercase text-center">Training Packages</h2>
+    <p class="text-center mt-2 text-base-content/70">Start with a free lesson. Train at your pace.</p>
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 items-stretch">
+      {tiers.map((t) => (
+        <PackageCard name={t.name} price={t.price} priceLabel={t.priceLabel} duration={t.duration} features={t.features} addOns={t.resolvedAddOns} featured={t.featured} cta={t.cta} />
+      ))}
+    </div>
+  </div>
+</section>
