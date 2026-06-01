@@ -1,0 +1,33 @@
+{
+  "business": {
+    "name": "MBM Baseball Training",
+    "coach": "Myles Berniard-Mendez",
+    "tagline": "Train with purpose. Play with confidence. Compete with passion.",
+    "location": "Long Beach, CA",
+    "serviceArea": "Serving Long Beach & surrounding areas",
+    "phone": "(562) 884-0746",
+    "phoneHref": "tel:+15628840746",
+    "email": "Mylesberniardmendez@gmail.com",
+    "instagram": "https://www.instagram.com/coach_berniard_mendez_",
+    "instagramHandle": "@coach_berniard_mendez_"
+  },
+  "nav": [
+    { "label": "About", "href": "#about" },
+    { "label": "Services", "href": "#services" },
+    { "label": "Packages", "href": "#packages" },
+    { "label": "Book", "href": "#book" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "hero": {
+    "headline": "Private Baseball Training in Long Beach",
+    "subhead": "1-on-1 coaching for players ages 8–18 — hitting, fielding, throwing, and baseball IQ from a former semi-pro.",
+    "tagline": "Train with purpose. Play with confidence. Compete with passion.",
+    "primaryCta": { "label": "Claim Your Free First Lesson", "href": "#book" },
+    "secondaryCta": { "label": "View Packages", "href": "#packages" },
+    "trust": ["20+ years in the game", "Ages 8–18", "Long Beach, CA"]
+  },
+  "booking": {
+    "calcom": { "base": "" },
+    "tallyEliteEmbed": ""
+  }
+}
