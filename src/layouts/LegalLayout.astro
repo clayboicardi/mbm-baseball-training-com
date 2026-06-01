@@ -1,0 +1,15 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import site from "../data/site.json";
+interface Props { title: string; }
+const { title } = Astro.props;
+---
+<BaseLayout title={`${title} | ${site.business.name}`}>
+  <main class="max-w-3xl mx-auto px-4 py-16">
+    <a href="/" class="link link-primary">&larr; Back home</a>
+    <article class="prose mt-4">
+      <h1 class="font-heading">{title}</h1>
+      <slot />
+    </article>
+  </main>
+</BaseLayout>

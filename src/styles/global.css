@@ -7,6 +7,7 @@
 @import "@fontsource/inter/700.css";
 
 @plugin "daisyui";
+@plugin "@tailwindcss/typography";
 @plugin "daisyui/theme" {
   name: "mbm";
   default: true;

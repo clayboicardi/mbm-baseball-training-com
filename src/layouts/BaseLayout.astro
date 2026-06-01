@@ -1,0 +1,51 @@
+---
+import "../styles/global.css";
+import site from "../data/site.json";
+
+interface Props { title?: string; description?: string; image?: string; }
+const {
+  title = `${site.business.name} | Private Baseball Lessons in Long Beach`,
+  description = site.hero.subhead,
+  image = "/og-image.png",
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL(image, Astro.site).href;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SportsActivityLocation",
+  name: site.business.name,
+  description,
+  url: Astro.site?.href,
+  telephone: site.business.phone,
+  email: site.business.email,
+  areaServed: site.business.serviceArea,
+  address: { "@type": "PostalAddress", addressLocality: "Long Beach", addressRegion: "CA", addressCountry: "US" },
+  sameAs: [site.business.instagram],
+  priceRange: "$45–$1,500",
+};
+---
+<!doctype html>
+<html lang="en" data-theme="mbm">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body class="bg-base-100 text-base-content">
+    <slot />
+  </body>
+</html>
