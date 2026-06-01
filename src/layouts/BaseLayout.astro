@@ -14,9 +14,10 @@ const ogImage = new URL(image, Astro.site).href;
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "SportsActivityLocation",
+  "@type": ["LocalBusiness", "SportsActivityLocation"],
   name: site.business.name,
   description,
+  image: ogImage,
   url: Astro.site?.href,
   telephone: site.business.phone,
   email: site.business.email,
@@ -41,7 +42,11 @@ const schema = {
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={site.business.name} />
+    <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </head>
