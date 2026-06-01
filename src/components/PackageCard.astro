@@ -13,8 +13,8 @@ interface Props {
 const { name, price, priceLabel, duration, features, addOns = [], featured, cta } = Astro.props;
 const displayPrice = priceLabel ?? (price === 0 ? "Free" : `$${price}`);
 ---
-<div class={`card border bg-base-100 h-full ${featured ? "border-accent border-2 shadow-xl" : "border-base-300"}`}>
-  <div class="card-body">
+<div class={`card border-2 bg-base-100 h-full ${featured ? "border-accent shadow-xl" : "border-base-300"}`}>
+  <div class="card-body flex flex-col">
     {featured && <span class="badge badge-accent self-start">Best Value</span>}
     <h3 class="card-title font-heading text-2xl">{name}</h3>
     {duration && <p class="text-sm text-base-content/60">{duration}</p>}
@@ -27,7 +27,7 @@ const displayPrice = priceLabel ?? (price === 0 ? "Free" : `$${price}`);
         {addOns.map((a) => <li class="text-xs text-base-content/70">+ {a.label} — ${a.price}</li>)}
       </ul>
     )}
-    <div class="card-actions mt-6">
+    <div class="card-actions mt-auto pt-6">
       <a href={cta.target} class={`btn w-full ${featured ? "btn-accent" : "btn-primary"}`}>{cta.label}</a>
     </div>
   </div>

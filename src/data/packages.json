@@ -1,6 +1,5 @@
 {
   "currency": "USD",
-  "note": "Pricing validated against Long Beach market research 2026-06-01. Video add-on corrected from $100 to $40. 60-min and Elite payment plan flagged for Myles's final call.",
   "addOnsCatalog": {
     "video_breakdown": {
       "label": "Swing/Mechanics Video Breakdown",
@@ -43,7 +42,6 @@
       "id": "session-60",
       "name": "60-Minute Session",
       "price": 75,
-      "priceFlag": "DECISION: $75 (recommended) vs $65 (value play) — Myles to confirm",
       "duration": "60 min",
       "features": [
         "Full 1-on-1 session — multiple skills",
@@ -75,7 +73,6 @@
       "name": "Elite Season Program",
       "price": 1500,
       "priceLabel": "$1,500 / season — or ask about monthly",
-      "paymentPlan": "Payment plan available (e.g. 3 × $525 or ~$275/mo) — confirm with Myles",
       "duration": "30 × 60 min (full season)",
       "features": [
         "30 one-on-one 60-minute sessions",

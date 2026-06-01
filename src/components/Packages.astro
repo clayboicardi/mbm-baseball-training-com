@@ -18,7 +18,7 @@ const tiers = (packagesData.tiers as Tier[]).map((t) => ({
   <div class="max-w-6xl mx-auto">
     <h2 class="text-3xl font-heading font-bold text-primary uppercase text-center">Training Packages</h2>
     <p class="text-center mt-2 text-base-content/70">Start with a free lesson. Train at your pace.</p>
-    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 items-stretch">
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 items-stretch">
       {tiers.map((t) => (
         <PackageCard name={t.name} price={t.price} priceLabel={t.priceLabel} duration={t.duration} features={t.features} addOns={t.resolvedAddOns} featured={t.featured} cta={t.cta} />
       ))}
