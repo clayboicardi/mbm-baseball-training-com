@@ -1,5 +1,6 @@
 {
   "name": "mbm-baseball-training-com",
+  "account_id": "96f96c920a1b4a88e9ecdefa05688f2e",
   "compatibility_date": "2026-05-01",
   "assets": {
     "directory": "./dist",
