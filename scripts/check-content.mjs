@@ -5,7 +5,7 @@ import { join, dirname } from "node:path";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SRC = join(ROOT, "src");
 const ALLOWED = new Set(
-  ["#005A9C", "#FFFFFF", "#EF3E42", "#F4F7FA", "#E5EBF1", "#0B1A2B", "#1A8F4C", "#E0A106"].map((h) => h.toUpperCase())
+  ["#005A9C", "#FFFFFF", "#EF3E42", "#F4F7FA", "#E5EBF1", "#0B1F33", "#1A8F4C", "#E0A106", "#EBB257"].map((h) => h.toUpperCase())
 );
 const errors = [];
 

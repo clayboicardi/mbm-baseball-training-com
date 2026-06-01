@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import site from "../data/site.json";
+import navLogo from "../assets/brand/mbm-lockup-horizontal.png";
 ---
 <header class="navbar bg-base-100/90 backdrop-blur sticky top-0 z-50 border-b border-base-300">
   <div class="navbar-start">
@@ -11,7 +13,7 @@ import site from "../data/site.json";
         {site.nav.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
       </ul>
     </details>
-    <a href="#top" class="text-xl font-heading font-bold text-primary px-2">{site.business.name}</a>
+    <a href="#top" class="px-2 flex items-center"><Image src={navLogo} alt={site.business.name} width={260} height={43} class="h-9 w-auto" /></a>
   </div>
   <nav class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">

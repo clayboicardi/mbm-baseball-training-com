@@ -1,10 +1,12 @@
 ---
+import { Image } from "astro:assets";
 import site from "../data/site.json";
+import footerLogo from "../assets/brand/mbm-lockup-stacked-dark.png";
 const year = new Date().getFullYear();
 ---
 <footer class="footer footer-center bg-neutral text-neutral-content p-10">
   <aside>
-    <p class="font-heading text-xl">{site.business.name}</p>
+    <Image src={footerLogo} alt={site.business.name} width={200} height={113} class="w-40 h-auto mx-auto" />
     <p class="text-neutral-content/70">{site.business.location}</p>
     <div class="flex flex-wrap gap-4 mt-2 justify-center">
       <a href={site.business.phoneHref} class="link link-hover">{site.business.phone}</a>

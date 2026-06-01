@@ -23,8 +23,8 @@
   --color-base-100: #FFFFFF;
   --color-base-200: #F4F7FA;
   --color-base-300: #E5EBF1;
-  --color-base-content: #0B1A2B;
-  --color-neutral: #0B1A2B;
+  --color-base-content: #0B1F33;
+  --color-neutral: #0B1F33;
   --color-neutral-content: #FFFFFF;
   --color-info: #005A9C;
   --color-info-content: #FFFFFF;
@@ -40,7 +40,7 @@
   --radius-selector: 0.5rem;
 }
 
-:root { --font-heading: "Oswald", system-ui, sans-serif; --font-body: "Inter", system-ui, sans-serif; }
+:root { --font-heading: "Oswald", system-ui, sans-serif; --font-body: "Inter", system-ui, sans-serif; --marigold: #EBB257; }
 html { scroll-behavior: smooth; }
 body { font-family: var(--font-body); }
 h1, h2, h3, .font-heading { font-family: var(--font-heading); letter-spacing: 0.01em; }
