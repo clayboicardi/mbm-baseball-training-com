@@ -37,6 +37,11 @@ for (const f of ["site.json", "services.json", "packages.json", "testimonials.js
 }
 walk(SRC);
 
+// Bail out now if JSON failed to parse (or a hex check failed) — the
+// referential checks below re-parse these files and would otherwise crash
+// with an unhandled exception on malformed JSON before reporting the cause.
+if (errors.length) { console.error("Content check FAILED:\n" + errors.join("\n")); process.exit(1); }
+
 // Referential integrity: in-page anchors must resolve to a real element id,
 // and every package add-on key must exist in the add-on catalog.
 const site = JSON.parse(readFileSync(join(SRC, "data", "site.json"), "utf8"));

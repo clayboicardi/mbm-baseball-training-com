@@ -20,7 +20,7 @@ const {
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL(image, Astro.site).href;
-const telephone = site.business.phoneHref.replace("tel:", "");
+const telephone = site.business.phoneHref?.replace("tel:", "") ?? "";
 
 // LocalBusiness / SportsActivityLocation entity for the homepage. Myles runs a
 // service-area business (travels to fields/parks) with by-appointment hours and
