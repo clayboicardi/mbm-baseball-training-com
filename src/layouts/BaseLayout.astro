@@ -22,9 +22,10 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL(image, Astro.site).href;
 const telephone = site.business.phoneHref.replace("tel:", "");
 
-// LocalBusiness / SportsActivityLocation entity for the homepage. geo
-// coordinates, openingHours, and street address are intentionally omitted
-// until Myles confirms real values (implementation prompt, Decision 3).
+// LocalBusiness / SportsActivityLocation entity for the homepage. Myles runs a
+// service-area business (travels to fields/parks) with by-appointment hours and
+// no public address, so geo / openingHours / street address are intentionally
+// omitted; areaServed carries the coverage (Decision 3).
 const businessId = new URL("/#localbusiness", Astro.site).href;
 const bookUrl = new URL("/#book", Astro.site).href;
 const schema = {
@@ -41,6 +42,7 @@ const schema = {
   areaServed: [
     { "@type": "City", name: "Long Beach" },
     { "@type": "AdministrativeArea", name: "Los Angeles County" },
+    { "@type": "AdministrativeArea", name: "Orange County" },
   ],
   sameAs: [site.business.instagram],
   founder: {
