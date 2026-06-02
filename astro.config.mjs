@@ -47,8 +47,10 @@ function lastModifiedHeader(httpDate) {
         }
         const txt = readFileSync(headers, 'utf8');
         if (/^\s*Last-Modified:/m.test(txt)) return; // already present
-        // Add it as the first header under the catch-all /* block.
-        const next = txt.replace(/^\/\*[ \t]*$/m, (m) => `${m}\n  Last-Modified: ${httpDate}`);
+        // Add it as the first header under the catch-all /* block. Capture the
+        // line ending (\r?) so a CRLF _headers stays CRLF instead of getting a
+        // mixed/!matched line and silently skipping the injection.
+        const next = txt.replace(/^(\/\*[ \t]*)(\r?)$/m, (_m, block, cr) => `${block}${cr}\n  Last-Modified: ${httpDate}${cr}`);
         if (next === txt) {
           logger.warn('no catch-all "/*" block in _headers; skipped Last-Modified injection');
           return;
