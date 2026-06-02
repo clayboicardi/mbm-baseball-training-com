@@ -14,3 +14,16 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Content-Security-Policy: default-src 'self'; base-uri 'self'; frame-ancestors 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self'; frame-src https://cal.com https://tally.so; connect-src 'self'
+
+# no-transform on HTML page responses stops Cloudflare from injecting its
+# JS-Detections challenge script (/cdn-cgi/challenge-platform/.../jsd/main.js),
+# whose deprecated APIs (Shared Storage, StorageType.persistent, Protected
+# Audience) were tanking the Lighthouse Best Practices score. This replicates
+# CF's default HTML cache policy and adds no-transform. HTML routes only — NOT
+# /_astro (those stay immutable). Keep in sync if pages are added.
+/
+  Cache-Control: public, max-age=0, must-revalidate, no-transform
+/privacy/
+  Cache-Control: public, max-age=0, must-revalidate, no-transform
+/terms/
+  Cache-Control: public, max-age=0, must-revalidate, no-transform
