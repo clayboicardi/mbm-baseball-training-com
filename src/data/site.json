@@ -4,7 +4,7 @@
     "coach": "Myles Berniard-Mendez",
     "tagline": "Train with purpose. Play with confidence. Compete with passion.",
     "location": "Long Beach, CA",
-    "serviceArea": "Serving Long Beach & surrounding areas",
+    "serviceArea": "Serving Long Beach & all of Orange County — from Huntington Beach & Irvine down to Dana Point & San Clemente (within ~50 miles).",
     "phone": "(562) 884-0746",
     "phoneHref": "tel:+15628840746",
     "email": "Mylesberniardmendez@gmail.com",
@@ -19,12 +19,12 @@
     { "label": "Contact", "href": "#contact" }
   ],
   "hero": {
-    "headline": "Private Baseball Training in Long Beach",
+    "headline": "Private Baseball Training in Long Beach & Orange County",
     "subhead": "True 1-on-1 coaching for players ages 8–18 — hitting, fielding, throwing, baseball IQ, and the mental game — from a former semi-pro with 20+ years in the game.",
     "tagline": "Train with purpose. Play with confidence. Compete with passion.",
     "primaryCta": { "label": "Claim Your Free First Lesson", "href": "#book" },
     "secondaryCta": { "label": "View Packages", "href": "#packages" },
-    "trust": ["20+ years in the game", "Ages 8–18", "Long Beach, CA"]
+    "trust": ["20+ years in the game", "Ages 8–18", "Long Beach & Orange County"]
   },
   "booking": {
     "calcom": { "base": "" },
