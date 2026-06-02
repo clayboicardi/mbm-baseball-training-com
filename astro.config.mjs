@@ -17,7 +17,10 @@ function lastModified() {
     // execFileSync (no shell) — avoids any metacharacter handling, incl. the
     // %cI format token being mangled by cmd.exe on Windows.
     const iso = execFileSync('git', ['log', '-1', '--format=%cI'], { encoding: 'utf8' }).trim();
-    if (iso) return new Date(iso);
+    const date = iso ? new Date(iso) : null;
+    // Guard against an unparseable string -> Invalid Date, whose toISOString()/
+    // toUTCString() would throw a RangeError and crash the build.
+    if (date && !Number.isNaN(date.getTime())) return date;
   } catch {
     // not a git checkout / git missing — fall through
   }
@@ -46,6 +49,10 @@ function lastModifiedHeader(httpDate) {
         if (/^\s*Last-Modified:/m.test(txt)) return; // already present
         // Add it as the first header under the catch-all /* block.
         const next = txt.replace(/^\/\*[ \t]*$/m, (m) => `${m}\n  Last-Modified: ${httpDate}`);
+        if (next === txt) {
+          logger.warn('no catch-all "/*" block in _headers; skipped Last-Modified injection');
+          return;
+        }
         writeFileSync(headers, next);
         logger.info(`injected Last-Modified: ${httpDate}`);
       },
