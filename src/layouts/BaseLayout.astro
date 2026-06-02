@@ -1,29 +1,80 @@
 ---
 import "../styles/global.css";
 import site from "../data/site.json";
+import packagesData from "../data/packages.json";
 
-interface Props { title?: string; description?: string; image?: string; }
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  noindex?: boolean;
+  noBusinessSchema?: boolean;
+}
 const {
-  title = `${site.business.name} | Private Baseball Lessons in Long Beach`,
+  title = "Private Baseball Lessons in Long Beach & Orange County | MBM Baseball Training",
   description = site.hero.subhead,
   image = "/mbm-og.png",
+  noindex = false,
+  noBusinessSchema = false,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL(image, Astro.site).href;
+const telephone = site.business.phoneHref?.replace("tel:", "") ?? "";
 
+// LocalBusiness / SportsActivityLocation entity for the homepage. Myles runs a
+// service-area business (travels to fields/parks) with by-appointment hours and
+// no public address, so geo / openingHours / street address are intentionally
+// omitted; areaServed carries the coverage (Decision 3).
+const businessId = new URL("/#localbusiness", Astro.site).href;
+const bookUrl = new URL("/#book", Astro.site).href;
 const schema = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "SportsActivityLocation"],
+  "@id": businessId,
   name: site.business.name,
   description,
   image: ogImage,
   url: Astro.site?.href,
-  telephone: site.business.phone,
+  telephone,
   email: site.business.email,
-  areaServed: site.business.serviceArea,
   address: { "@type": "PostalAddress", addressLocality: "Long Beach", addressRegion: "CA", addressCountry: "US" },
+  areaServed: [
+    { "@type": "City", name: "Long Beach" },
+    { "@type": "AdministrativeArea", name: "Los Angeles County" },
+    { "@type": "AdministrativeArea", name: "Orange County" },
+    { "@type": "City", name: "Irvine" },
+    { "@type": "City", name: "Newport Beach" },
+    { "@type": "City", name: "Huntington Beach" },
+    { "@type": "City", name: "Costa Mesa" },
+    { "@type": "City", name: "Mission Viejo" },
+    { "@type": "City", name: "Aliso Viejo" },
+    { "@type": "City", name: "Laguna Beach" },
+    { "@type": "City", name: "Laguna Niguel" },
+    { "@type": "City", name: "Ladera Ranch" },
+    { "@type": "City", name: "Dana Point" },
+    { "@type": "City", name: "San Juan Capistrano" },
+    { "@type": "City", name: "San Clemente" },
+  ],
   sameAs: [site.business.instagram],
+  founder: {
+    "@type": "Person",
+    name: site.business.coach,
+    jobTitle: "Private youth baseball coach",
+    sameAs: [site.business.instagram],
+    knowsAbout: ["Hitting lessons", "Fielding", "Throwing mechanics", "Baseball IQ"],
+  },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Baseball training packages",
+    itemListElement: packagesData.tiers.map((tier) => ({
+      "@type": "Offer",
+      name: tier.name,
+      price: tier.price,
+      priceCurrency: packagesData.currency,
+      url: bookUrl,
+    })),
+  },
   priceRange: "$55–$1,500",
 };
 ---
@@ -33,6 +84,7 @@ const schema = {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex,follow" />}
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -53,9 +105,14 @@ const schema = {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
-    <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+    {!noBusinessSchema && <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />}
   </head>
   <body class="bg-base-100 text-base-content">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:font-semibold focus:text-primary-content focus:shadow-lg"
+      >Skip to content</a
+    >
     <slot />
   </body>
 </html>

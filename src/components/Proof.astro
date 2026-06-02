@@ -1,20 +1,28 @@
 ---
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import site from "../data/site.json";
 import testimonials from "../data/testimonials.json";
-const galleryMods = import.meta.glob("../assets/photos/gallery/*.{jpg,jpeg,png}", { eager: true });
-const gallery = Object.values(galleryMods).map((m) => (m as any).default);
+
+interface Testimonial { quote: string; author: string; }
+// Decorative proof montage; UUID filenames carry no per-image meaning, so the
+// images use alt="" below to avoid repeating identical text for screen readers.
+const galleryMods = import.meta.glob<{ default: ImageMetadata }>("../assets/photos/gallery/*.{jpg,jpeg,png}", { eager: true });
+const gallery = Object.entries(galleryMods)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, mod]) => mod.default);
+const testimonialList = testimonials as Testimonial[];
 ---
-<section class="py-20 px-4 bg-base-100">
+<section id="gallery" class="py-20 px-4 bg-base-100">
   <div class="max-w-6xl mx-auto">
     <h2 class="text-3xl font-heading font-bold text-primary uppercase text-center">On the Field</h2>
     <div class="mt-8 grid grid-cols-2 md:grid-cols-3 gap-3">
-      {gallery.map((img) => <Image src={img} alt="Coach Myles working with players" width={420} class="rounded-box w-full h-48 object-cover" />)}
+      {gallery.map((img) => <Image src={img} alt="" width={420} class="rounded-box w-full h-48 object-cover" />)}
     </div>
 
-    {testimonials.length > 0 && (
+    {testimonialList.length > 0 && (
       <div class="mt-12 grid gap-6 md:grid-cols-2">
-        {testimonials.map((t: any) => (
+        {testimonialList.map((t) => (
           <blockquote class="card bg-base-200 p-6">
             <p class="italic">&ldquo;{t.quote}&rdquo;</p>
             <footer class="mt-3 text-sm font-semibold text-primary">— {t.author}</footer>

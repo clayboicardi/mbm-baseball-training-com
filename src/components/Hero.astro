@@ -1,15 +1,24 @@
 ---
-import { getImage, Image } from "astro:assets";
+import { Image } from "astro:assets";
 import site from "../data/site.json";
 import heroImg from "../assets/photos/coach-huddle.jpg";
 import emblem from "../assets/brand/mbm-emblem.png";
-const bg = await getImage({ src: heroImg, format: "webp", width: 1200 });
 ---
-<section id="top" class="hero min-h-[80vh] relative bg-cover bg-center" style={`background-image:url(${bg.src})`}>
-  <div class="hero-overlay bg-neutral/85"></div>
-  <div class="hero-content text-center">
+<section id="top" class="hero min-h-[80vh] relative overflow-hidden">
+  <Image
+    src={heroImg}
+    alt="Coach Myles Berniard-Mendez leading a youth baseball training session in Long Beach"
+    widths={[400, 600]}
+    sizes="100vw"
+    format="webp"
+    loading="eager"
+    fetchpriority="high"
+    class="absolute inset-0 h-full w-full object-cover"
+  />
+  <div class="absolute inset-0 bg-neutral/85"></div>
+  <div class="hero-content relative z-10 text-center">
     <div class="max-w-2xl">
-      <Image src={emblem} alt="MBM Baseball Training emblem" width={120} height={120} class="mx-auto mb-4 w-24 sm:w-28 h-auto" />
+      <Image src={emblem} alt="MBM Baseball Training emblem" width={120} height={120} loading="eager" class="mx-auto mb-4 w-24 sm:w-28 h-auto" />
       <h1 class="text-4xl sm:text-6xl font-heading font-bold uppercase text-white">{site.hero.headline}</h1>
       <p class="py-5 text-lg text-white/90">{site.hero.subhead}</p>
       <p class="font-heading text-white text-xl uppercase tracking-wide">{site.hero.tagline}</p>
