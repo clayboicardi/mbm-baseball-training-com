@@ -10,8 +10,8 @@ import navMonogram from "../assets/brand/mbm-monogram.png";
       <summary class="btn btn-ghost" aria-label="Open menu">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </summary>
-      <ul class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow">
-        {site.nav.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+      <ul class="menu dropdown-content bg-base-100 rounded-box z-50 mt-3 w-56 p-2 shadow">
+        {site.nav.map((item) => <li><a href={item.href} class="min-h-11 flex items-center">{item.label}</a></li>)}
       </ul>
     </details>
     <a href="#top" class="px-2 flex items-center">
@@ -28,3 +28,11 @@ import navMonogram from "../assets/brand/mbm-monogram.png";
     <a href="#book" class="btn btn-accent btn-sm sm:btn-md">Free First Lesson</a>
   </div>
 </header>
+
+<script>
+  // Close the mobile dropdown after an in-page nav link is tapped so it
+  // doesn't stay open covering content once the page scrolls to the anchor.
+  document.querySelectorAll('.dropdown a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", () => link.closest("details")?.removeAttribute("open"));
+  });
+</script>
