@@ -22,6 +22,7 @@ const {
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL(image, Astro.site).href;
+const lastmod = __SITE_LASTMOD__; // last git commit date (build-time), see astro.config.mjs
 const telephone = site.business.phoneHref?.replace("tel:", "") ?? "";
 
 // LocalBusiness / SportsActivityLocation entity for the homepage. Myles runs a
@@ -105,6 +106,7 @@ const schema = {
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={site.business.name} />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:updated_time" content={lastmod} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
