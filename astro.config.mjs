@@ -16,7 +16,10 @@ function lastModified() {
   try {
     // execFileSync (no shell) — avoids any metacharacter handling, incl. the
     // %cI format token being mangled by cmd.exe on Windows.
-    const iso = execFileSync('git', ['log', '-1', '--format=%cI'], { encoding: 'utf8' }).trim();
+    const iso = execFileSync('git', ['log', '-1', '--format=%cI'], {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'], // discard git's stderr ("not a git repository") — handled by the catch
+    }).trim();
     const date = iso ? new Date(iso) : null;
     // Guard against an unparseable string -> Invalid Date, whose toISOString()/
     // toUTCString() would throw a RangeError and crash the build.
