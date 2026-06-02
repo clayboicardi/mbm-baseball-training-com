@@ -1,9 +1,12 @@
 {
   "name": "mbm-baseball-training-com",
+  "main": "./worker.js",
   "account_id": "96f96c920a1b4a88e9ecdefa05688f2e",
   "compatibility_date": "2026-05-01",
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": true,
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page"
   },
