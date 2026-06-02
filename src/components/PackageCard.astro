@@ -20,9 +20,9 @@ const displayPrice = priceLabel ?? (price === 0 ? "Free" : money.format(price));
   <div class="card-body flex flex-col">
     {featured && <span class="badge border-0 bg-[#D72B31] text-white self-start">Best Value</span>}
     <h3 class="card-title font-heading text-2xl">{name}</h3>
-    {duration && <p class="text-sm text-base-content/60">{duration}</p>}
+    {duration && <p class="text-sm text-base-content/70">{duration}</p>}
     <p class="mt-2"><span class="text-3xl font-bold text-primary break-words">{displayPrice}</span></p>
-    {priceNote && <p class="text-sm text-base-content/60">{priceNote}</p>}
+    {priceNote && <p class="text-sm text-base-content/70">{priceNote}</p>}
     <ul class="mt-4 space-y-2 text-sm">
       {features.map((f) => <li class="flex gap-2"><span aria-hidden="true" class="text-accent font-bold">✓</span><span>{f}</span></li>)}
     </ul>
