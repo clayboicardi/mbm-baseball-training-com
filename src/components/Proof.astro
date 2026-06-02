@@ -4,21 +4,22 @@ import type { ImageMetadata } from "astro";
 import site from "../data/site.json";
 import testimonials from "../data/testimonials.json";
 
-import photo1 from "../assets/photos/gallery/1f9aaa02-d568-4dd1-8f93-db47c27bb82a.jpg";
-import photo2 from "../assets/photos/gallery/c109f697-fd63-4ee9-84fc-5884a7790fe1.jpg";
-import photo3 from "../assets/photos/gallery/c2eaf26d-9bc6-4bec-87d4-a7a5585877e7.jpg";
-import photo4 from "../assets/photos/gallery/c3c279bc-6e5c-4957-b653-81eff8ac225c.jpg";
-import photo5 from "../assets/photos/gallery/df3b7201-1170-41fb-bb45-6440842f6fe5.jpg";
-
 interface Testimonial { quote: string; author: string; }
 
-const gallery: { src: ImageMetadata; alt: string }[] = [
-  { src: photo1, alt: "Coach Myles holds a mound meeting with five young baseball players in Long Beach" },
-  { src: photo2, alt: "Baseball coach points out fielding positioning to two teen players during practice" },
-  { src: photo3, alt: "Youth baseball game in progress at a Long Beach Little League field" },
-  { src: photo4, alt: "Young batter at the plate with coach watching from the dugout during a game" },
-  { src: photo5, alt: "Coach guides a young player on base during an Orange County youth baseball game" },
-];
+// Filename -> descriptive alt for the gallery photos. Keep in sync when the
+// photos change; an unmapped file falls back to alt="" (treated decorative).
+const altTexts: Record<string, string> = {
+  "1f9aaa02-d568-4dd1-8f93-db47c27bb82a.jpg": "Coach Myles holds a mound meeting with five young baseball players in Long Beach",
+  "c109f697-fd63-4ee9-84fc-5884a7790fe1.jpg": "Baseball coach points out fielding positioning to two teen players during practice",
+  "c2eaf26d-9bc6-4bec-87d4-a7a5585877e7.jpg": "Youth baseball game in progress at a Long Beach Little League field",
+  "c3c279bc-6e5c-4957-b653-81eff8ac225c.jpg": "Young batter at the plate with coach watching from the dugout during a game",
+  "df3b7201-1170-41fb-bb45-6440842f6fe5.jpg": "Coach guides a young player on base during an Orange County youth baseball game",
+};
+
+const galleryMods = import.meta.glob<{ default: ImageMetadata }>("../assets/photos/gallery/*.{jpg,jpeg,png}", { eager: true });
+const gallery = Object.entries(galleryMods)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([path, mod]) => ({ src: mod.default, alt: altTexts[path.split("/").pop() ?? ""] ?? "" }));
 
 const testimonialList = testimonials as Testimonial[];
 ---
