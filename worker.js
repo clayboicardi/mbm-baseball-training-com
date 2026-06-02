@@ -5,13 +5,16 @@
 // apex (Decision 1) — something a zone Redirect Rule can't do while `www` is a
 // Worker custom domain. Every other host falls through to the static assets,
 // which keep their `_headers` (cache + security) behavior.
+//
+// Match on `url.hostname` (normalized lowercase, no port) rather than the raw
+// Host header, and carry path + query through to the apex.
 const CANONICAL_ORIGIN = "https://mbm-baseball-training.com";
 
 export default {
   async fetch(request, env) {
-    if (request.headers.get("host") === "www.mbm-baseball-training.com") {
-      const { pathname, search } = new URL(request.url);
-      return Response.redirect(CANONICAL_ORIGIN + pathname + search, 301);
+    const url = new URL(request.url);
+    if (url.hostname === "www.mbm-baseball-training.com") {
+      return Response.redirect(CANONICAL_ORIGIN + url.pathname + url.search, 301);
     }
     return env.ASSETS.fetch(request);
   },
