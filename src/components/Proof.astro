@@ -5,7 +5,7 @@ import testimonials from "../data/testimonials.json";
 const galleryMods = import.meta.glob("../assets/photos/gallery/*.{jpg,jpeg,png}", { eager: true });
 const gallery = Object.values(galleryMods).map((m) => (m as any).default);
 ---
-<section class="py-20 px-4 bg-base-100">
+<section id="gallery" class="py-20 px-4 bg-base-100">
   <div class="max-w-6xl mx-auto">
     <h2 class="text-3xl font-heading font-bold text-primary uppercase text-center">On the Field</h2>
     <div class="mt-8 grid grid-cols-2 md:grid-cols-3 gap-3">
