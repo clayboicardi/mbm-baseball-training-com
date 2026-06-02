@@ -12,6 +12,7 @@ const ALLOWED = new Set(
   ["#005A9C", "#FFFFFF", "#EF3E42", "#D72B31", "#F4F7FA", "#E5EBF1", "#0B1F33", "#1A8F4C", "#E0A106", "#EBB257"].map((h) => h.toUpperCase())
 );
 const errors = [];
+const ids = new Set();
 
 function walk(dir) {
   for (const e of readdirSync(dir)) {
@@ -21,8 +22,11 @@ function walk(dir) {
   }
 }
 function checkFile(p) {
-  if (p.endsWith("global.css")) return; // theme definition lives here
   const text = readFileSync(p, "utf8");
+  if (p.endsWith(".astro")) {
+    for (const m of text.matchAll(/\sid=["']([^"']+)["']/g)) ids.add(m[1]); // anchor targets
+  }
+  if (p.endsWith("global.css")) return; // theme definition lives here
   for (const h of text.match(/#[0-9a-fA-F]{6}\b/g) || []) {
     if (!ALLOWED.has(h.toUpperCase())) errors.push(`${p.replace(ROOT, "")}: off-brand hex ${h}`);
   }
@@ -32,5 +36,22 @@ for (const f of ["site.json", "services.json", "packages.json", "testimonials.js
   catch (e) { errors.push(`data/${f}: invalid JSON — ${e.message}`); }
 }
 walk(SRC);
+
+// Referential integrity: in-page anchors must resolve to a real element id,
+// and every package add-on key must exist in the add-on catalog.
+const site = JSON.parse(readFileSync(join(SRC, "data", "site.json"), "utf8"));
+const packages = JSON.parse(readFileSync(join(SRC, "data", "packages.json"), "utf8"));
+const catalogKeys = new Set(Object.keys(packages.addOnsCatalog ?? {}));
+const checkAnchor = (href, where) => {
+  if (typeof href === "string" && href.startsWith("#") && !ids.has(href.slice(1)))
+    errors.push(`${where}: anchor "${href}" has no matching id in any .astro file`);
+};
+for (const item of site.nav ?? []) checkAnchor(item.href, `site.json nav "${item.label}"`);
+for (const tier of packages.tiers ?? []) {
+  checkAnchor(tier.cta?.target, `packages.json tier "${tier.id}" cta.target`);
+  for (const k of tier.addOns ?? [])
+    if (!catalogKeys.has(k)) errors.push(`packages.json tier "${tier.id}": addOn "${k}" not in addOnsCatalog`);
+}
+
 if (errors.length) { console.error("Content check FAILED:\n" + errors.join("\n")); process.exit(1); }
 console.log("Content check passed.");

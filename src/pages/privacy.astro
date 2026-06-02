@@ -1,7 +1,8 @@
 ---
 import LegalLayout from "../layouts/LegalLayout.astro";
+import site from "../data/site.json";
 ---
 <LegalLayout title="Privacy Policy" description="How MBM Baseball Training handles the contact details you share when booking a private youth baseball lesson in Long Beach.">
   <p>MBM Baseball Training respects your privacy. We collect only the information you provide when you contact us or book a session (name, phone, email) and use it solely to schedule and deliver training. We do not sell or share your information.</p>
-  <p>Questions? Email <a href="mailto:Mylesberniardmendez@gmail.com">Mylesberniardmendez@gmail.com</a>.</p>
+  <p>Questions? Email <a href={`mailto:${site.business.email}`}>{site.business.email}</a>.</p>
 </LegalLayout>

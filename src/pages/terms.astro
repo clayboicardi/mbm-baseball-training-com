@@ -1,7 +1,8 @@
 ---
 import LegalLayout from "../layouts/LegalLayout.astro";
+import site from "../data/site.json";
 ---
 <LegalLayout title="Terms of Service" description="Scheduling, payment, and cancellation terms for MBM Baseball Training private youth baseball lessons in Long Beach.">
   <p>By booking a session with MBM Baseball Training you agree to our scheduling and cancellation terms. Payment is due at the time of service unless otherwise arranged. Sessions cancelled with less than 24 hours' notice may be subject to a fee.</p>
-  <p>Questions? Email <a href="mailto:Mylesberniardmendez@gmail.com">Mylesberniardmendez@gmail.com</a>.</p>
+  <p>Questions? Email <a href={`mailto:${site.business.email}`}>{site.business.email}</a>.</p>
 </LegalLayout>

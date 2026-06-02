@@ -3,6 +3,7 @@ interface AddOn { label: string; price: number; blurb?: string; }
 interface Props {
   name: string;
   price: number;
+  currency: string;
   priceLabel?: string;
   priceNote?: string;
   duration?: string;
@@ -11,8 +12,9 @@ interface Props {
   featured?: boolean;
   cta: { label: string; target: string };
 }
-const { name, price, priceLabel, priceNote, duration, features, addOns = [], featured, cta } = Astro.props;
-const displayPrice = priceLabel ?? (price === 0 ? "Free" : `$${price}`);
+const { name, price, currency, priceLabel, priceNote, duration, features, addOns = [], featured, cta } = Astro.props;
+const money = new Intl.NumberFormat("en-US", { style: "currency", currency, maximumFractionDigits: 0 });
+const displayPrice = priceLabel ?? (price === 0 ? "Free" : money.format(price));
 ---
 <div class={`card border-2 bg-base-100 h-full ${featured ? "border-accent shadow-xl" : "border-base-300"}`}>
   <div class="card-body flex flex-col">
@@ -26,7 +28,7 @@ const displayPrice = priceLabel ?? (price === 0 ? "Free" : `$${price}`);
     </ul>
     {addOns.length > 0 && (
       <ul class="mt-3 space-y-1 border-t border-base-300 pt-3">
-        {addOns.map((a) => <li class="text-xs text-base-content/70">+ {a.label} — ${a.price}</li>)}
+        {addOns.map((a) => <li class="text-xs text-base-content/70">+ {a.label} — {money.format(a.price)}</li>)}
       </ul>
     )}
     <div class="card-actions mt-auto pt-6">
