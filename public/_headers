@@ -1,0 +1,16 @@
+# Cloudflare Workers static-assets headers.
+# Astro copies public/ to the build root, so this ships as dist/_headers.
+
+# Content-hashed build assets never change — cache them hard.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Security headers for every response. CSP allows the Cal.com / Tally
+# booking embeds (frame-src) and the inline hero/JSON-LD until those are
+# hashed; tighten 'unsafe-inline' later.
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; frame-ancestors 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self'; frame-src https://cal.com https://tally.so; connect-src 'self'
