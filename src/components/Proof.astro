@@ -4,7 +4,7 @@ import type { ImageMetadata } from "astro";
 import site from "../data/site.json";
 import testimonials from "../data/testimonials.json";
 
-interface Testimonial { quote: string; author: string; }
+interface Testimonial { quote: string; author: string; rating?: number; }
 
 // Filename -> descriptive alt for the gallery photos. Keep in sync when the
 // photos change; an unmapped file falls back to alt="" (treated decorative).
@@ -22,7 +22,37 @@ const gallery = Object.entries(galleryMods)
   .map(([path, mod]) => ({ src: mod.default, alt: altTexts[path.split("/").pop() ?? ""] ?? "" }));
 
 const testimonialList = testimonials as Testimonial[];
+const businessId = new URL("/#localbusiness", Astro.site).href;
+const ratings = testimonialList
+  .map((testimonial) => testimonial.rating)
+  .filter((rating): rating is number => typeof rating === "number" && Number.isFinite(rating));
+const reviewSchema =
+  testimonialList.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@id": businessId,
+        review: testimonialList.map((testimonial) => ({
+          "@type": "Review",
+          author: { "@type": "Person", name: testimonial.author },
+          reviewBody: testimonial.quote,
+          itemReviewed: { "@id": businessId },
+          ...(typeof testimonial.rating === "number" && Number.isFinite(testimonial.rating)
+            ? { reviewRating: { "@type": "Rating", ratingValue: testimonial.rating } }
+            : {}),
+        })),
+        ...(ratings.length > 0
+          ? {
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: ratings.reduce((sum, rating) => sum + rating, 0) / ratings.length,
+                reviewCount: ratings.length,
+              },
+            }
+          : {}),
+      }
+    : undefined;
 ---
+{reviewSchema && <script type="application/ld+json" is:inline set:html={JSON.stringify(reviewSchema)} />}
 <section id="gallery" class="py-20 px-4 bg-base-100">
   <div class="max-w-6xl mx-auto">
     <h2 class="text-3xl font-heading font-bold text-primary uppercase text-center">On the Field</h2>
