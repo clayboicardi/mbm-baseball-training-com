@@ -1,0 +1,53 @@
+{
+  "intro": "Myles doesn't hand kids a generic program. He reviews their game film, finds the one thing holding a pitcher back, and fixes it rep by rep — then builds a full arsenal on top of it. Calm, accountable, built from the ground up.",
+  "arsenal": [
+    {
+      "name": "Fastball",
+      "cue": "Establish it first",
+      "blurb": "The foundation — built from the legs and forward, no wasted motion. Command it middle-middle, then expand.",
+      "icon": "lucide:flame"
+    },
+    {
+      "name": "Two-Seam",
+      "cue": "Don't aim it — rip it",
+      "blurb": "Over-gripped for heavier run. Thrown over the top so it moves late and hard.",
+      "icon": "lucide:wind"
+    },
+    {
+      "name": "Changeup",
+      "cue": "Same arm action",
+      "blurb": "Identical arm action to the fastball, so the hitter can't read it. Death to lower-half hitters.",
+      "icon": "lucide:gauge"
+    },
+    {
+      "name": "Cutter",
+      "cue": "Your swing-and-miss pitch",
+      "blurb": "Thrown like a fastball, breaks late off the natural run. The strikeout pitch.",
+      "icon": "lucide:scissors"
+    },
+    {
+      "name": "Knuckle Curve",
+      "cue": "More tumble",
+      "blurb": "Thrown like a football for tumble, dropped right into the zone for a called strike.",
+      "icon": "lucide:spline"
+    }
+  ],
+  "method": [
+    {
+      "title": "Film first",
+      "blurb": "Every fix starts from real game footage — find the one flaw, then drill it."
+    },
+    {
+      "title": "Mechanics that repeat",
+      "blurb": "Squared hips, elbow up, balanced delivery — so it holds up under pressure."
+    },
+    {
+      "title": "Game-rep bullpens",
+      "blurb": "Sessions mirror a real outing: establish the fastball, work away, run the secondaries, finish on a heater."
+    },
+    {
+      "title": "Accountability",
+      "blurb": "Constant feedback and a standard of focus — tough when it needs to be, encouraging every good rep."
+    }
+  ]
+}

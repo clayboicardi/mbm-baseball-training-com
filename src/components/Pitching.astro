@@ -1,0 +1,67 @@
+---
+import { Icon } from "astro-icon/components";
+import pitching from "../data/pitching.json";
+
+interface Pitch { name: string; cue: string; blurb: string; icon: string; }
+interface Method { title: string; blurb: string; }
+const { intro, arsenal, method } = pitching as {
+  intro: string;
+  arsenal: Pitch[];
+  method: Method[];
+};
+---
+<section id="pitching" class="py-20 px-4 bg-base-100">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-heading font-bold text-primary uppercase text-center">How Coach Myles Builds a Pitcher</h2>
+    <p class="max-w-3xl mx-auto text-center mt-4 text-base-content/80">{intro}</p>
+
+    <h3 class="mt-14 text-xl font-heading font-bold uppercase tracking-wide text-base-content/80 text-center">The Arsenal</h3>
+    <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {arsenal.map((p) => (
+        <div class="card bg-base-200 hover:shadow-lg transition-shadow">
+          <div class="card-body items-center text-center">
+            <Icon name={p.icon} class="w-10 h-10 text-accent" aria-hidden="true" />
+            <h4 class="card-title font-heading">{p.name}</h4>
+            <p class="text-sm font-semibold uppercase tracking-wide text-[#D72B31]">“{p.cue}”</p>
+            <p class="text-sm text-base-content/70">{p.blurb}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <h3 class="mt-16 text-xl font-heading font-bold uppercase tracking-wide text-base-content/80 text-center">The Method</h3>
+    <div class="mt-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      {method.map((m) => (
+        <div>
+          <h4 class="font-heading font-bold text-primary">{m.title}</h4>
+          <p class="mt-1 text-sm text-base-content/70">{m.blurb}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!--
+  SOURCE: docs/content/myles-coaching-source.md §2 (derived from real coaching audio).
+  Content is PITCHING-only and honest to that scope. No JSON-LD by design right now;
+  an optional `Service` schema could be added later — gate on the confirms below.
+
+  BEFORE WIRING — resolve with Myles:
+    [CONFIRM] OK to feature pitching as a named service line on the site?
+    [CONFIRM] The 5 cues/blurbs in pitching.json read accurately in his words?
+    [CONFIRM] "former semi-pro / 20+ years" framing is fine in a pitching-credibility
+              context (already used in About/Hero/FAQ, so not a new claim).
+
+  WIRING (after confirms):
+    In src/pages/index.astro:
+      1. add:   import Pitching from "../components/Pitching.astro";
+      2. place: <Pitching />   (recommended: right after <Services />)
+    In src/data/site.json nav array, add (optional but recommended):
+      { "label": "Pitching", "href": "#pitching" }
+    Then: npm run build && re-run Lighthouse to confirm the 100s held.
+
+  SEO UPGRADE PATH (bigger play, decide separately):
+    This site is currently single-page. To capture pitch long-tail search, promote
+    this into a dedicated /pitching page (src/pages/pitching.astro importing this same
+    component) — see docs/content/myles-content-roadmap.md Spec 1.
+-->

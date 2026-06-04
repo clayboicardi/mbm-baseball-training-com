@@ -1,0 +1,41 @@
+---
+import quotes from "../data/quotes.json";
+
+interface Quote { quote: string; }
+const items = quotes as Quote[];
+---
+<section id="coach-voice" class="py-20 px-4 bg-base-200/50">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl font-heading font-bold text-primary uppercase text-center">In His Own Words</h2>
+    <p class="text-center mt-2 text-base-content/70">Real cues from real sessions on the mound.</p>
+    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+      {items.map((q) => (
+        <figure class="card bg-base-100 shadow-sm">
+          <div class="card-body">
+            <blockquote class="text-lg font-heading text-primary leading-snug">“{q.quote}”</blockquote>
+            <figcaption class="text-sm text-base-content/60 not-italic">— Coach Myles</figcaption>
+          </div>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!--
+  SOURCE: docs/content/myles-coaching-source.md §3 (faithful to real coaching audio;
+  verbatim vs lightly-tightened detail lives in that doc).
+
+  THIS IS COACH VOICE — NOT a client testimonial. By design it carries NO Review /
+  AggregateRating schema; adding that would misrepresent coach quotes as customer
+  reviews. Real testimonials are a separate workstream (myles-content-roadmap.md Spec 2).
+
+  BEFORE WIRING — Myles sign-off required:
+    [CONFIRM] OK to publish these lines as attributed quotes (faithful to the audio,
+              and the source session involved minors — de-identified here, but get his OK).
+
+  WIRING (after sign-off):
+    In src/pages/index.astro:
+      1. add:   import Quotes from "../components/Quotes.astro";
+      2. place: <Quotes />   (suggested: after <About /> or just before <Proof />)
+    Then: npm run build && re-run Lighthouse to confirm the 100s held.
+-->
