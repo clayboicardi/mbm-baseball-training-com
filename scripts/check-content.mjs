@@ -48,7 +48,11 @@ const site = JSON.parse(readFileSync(join(SRC, "data", "site.json"), "utf8"));
 const packages = JSON.parse(readFileSync(join(SRC, "data", "packages.json"), "utf8"));
 const catalogKeys = new Set(Object.keys(packages.addOnsCatalog ?? {}));
 const checkAnchor = (href, where) => {
-  if (typeof href === "string" && href.startsWith("#") && !ids.has(href.slice(1)))
+  if (typeof href !== "string") return;
+  // Accept "#id" (same-page) and "/#id" (homepage-rooted, so it still works from
+  // subpages like /pitching/<slug>); both must resolve to a real element id.
+  const m = href.match(/^\/?#(.+)$/);
+  if (m && !ids.has(m[1]))
     errors.push(`${where}: anchor "${href}" has no matching id in any .astro file`);
 };
 for (const item of site.nav ?? []) checkAnchor(item.href, `site.json nav "${item.label}"`);
