@@ -20,22 +20,3 @@ const items = quotes as Quote[];
     </div>
   </div>
 </section>
-
-<!--
-  SOURCE: docs/content/myles-coaching-source.md §3 (faithful to real coaching audio;
-  verbatim vs lightly-tightened detail lives in that doc).
-
-  THIS IS COACH VOICE — NOT a client testimonial. By design it carries NO Review /
-  AggregateRating schema; adding that would misrepresent coach quotes as customer
-  reviews. Real testimonials are a separate workstream (myles-content-roadmap.md Spec 2).
-
-  BEFORE WIRING — Myles sign-off required:
-    [CONFIRM] OK to publish these lines as attributed quotes (faithful to the audio,
-              and the source session involved minors — de-identified here, but get his OK).
-
-  WIRING (after sign-off):
-    In src/pages/index.astro:
-      1. add:   import Quotes from "../components/Quotes.astro";
-      2. place: <Quotes />   (suggested: after <About /> or just before <Proof />)
-    Then: npm run build && re-run Lighthouse to confirm the 100s held.
--->

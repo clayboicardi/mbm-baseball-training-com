@@ -15,6 +15,16 @@ work) transcribed by Gemini → `~/Downloads/Pitching_Transcriptions.md`. Player
 - **Scope = PITCHING.** This audio is pitching/throwing only. It substantiates *pitching development*
   specifically — not the hitting / fielding / baseball-IQ claims elsewhere on the site. Keep that honest.
 
+## ✅ Myles-confirmed (2026-06-05)
+- **Philosophy:** mental game first (sports psychology) → mechanics built on that foundation →
+  tailored to each pitcher. The live `pitching.json` + homepage section reflect this.
+- **Cues are individualized**, not universal — they came from one pitcher. §2's arsenal cues are
+  illustrative coaching voice, framed as individualized on the site. (The 5 SEO pitch posts stay
+  drafted — see `myles-content-roadmap.md` → CONTENT LOCK UPDATE.)
+- **Quotes (§3): all 6 approved** for publishing, attributed to Coach Myles.
+- **Background:** Long Beach native → college ball in West LA → career based in Florida. (Now
+  reflected in About + FAQ.)
+
 ---
 
 ## 1. Voice & Style Guide

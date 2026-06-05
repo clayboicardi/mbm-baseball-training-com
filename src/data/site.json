@@ -14,8 +14,10 @@
   "nav": [
     { "label": "About", "href": "#about" },
     { "label": "Services", "href": "#services" },
+    { "label": "Pitching", "href": "#pitching" },
     { "label": "Packages", "href": "#packages" },
     { "label": "Book", "href": "#book" },
+    { "label": "FAQ", "href": "#faq" },
     { "label": "Contact", "href": "#contact" }
   ],
   "hero": {

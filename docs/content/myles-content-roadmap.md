@@ -107,3 +107,20 @@ single CTA (book free lesson). Reuses `pitching.json` — no new content needed.
 1 (content engine) compounds and is cheapest per asset → top. 2 (testimonials) closes the
 single biggest trust gap and uses warm leads, but is calendar-gated on families. 3 (lead
 magnet) is real but *downstream* — it needs 1's traffic and 2's proof to be worth most.
+
+---
+
+## CONTENT LOCK UPDATE (2026-06-05 — Myles confirmed)
+
+- **Spec 1 (pitch posts) — DO NOT PUBLISH YET.** Myles confirmed the per-pitch cues from the
+  source audio were individualized to one specific pitcher, NOT his universal teaching:
+  "different pitchers master different styles, use different techniques, and receive different
+  coaching." The 5 posts are written prescriptively, so they stay `draft: true` until Myles
+  gives a generalizable per-pitch approach OR we reframe them as explicitly illustrative /
+  case-study content. Infra is live; publishing is gated on this.
+- **Pitching philosophy (now live in `pitching.json` + the homepage section):** mental game
+  FIRST (sports psychology) → mechanics/technique built on that foundation → tailored to each
+  pitcher. Lead with this, not the arsenal.
+- **Spec 2 (testimonials):** Myles is actively collecting from families ("working on it" as of
+  2026-06-05). Still needed per family: the quote + written parent consent to use the kid's
+  first name + age.
