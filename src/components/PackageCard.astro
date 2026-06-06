@@ -18,7 +18,7 @@ const displayPrice = priceLabel ?? (price === 0 ? "Free" : money.format(price));
 ---
 <div class={`card border-2 bg-base-100 h-full ${featured ? "border-accent shadow-xl" : "border-base-300"}`}>
   <div class="card-body flex flex-col">
-    {featured && <span class="badge border-0 bg-[#D72B31] text-white self-start">Best Value</span>}
+    {featured && <span class="badge border-0 bg-brand-red-dark text-white self-start">Best Value</span>}
     <h3 class="card-title font-heading text-2xl">{name}</h3>
     {duration && <p class="text-sm text-base-content/70">{duration}</p>}
     <p class="mt-2"><span class="text-3xl font-bold text-primary break-words">{displayPrice}</span></p>
