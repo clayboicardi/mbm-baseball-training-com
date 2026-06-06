@@ -1,0 +1,54 @@
+{
+  "intro": "For Coach Myles, pitching starts in the mind. He coaches the mental side first — the sports psychology of competing on the mound — then builds clean mechanics and technique on that foundation. And every pitcher is different: styles, techniques, and coaching are tailored to the athlete.",
+  "arsenalNote": "Different pitchers master different pitches and styles — every arsenal is built to the athlete. Here are the pitches Myles develops, and the kind of cues he coaches with.",
+  "arsenal": [
+    {
+      "name": "Fastball",
+      "cue": "Establish it first",
+      "blurb": "The foundation every other pitch plays off — command it first, built from the legs and forward.",
+      "icon": "lucide:flame"
+    },
+    {
+      "name": "Two-Seam",
+      "cue": "Don't aim it — rip it",
+      "blurb": "A movement fastball with late, heavy run.",
+      "icon": "lucide:wind"
+    },
+    {
+      "name": "Changeup",
+      "cue": "Same arm action",
+      "blurb": "Mirrors the fastball's arm action so the hitter can't read it — kills timing.",
+      "icon": "lucide:gauge"
+    },
+    {
+      "name": "Cutter",
+      "cue": "Your swing-and-miss pitch",
+      "blurb": "Looks like a fastball, breaks late — a true strikeout pitch.",
+      "icon": "lucide:scissors"
+    },
+    {
+      "name": "Knuckle Curve",
+      "cue": "More tumble",
+      "blurb": "A breaking ball with depth, dropped into the zone for a called strike.",
+      "icon": "lucide:spline"
+    }
+  ],
+  "method": [
+    {
+      "title": "Mental game first",
+      "blurb": "The foundation is sports psychology — composure, confidence, and focus on the mound. Every pitch is built on it."
+    },
+    {
+      "title": "Mechanics on a sound foundation",
+      "blurb": "With the mental base set, Myles builds clean, repeatable mechanics and technique on top of it."
+    },
+    {
+      "title": "Built to the pitcher",
+      "blurb": "Different pitchers master different styles. Every arsenal, technique, and cue is tailored to the individual athlete."
+    },
+    {
+      "title": "Film, reps & accountability",
+      "blurb": "Game-film review, game-rep bullpens, and constant feedback — tough when it needs to be, encouraging every good rep."
+    }
+  ]
+}

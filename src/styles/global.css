@@ -40,6 +40,13 @@
   --radius-selector: 0.5rem;
 }
 
+@theme {
+  /* AA-accessible dark red for small text on / over the brand red. Single source
+     of truth for what used to be inline text-[#D72B31] (see check-content.mjs
+     Decision 2). Use via the generated `text-brand-red-dark` utility. */
+  --color-brand-red-dark: #D72B31;
+}
+
 :root { --font-heading: "Oswald", system-ui, sans-serif; --font-body: "Inter", system-ui, sans-serif; --marigold: #EBB257; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 html { scroll-padding-top: 5rem; }
