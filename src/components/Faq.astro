@@ -32,5 +32,5 @@ const faqSchema = {
       ))}
     </div>
   </div>
-  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema).replace(/</g, "\\u003c")} />
 </section>

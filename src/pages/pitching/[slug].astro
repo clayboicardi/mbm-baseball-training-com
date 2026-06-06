@@ -10,7 +10,9 @@ import Footer from "../../components/Footer.astro";
 // draft:true today, this builds ZERO routes — infra is staged, nothing is live.
 export async function getStaticPaths() {
   const posts = (await getCollection("pitches"))
-    .filter((p) => !p.data.draft)
+    // DEV-only: preview drafts under `astro dev`. Production `astro build` sets
+    // import.meta.env.DEV=false, so drafts stay excluded from live routes.
+    .filter((p) => import.meta.env.DEV || !p.data.draft)
     .sort((a, b) => a.data.order - b.data.order);
   return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
 }
