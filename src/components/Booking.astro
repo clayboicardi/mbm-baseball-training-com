@@ -1,13 +1,14 @@
 ---
 import site from "../data/site.json";
+import SectionHeading from "./ui/SectionHeading.astro";
 const { calcom, tallyEliteEmbed } = site.booking;
 const hasCalcom = Boolean(calcom.base);
 const hasTally = Boolean(tallyEliteEmbed);
 ---
-<section id="book" class="py-20 px-4 bg-base-200/50">
+<section id="book" class="py-20 px-4 bg-paper">
   <div class="max-w-4xl mx-auto text-center">
-    <h2 class="text-3xl font-heading font-bold text-primary uppercase">Book a Session</h2>
-    <p class="mt-2 text-base-content/70">Pick a time that works for you — or ask about the Elite program.</p>
+    <SectionHeading eyebrow="Get on the Schedule" title="Book a Session" />
+    <p class="mt-4 text-base-content/70">Pick a time that works for you — or ask about the Elite program.</p>
 
     <div class="mt-8">
       {hasCalcom ? (

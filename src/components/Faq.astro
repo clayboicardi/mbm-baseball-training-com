@@ -1,5 +1,6 @@
 ---
 import faq from "../data/faq.json";
+import SectionHeading from "./ui/SectionHeading.astro";
 
 interface FaqItem { q: string; a: string; }
 const faqs = faq as FaqItem[];
@@ -8,10 +9,10 @@ const faqs = faq as FaqItem[];
 // discontinued the FAQ rich result for ordinary sites, so the markup earns
 // nothing and only adds risk; schema-check forbids the FAQPage type.
 ---
-<section id="faq" class="py-20 px-4 bg-base-100">
+<section id="faq" class="py-20 px-4 bg-paper">
   <div class="max-w-3xl mx-auto">
-    <h2 class="text-3xl font-heading font-bold text-primary uppercase text-center">Frequently Asked Questions</h2>
-    <p class="text-center mt-2 text-base-content/70">Everything parents ask before the first lesson.</p>
+    <SectionHeading eyebrow="Before You Start" title="Frequently Asked Questions" />
+    <p class="text-center mt-4 text-base-content/70">Everything parents ask before the first lesson.</p>
     <div class="mt-10 space-y-3">
       {faqs.map((f) => (
         <details class="collapse collapse-arrow bg-base-200" name="faq-accordion">
