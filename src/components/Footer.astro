@@ -6,7 +6,7 @@ import footerLogo from "../assets/brand/mbm-lockup-stacked-dark.png";
 const year = new Date().getFullYear();
 // Sitewide hub linking every local landing page (hub-and-spoke internal links).
 const cities = (await getCollection("locations")).sort(
-  (a, b) => a.data.order - b.data.order || a.data.city.localeCompare(b.data.city),
+  (a, b) => a.data.order - b.data.order || a.data.city.localeCompare(b.data.city, "en"),
 );
 ---
 <footer class="footer footer-center bg-neutral text-neutral-content p-10">

@@ -3,10 +3,10 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
-import { abs, collectionPageNode, breadcrumbNode, serviceIdFor, breadcrumbIdFor } from "../../data/schema";
+import { abs, collectionPageNode, breadcrumbNode, webPageIdFor, breadcrumbIdFor } from "../../data/schema";
 
 const cities = (await getCollection("locations")).sort(
-  (a, b) => a.data.order - b.data.order || a.data.city.localeCompare(b.data.city),
+  (a, b) => a.data.order - b.data.order || a.data.city.localeCompare(b.data.city, "en"),
 );
 const url = abs("/baseball-lessons/");
 const title = "Baseball Lessons in Long Beach & Orange County — Areas We Serve | MBM";
@@ -18,7 +18,7 @@ const pageSchema = [
     url,
     name: "Areas We Serve",
     description,
-    hasPart: cities.map((c) => serviceIdFor(abs(`/baseball-lessons/${c.id}/`))),
+    hasPart: cities.map((c) => webPageIdFor(abs(`/baseball-lessons/${c.id}/`))),
     breadcrumb: breadcrumbIdFor(url),
   }),
   breadcrumbNode(url, [
