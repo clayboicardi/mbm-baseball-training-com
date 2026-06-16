@@ -33,3 +33,10 @@ test("contact band uses the display face + marigold eyebrow", () => {
   assert.ok(h.includes("Free First Lesson"));
   assert.match(h, /<h2[^>]*font-display[^>]*>\s*Ready to Get Started\?/);
 });
+
+test("coaching hub h1 uses the display face", () => {
+  assert.match(read("coaching/index.html"), /<h1[^>]*font-display[^>]*>/);
+});
+test("hub card grids are wrapped for scroll-reveal", () => {
+  assert.match(read("pitching/index.html"), /data-reveal/);
+});
