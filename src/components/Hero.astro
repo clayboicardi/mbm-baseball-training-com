@@ -4,6 +4,10 @@ import site from "../data/site.json";
 import Ornament from "./ui/Ornament.astro";
 import heroImg from "../assets/photos/coach-huddle.jpg";
 import emblem from "../assets/brand/mbm-emblem.png";
+
+// Eyebrow reuses the area + age-range trust items so the two stay in sync
+// (no drift from a duplicated literal). site.hero.trust = [years, ages, area].
+const [, ageRange, area] = site.hero.trust;
 ---
 <section id="top" class="relative overflow-hidden bg-neutral text-white">
   <Image
@@ -29,7 +33,7 @@ import emblem from "../assets/brand/mbm-emblem.png";
   />
 
   <div class="relative z-10 mx-auto flex min-h-[88vh] max-w-5xl flex-col justify-center px-4 py-20 text-center">
-    <p class="font-heading text-sm uppercase tracking-[0.25em] text-marigold">Long Beach &amp; Orange County · Ages 8–18</p>
+    <p class="font-heading text-sm uppercase tracking-[0.25em] text-marigold">{area} · {ageRange}</p>
     <h1 class="font-display fluid-display uppercase mt-3">{site.hero.headline}</h1>
     <div class="mx-auto mt-4 w-40"><Ornament variant="stitch" /></div>
     <p class="mx-auto mt-6 max-w-2xl text-lg text-white/85">{site.hero.subhead}</p>
