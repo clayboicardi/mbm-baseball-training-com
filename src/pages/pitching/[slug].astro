@@ -38,11 +38,13 @@ const pageSchema = [
   <Nav />
   <main id="main" class="py-16 px-4">
     <nav aria-label="Breadcrumb" class="max-w-3xl mx-auto text-sm text-base-content/60">
-      <a href="/" class="link link-hover">Home</a>
-      <span aria-hidden="true"> / </span>
-      <a href="/pitching/" class="link link-hover">Pitching</a>
-      <span aria-hidden="true"> / </span>
-      <span class="text-base-content/80">{pitch}</span>
+      <ol class="flex flex-wrap items-center gap-x-2 gap-y-1">
+        <li><a href="/" class="link link-hover">Home</a></li>
+        <li aria-hidden="true">/</li>
+        <li><a href="/pitching/" class="link link-hover">Pitching</a></li>
+        <li aria-hidden="true">/</li>
+        <li><span class="text-base-content/80" aria-current="page">{pitch}</span></li>
+      </ol>
     </nav>
     <article class="prose max-w-3xl mx-auto mt-4 prose-headings:font-heading prose-headings:text-primary prose-a:text-primary">
       <p class="text-sm font-heading uppercase tracking-wide text-brand-red-dark">Pitching Development</p>

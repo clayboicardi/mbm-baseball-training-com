@@ -47,11 +47,13 @@ const pageSchema = [
     <section class="bg-neutral text-neutral-content py-16 px-4">
       <div class="max-w-4xl mx-auto">
         <nav aria-label="Breadcrumb" class="text-sm text-neutral-content/60">
-          <a href="/" class="link link-hover">Home</a>
-          <span aria-hidden="true"> / </span>
-          <a href="/baseball-lessons/" class="link link-hover">Areas We Serve</a>
-          <span aria-hidden="true"> / </span>
-          <span class="text-neutral-content/90">{d.city}</span>
+          <ol class="flex flex-wrap items-center gap-x-2 gap-y-1">
+            <li><a href="/" class="link link-hover">Home</a></li>
+            <li aria-hidden="true">/</li>
+            <li><a href="/baseball-lessons/" class="link link-hover">Areas We Serve</a></li>
+            <li aria-hidden="true">/</li>
+            <li><span class="text-neutral-content/90" aria-current="page">{d.city}</span></li>
+          </ol>
         </nav>
         <h1 class="mt-4 text-4xl sm:text-5xl font-heading font-bold uppercase">{d.h1}</h1>
         <p class="mt-4 text-lg text-neutral-content/85 max-w-2xl">{d.lead}</p>

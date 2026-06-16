@@ -61,7 +61,8 @@ export function localBusinessNode() {
     description: BUSINESS_DESCRIPTION,
     image: BUSINESS_IMAGE,
     url: `${SITE}/`,
-    telephone,
+    // Omit telephone entirely if unset, rather than emitting an empty string.
+    ...(telephone ? { telephone } : {}),
     email: site.business.email,
     address: {
       "@type": "PostalAddress",
