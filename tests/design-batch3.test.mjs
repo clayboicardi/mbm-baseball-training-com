@@ -40,3 +40,11 @@ test("coaching hub h1 uses the display face", () => {
 test("hub card grids are wrapped for scroll-reveal", () => {
   assert.match(read("pitching/index.html"), /data-reveal/);
 });
+test("coaching detail h1 uses display face + in-page headings use SectionHeading eyebrows", () => {
+  const h = read("coaching/hitting/index.html");
+  assert.match(h, /<h1[^>]*font-display[^>]*>/);
+  assert.match(h, /tracking-\[0\.2em\][^>]*text-brand-red-dark|text-brand-red-dark[^>]*tracking-\[0\.2em\]/);
+});
+test("package detail still renders its price (no pricing drift)", () => {
+  assert.ok(read("packages/elite-season/index.html").includes("$1,500"));
+});
