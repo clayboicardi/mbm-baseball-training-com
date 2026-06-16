@@ -30,3 +30,17 @@ test("hero exposes all trust items", () => {
     assert.ok(h.includes(t), `hero missing trust item: ${t}`);
   }
 });
+
+test("What I Coach cards are numbered with a decorative diamond tick", () => {
+  const h = html();
+  // a 2-digit zero-padded index label appears (01..05) and a decorative diamond svg
+  assert.match(h, /\b0[1-9]\b/);
+  assert.match(h, /<svg[^>]*aria-hidden="true"[\s\S]*?<polygon/); // diamond Ornament
+});
+
+test("Pitching section uses a SectionHeading display title", () => {
+  const h = html();
+  assert.match(h, /How Coach Myles Builds a Pitcher/);
+  // the display-face heading class is present in the pitching area
+  assert.match(h, /font-display/);
+});

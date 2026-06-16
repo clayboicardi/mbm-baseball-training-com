@@ -1,14 +1,22 @@
 ---
 import { Icon } from "astro-icon/components";
-interface Props { title: string; blurb: string; icon: string; href?: string; }
-const { title, blurb, icon, href } = Astro.props;
+import Ornament from "./ui/Ornament.astro";
+interface Props { title: string; blurb: string; icon: string; href?: string; index?: number; }
+const { title, blurb, icon, href, index } = Astro.props;
 const Tag = href ? "a" : "div";
+const num = typeof index === "number" ? String(index + 1).padStart(2, "0") : undefined;
 ---
-<Tag {...(href ? { href } : {})} class:list={["card bg-base-200 transition-all", href ? "hover:shadow-lg hover:bg-base-300" : "hover:shadow-lg"]}>
-  <div class="card-body items-center text-center">
-    <Icon name={icon} class="w-10 h-10 text-accent" aria-hidden="true" />
-    <h3 class="card-title font-heading">{title}</h3>
-    <p class="text-sm text-base-content/70">{blurb}</p>
-    {href && <span class="mt-1 text-sm font-semibold text-primary">Learn more →</span>}
-  </div>
+<Tag
+  {...(href ? { href } : {})}
+  class:list={[
+    "group relative block overflow-hidden rounded-box border border-base-300 bg-base-100 p-6 transition-all",
+    href && "hover:-translate-y-1 hover:border-marigold/60 hover:shadow-lg",
+  ]}
+>
+  <span aria-hidden="true" class="absolute right-4 top-4 text-marigold"><Ornament variant="diamond" class="w-3.5 h-3.5" /></span>
+  {num && <span aria-hidden="true" class="font-display text-base-content/15 text-3xl leading-none">{num}</span>}
+  <Icon name={icon} class="mt-2 h-9 w-9 text-accent" aria-hidden="true" />
+  <h3 class="mt-3 font-heading text-xl font-bold text-primary uppercase">{title}</h3>
+  <p class="mt-2 text-sm text-base-content/70">{blurb}</p>
+  {href && <span class="mt-3 inline-block text-sm font-semibold text-primary opacity-80 transition-opacity group-hover:opacity-100">Learn more →</span>}
 </Tag>

@@ -8,7 +8,7 @@ import services from "../data/services.json";
     <SectionHeading eyebrow="Private Coaching" title="What I Coach" />
     <p class="text-center mt-4 text-base-content/70">Hitting lessons, fielding, throwing mechanics, and baseball IQ for players ages 8–18 across Long Beach & Orange County.</p>
     <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {services.map((s) => <ServiceCard title={s.title} blurb={s.blurb} icon={s.icon} href={`/coaching/${s.slug}/`} />)}
+      {services.map((s, i) => <ServiceCard title={s.title} blurb={s.blurb} icon={s.icon} href={`/coaching/${s.slug}/`} index={i} />)}
     </div>
     <div class="text-center mt-10">
       <a href="/coaching/" class="btn btn-outline btn-primary">Explore what Coach Myles teaches</a>
