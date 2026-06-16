@@ -4,7 +4,7 @@ import site from "../data/site.json";
 interface Props { title: string; description?: string; }
 const { title, description } = Astro.props;
 ---
-<BaseLayout title={`${title} | ${site.business.name}`} description={description} noBusinessSchema>
+<BaseLayout title={`${title} | ${site.business.name}`} description={description}>
   <main id="main" class="max-w-3xl mx-auto px-4 py-16">
     <a href="/" class="link link-primary">&larr; Back home</a>
     <article class="prose mt-4">

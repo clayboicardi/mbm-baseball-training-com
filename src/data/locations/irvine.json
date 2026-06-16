@@ -1,0 +1,26 @@
+{
+  "city": "Irvine",
+  "region": "Orange County",
+  "title": "Private Baseball Lessons in Irvine, CA | MBM Baseball Training",
+  "description": "1-on-1 youth baseball lessons in Irvine — hitting, fielding, throwing, pitching, and mindset with Coach Myles. Free first lesson.",
+  "h1": "Private Baseball Lessons in Irvine",
+  "lead": "Irvine is about 35 minutes south of our Long Beach home base, and it's one of Orange County's biggest youth-baseball markets — with the facilities and competition to match.",
+  "body": [
+    "Few cities are built for youth baseball like Irvine. The Orange County Great Park sports complex alone runs ten lighted ball fields plus two stadiums, and three separate leagues — Irvine PONY, Irvine Ranch Little League, and Northwood Little League — keep thousands of kids playing. The flip side of all that talent is real competition, and that's where private coaching earns its keep.",
+    "Coach Myles coaches the complete game — hitting, fielding, throwing, pitching, and baseball IQ — and leads with mechanics and mindset: developing the right way as a young athlete and competing with confidence. Every session is true 1-on-1, at a field that works for your family.",
+    "If your player is pushing for a travel roster or a starting spot in a deep league, the free first lesson is a smart, no-pressure first step."
+  ],
+  "fields": [
+    { "name": "Orange County Great Park", "note": "Sports complex with ten lighted ball fields and two stadiums for youth and adult leagues." },
+    { "name": "Windrow Community Park", "note": "Home of Ryan Lemmon Stadium; lighted fields reserved for 18-and-under youth baseball." },
+    { "name": "Northwood Community Park", "note": "Hosts Winslow Field for PONY baseball." }
+  ],
+  "scene": "Irvine supports three youth-baseball leagues — Irvine PONY, Irvine Ranch Little League, and Northwood Little League — plus the Great Park's ten-field complex for league and tournament play.",
+  "travel": "About a 35-minute drive south from our Long Beach home base.",
+  "faq": [
+    { "q": "Do you really travel to Irvine?", "a": "Yes — Irvine is about 35 minutes from home base. For families that far out, longer or less-frequent sessions often make the most sense, and we'll find a rhythm that works." },
+    { "q": "Which skills can you work on?", "a": "All of them — hitting, fielding, throwing, pitching, and baseball IQ — tailored to your player and their league." },
+    { "q": "How do we start?", "a": "Book the free first lesson: a 30-minute evaluation and Q&A with Coach Myles, no obligation." }
+  ],
+  "order": 6
+}

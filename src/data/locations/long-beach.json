@@ -1,0 +1,26 @@
+{
+  "city": "Long Beach",
+  "region": "Los Angeles County",
+  "title": "Private Baseball Lessons in Long Beach, CA | MBM Baseball Training",
+  "description": "1-on-1 youth baseball lessons in Long Beach — hitting, fielding, throwing, pitching, and the mental game with Coach Myles. Heartwell Park home base. Free first lesson.",
+  "h1": "Private Baseball Lessons in Long Beach",
+  "lead": "Long Beach is our home turf. Coach Myles has spent 20+ years in the game here, running private one-on-one lessons for players ages 8–18 all across the city — from East Long Beach to the fields near the river.",
+  "body": [
+    "Our home base is Heartwell Park, but the whole point of MBM is that the lesson comes to you. Whether your player is gearing up for Little League tryouts, PONY ball, or a travel-team season, we meet at a field that fits your schedule and build a plan around exactly what they need to get better.",
+    "Every session is true 1-on-1 — no shared reps, no standing in line. We work hitting, fielding, throwing, pitching, and baseball IQ, but it starts with the mental game: how to compete, how to shake off a bad at-bat, and how to develop the right way as a young athlete instead of burning out.",
+    "Long Beach has real baseball history and a deep youth scene, which means real competition every weekend. The goal isn't just to look good in a lesson — it's to carry it into Saturday's game."
+  ],
+  "fields": [
+    { "name": "Heartwell Park", "note": "Our home base in East Long Beach; home of Heartwell PONY-Colt baseball." },
+    { "name": "Stearns Champions Park", "note": "Lighted youth and full-size diamonds with a history of Little League championship play." },
+    { "name": "Whaley Park", "note": "Longtime home of Long Beach PONY baseball." }
+  ],
+  "scene": "Long Beach has a deep youth-baseball community — Heartwell PONY-Colt, East Long Beach PONY, and Long Beach PONY at Whaley Park all run seasons here, alongside neighborhood Little Leagues.",
+  "travel": "This is home base — Coach Myles trains players all over Long Beach.",
+  "faq": [
+    { "q": "Where do lessons happen in Long Beach?", "a": "At a public field that works for your family. Our home base is Heartwell Park, but we regularly meet families at parks and diamonds across the city." },
+    { "q": "What ages do you coach?", "a": "Players ages 8–18, from first-year Little Leaguers to high-school athletes prepping for a travel or varsity season." },
+    { "q": "Is the first lesson really free?", "a": "Yes — the first 30-minute lesson is a skill evaluation and Q&A with Coach Myles, with no obligation." }
+  ],
+  "order": 1
+}

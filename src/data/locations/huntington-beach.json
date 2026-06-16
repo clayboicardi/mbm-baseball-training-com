@@ -1,0 +1,24 @@
+{
+  "city": "Huntington Beach",
+  "region": "Orange County",
+  "title": "Private Baseball Lessons in Huntington Beach, CA | MBM Baseball Training",
+  "description": "1-on-1 youth baseball lessons in Huntington Beach — hitting, fielding, throwing, pitching, and mindset with Coach Myles. Free first lesson.",
+  "h1": "Private Baseball Lessons in Huntington Beach",
+  "lead": "Huntington Beach is about 25 minutes down the coast from our Long Beach home base — and one of Orange County's deepest youth-baseball towns, which is exactly why individual coaching pays off here.",
+  "body": [
+    "HB takes its baseball seriously. Ocean View Little League brought home a Little League World Series title in 2011, and programs like Seaview Little League have anchored the southeast side of town for decades. In a city with that kind of talent pool, private reps are how players separate themselves.",
+    "Coach Myles works hitting, fielding, throwing, pitching, and baseball IQ in true 1-on-1 sessions — but the through-line is mechanics and mindset: building a swing or a delivery that repeats under pressure, and the competitive headspace to use it. We meet your player at a field that works for your family.",
+    "Whether the goal is making the All-Star team or just falling back in love with the game, the free first lesson is a no-pressure place to start."
+  ],
+  "fields": [
+    { "name": "Edison Community Park", "note": "A large Huntington Beach park with baseball fields, beside the San Gabriel River." }
+  ],
+  "scene": "Huntington Beach has a powerhouse Little League tradition — Ocean View Little League won the 2011 Little League World Series, and Seaview Little League has served the city's southeast side for over 40 years.",
+  "travel": "About a 25-minute drive down the coast from our Long Beach home base.",
+  "faq": [
+    { "q": "Do you travel to Huntington Beach?", "a": "Yes — about 25 minutes from home base. We meet your player at a convenient HB field." },
+    { "q": "Can you help with All-Star or travel-ball prep?", "a": "That's a lot of what we do — focused 1-on-1 work to sharpen the specific skills coaches and scouts notice." },
+    { "q": "What does the first lesson include?", "a": "A free 30-minute skill evaluation and Q&A with Coach Myles, plus a preview of a development plan — no obligation." }
+  ],
+  "order": 5
+}

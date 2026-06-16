@@ -12,10 +12,23 @@ import Footer from "../components/Footer.astro";
 import Pitching from "../components/Pitching.astro";
 import Quotes from "../components/Quotes.astro";
 import Faq from "../components/Faq.astro";
+import { SITE, ID } from "../data/schema-global";
+import { webPageNode } from "../data/schema";
+
+const title = "Private Baseball Lessons in Long Beach & Orange County | MBM";
+const description =
+  "Private youth baseball lessons in Long Beach & Orange County. Hitting, fielding, throwing & baseball IQ with Coach Myles, ages 8–18. Claim a free first lesson.";
+
+// Home WebPage is "about" the business; the global LocalBusiness/WebSite/Person
+// nodes are emitted by StructuredData on every page.
+const pageSchema = webPageNode({
+  url: `${SITE}/`,
+  name: title,
+  description,
+  about: ID.localBusiness,
+});
 ---
-<BaseLayout
-  description="Private youth baseball lessons in Long Beach & Orange County. Hitting, fielding, throwing & baseball IQ with Coach Myles, ages 8–18. Claim a free first lesson."
->
+<BaseLayout title={title} description={description} pageSchema={pageSchema}>
   <Nav />
   <main id="main">
     <Hero />

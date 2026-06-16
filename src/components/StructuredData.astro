@@ -1,0 +1,30 @@
+---
+// Merges the global identity graph with any per-route nodes into ONE JSON-LD
+// @graph with a single top-level @context. Ported from clayboicardi.com.
+//
+// Importing only globalNodes() (not the per-route builders) keeps this
+// component's closure small. Pass per-route nodes via `pageNodes`.
+import { globalNodes } from "../data/schema-global";
+
+interface Props {
+  pageNodes?: object | object[];
+}
+const { pageNodes } = Astro.props;
+
+// Normalize to an array of node objects, then strip any stray top-level
+// @context WITHOUT mutating the caller's objects (the merged graph must have
+// exactly one @context, added below; mutating a frozen input would also throw).
+const extra = (Array.isArray(pageNodes) ? pageNodes : pageNodes ? [pageNodes] : [])
+  .filter((n): n is Record<string, unknown> => !!n && typeof n === "object" && !Array.isArray(n))
+  .map((n) => {
+    if (!("@context" in n)) return n;
+    const { ["@context"]: _ctx, ...rest } = n;
+    return rest;
+  });
+
+const graph = {
+  "@context": "https://schema.org",
+  "@graph": [...globalNodes(), ...extra],
+};
+---
+<script type="application/ld+json" is:inline set:html={JSON.stringify(graph).replace(/</g, "\\u003c")} />

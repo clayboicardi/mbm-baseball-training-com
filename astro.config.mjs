@@ -67,6 +67,10 @@ function lastModifiedHeader(httpDate) {
 
 export default defineConfig({
   site: 'https://mbm-baseball-training.com',
+  // Inline all component CSS into each page's <head>. On a small brochure site
+  // this de-render-blocks the shared CSS chunk (CSP already allows 'unsafe-inline'
+  // styles in public/_headers); cross-page CSS caching loss is negligible here.
+  build: { inlineStylesheets: 'always' },
   integrations: [
     sitemap({ lastmod: LASTMOD }),
     icon(),
