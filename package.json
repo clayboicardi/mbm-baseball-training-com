@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
+    "@fontsource/big-shoulders-display": "^5.2.5",
     "@fontsource/inter": "^5.2.8",
     "@fontsource/oswald": "^5.2.8",
     "@iconify-json/lucide": "^1.2.111",
