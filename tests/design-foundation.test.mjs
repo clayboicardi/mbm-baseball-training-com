@@ -48,7 +48,7 @@ test("Services uses SectionHeading (display title) + a stitch divider on paper",
   assert.match(h, /What I Coach/);
   assert.match(h, /font-display/);
   assert.match(h, /bg-paper/);
-  assert.match(h, /<svg[^>]*aria-hidden="true"[^>]*>[\s\S]*?stroke-dasharray/);
+  assert.match(h, /<svg[^>]*aria-hidden="true"[\s\S]*?<pattern[\s\S]*?<line/);
 });
 
 test("About coach photo uses the duotone treatment with explicit dimensions", () => {

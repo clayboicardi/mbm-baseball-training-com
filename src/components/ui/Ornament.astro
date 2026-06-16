@@ -3,23 +3,28 @@
 // no extra requests, always decorative (aria-hidden). Color via the marigold
 // ornament accent. variant "watermark" (emblem) is intentionally deferred to
 // Batch 2 (hero), where the raster emblem is used.
+import { randomUUID } from "node:crypto";
 interface Props {
   variant: "stitch" | "diamond";
   class?: string;
 }
 const { variant, class: className } = Astro.props;
+// Unique id so multiple stitch ornaments on one page don't collide on the pattern.
+const stitchId = `stitch-${randomUUID().slice(0, 8)}`;
 ---
 {variant === "stitch" && (
   <svg
     class:list={["block w-full h-3 text-marigold", className]}
-    viewBox="0 0 1200 12"
-    preserveAspectRatio="none"
     aria-hidden="true"
     focusable="false"
     role="presentation"
   >
-    <line x1="4" y1="6" x2="1196" y2="6" stroke="currentColor" stroke-width="3"
-      stroke-dasharray="14 10" stroke-linecap="round" />
+    <defs>
+      <pattern id={stitchId} width="24" height="12" patternUnits="userSpaceOnUse">
+        <line x1="1.5" y1="6" x2="12.5" y2="6" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+      </pattern>
+    </defs>
+    <rect width="100%" height="12" fill={`url(#${stitchId})`} />
   </svg>
 )}
 {variant === "diamond" && (
