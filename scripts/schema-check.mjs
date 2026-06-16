@@ -114,7 +114,8 @@ export function resolveRefs(rel, refs, definedSet, pageIdMap) {
     const hashIdx = ref.indexOf("#");
     if (hashIdx > 0) {
       const base = ref.slice(0, hashIdx);
-      const target = pageIdMap.get(base) || pageIdMap.get(base.replace(/\/$/, ""));
+      const target =
+        pageIdMap.get(base) || pageIdMap.get(base + "/") || pageIdMap.get(base.replace(/\/$/, ""));
       if (target && target.has(ref)) continue; // cross-page
     }
     failures.push(`${rel}: unresolved @id reference "${ref}"`);

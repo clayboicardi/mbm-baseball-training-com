@@ -31,3 +31,10 @@ test("CSP allows the cal.com + tally booking embeds and blocks framing", () => {
 test("/_astro assets are cached immutably for a year", () => {
   assert.match(headers, /\/_astro\/\*[\s\S]*?max-age=31536000, immutable/);
 });
+
+test("no-transform cache policy covers the dynamic HTML sections", () => {
+  // Without these the new city/pitch pages would let Cloudflare inject its
+  // JS-Detections script and regress the Lighthouse Best Practices score.
+  assert.match(headers, /\/baseball-lessons\/\*[\s\S]*?no-transform/);
+  assert.match(headers, /\/pitching\/\*[\s\S]*?no-transform/);
+});

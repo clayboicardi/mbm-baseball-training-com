@@ -11,14 +11,16 @@ interface Props {
 }
 const { pageNodes } = Astro.props;
 
-const extra = (Array.isArray(pageNodes) ? pageNodes : pageNodes ? [pageNodes] : []).filter(
-  (n): n is Record<string, unknown> => !!n && typeof n === "object" && !Array.isArray(n),
-);
-// Defensive: strip any stray top-level @context a page node may carry — the
-// merged graph must have exactly one @context (added below).
-for (const n of extra) {
-  if ("@context" in n) delete (n as Record<string, unknown>)["@context"];
-}
+// Normalize to an array of node objects, then strip any stray top-level
+// @context WITHOUT mutating the caller's objects (the merged graph must have
+// exactly one @context, added below; mutating a frozen input would also throw).
+const extra = (Array.isArray(pageNodes) ? pageNodes : pageNodes ? [pageNodes] : [])
+  .filter((n): n is Record<string, unknown> => !!n && typeof n === "object" && !Array.isArray(n))
+  .map((n) => {
+    if (!("@context" in n)) return n;
+    const { ["@context"]: _ctx, ...rest } = n;
+    return rest;
+  });
 
 const graph = {
   "@context": "https://schema.org",

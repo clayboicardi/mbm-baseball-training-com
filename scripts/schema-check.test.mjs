@@ -33,6 +33,12 @@ test("resolveRefs: cross-page ref resolves via pageIdMap", () => {
   assert.deepEqual(out, []);
 });
 
+test("resolveRefs: ref without trailing slash resolves against a slashed key", () => {
+  const map = new Map([[`${SITE}/hitting/`, new Set([`${SITE}/hitting#service`])]]);
+  const out = resolveRefs("index.html", [`${SITE}/hitting#service`], new Set(), map);
+  assert.deepEqual(out, []);
+});
+
 test("routeTypeFailures: home with WebPage passes", () => {
   const types = new Set([...IDENTITY, "WebPage"]);
   assert.deepEqual(routeTypeFailures("index.html", types), []);
