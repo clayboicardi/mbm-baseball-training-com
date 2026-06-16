@@ -1,4 +1,5 @@
 ---
+import Ornament from "./ui/Ornament.astro";
 interface AddOn { label: string; price: number; blurb?: string; }
 interface Props {
   name: string;
@@ -17,9 +18,16 @@ const { name, price, currency, priceLabel, priceNote, duration, features, addOns
 const money = new Intl.NumberFormat("en-US", { style: "currency", currency, maximumFractionDigits: 0 });
 const displayPrice = priceLabel ?? (price === 0 ? "Free" : money.format(price));
 ---
-<div class={`card border-2 bg-base-100 h-full ${featured ? "border-accent shadow-xl" : "border-base-300"}`}>
+<div class:list={[
+  "card border-2 bg-base-100 h-full transition-all",
+  featured ? "border-marigold shadow-xl ring-1 ring-marigold/30 lg:scale-[1.03]" : "border-base-300 hover:border-base-content/20",
+]}>
   <div class="card-body flex flex-col">
-    {featured && <span class="badge border-0 bg-brand-red-dark text-white self-start">Best Value</span>}
+    {featured && (
+      <span class="badge gap-1 border-0 bg-brand-red-dark text-white self-start">
+        <Ornament variant="diamond" class="w-2.5 h-2.5" />Best Value
+      </span>
+    )}
     <h3 class="card-title font-heading text-2xl">{name}</h3>
     {duration && <p class="text-sm text-base-content/70">{duration}</p>}
     <p class="mt-2"><span class="text-3xl font-bold text-primary break-words">{displayPrice}</span></p>

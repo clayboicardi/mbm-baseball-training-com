@@ -1,6 +1,7 @@
 ---
 import PackageCard from "./PackageCard.astro";
 import packagesData from "../data/packages.json";
+import SectionHeading from "./ui/SectionHeading.astro";
 
 interface AddOn { label: string; price: number; blurb?: string; }
 interface Tier {
@@ -16,8 +17,8 @@ const tiers = (packagesData.tiers as Tier[]).map((t) => ({
 ---
 <section id="packages" class="py-20 px-4 bg-base-100">
   <div class="max-w-6xl mx-auto">
-    <h2 class="text-3xl font-heading font-bold text-primary uppercase text-center">Training Packages</h2>
-    <p class="text-center mt-2 text-base-content/70">Start with a free lesson. Train at your pace.</p>
+    <SectionHeading eyebrow="Pricing" title="Training Packages" />
+    <p class="text-center mt-4 text-base-content/70">Start with a free lesson. Train at your pace.</p>
     <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 items-stretch">
       {tiers.map((t) => (
         <PackageCard name={t.name} price={t.price} currency={packagesData.currency} priceLabel={t.priceLabel} priceNote={t.priceNote} duration={t.duration} features={t.features} addOns={t.resolvedAddOns} featured={t.featured} cta={t.cta} detailHref={`/packages/${t.id}/`} />

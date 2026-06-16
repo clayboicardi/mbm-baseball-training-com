@@ -1,10 +1,15 @@
 ---
 import { Image } from "astro:assets";
 import site from "../data/site.json";
+import Ornament from "./ui/Ornament.astro";
 import heroImg from "../assets/photos/coach-huddle.jpg";
 import emblem from "../assets/brand/mbm-emblem.png";
+
+// Eyebrow reuses the area + age-range trust items so the two stay in sync
+// (no drift from a duplicated literal). site.hero.trust = [years, ages, area].
+const [, ageRange, area] = site.hero.trust;
 ---
-<section id="top" class="hero min-h-[80vh] relative overflow-hidden">
+<section id="top" class="relative overflow-hidden bg-neutral text-white">
   <Image
     src={heroImg}
     alt="Coach Myles Berniard-Mendez leading a youth baseball training session in Long Beach"
@@ -14,22 +19,35 @@ import emblem from "../assets/brand/mbm-emblem.png";
     loading="eager"
     fetchpriority="high"
     quality={55}
-    class="absolute inset-0 h-full w-full object-cover"
+    class="absolute inset-0 h-full w-full object-cover opacity-40 grayscale"
   />
-  <div class="absolute inset-0 bg-neutral/85"></div>
-  <div class="hero-content relative z-10 text-center">
-    <div class="max-w-2xl">
-      <Image src={emblem} alt="MBM Baseball Training emblem" width={120} height={120} loading="eager" densities={[2]} quality={86} class="mx-auto mb-4 w-24 sm:w-28 h-auto" />
-      <h1 class="text-4xl sm:text-6xl font-heading font-bold uppercase text-white">{site.hero.headline}</h1>
-      <p class="py-5 text-lg text-white/90">{site.hero.subhead}</p>
-      <p class="font-heading text-white text-xl uppercase tracking-wide">{site.hero.tagline}</p>
-      <div class="mt-6 flex flex-wrap gap-3 justify-center">
-        <a href={site.hero.primaryCta.href} class="btn btn-accent btn-lg">{site.hero.primaryCta.label}</a>
-        <a href={site.hero.secondaryCta.href} class="btn btn-lg btn-outline text-white border-white hover:bg-white hover:text-primary">{site.hero.secondaryCta.label}</a>
-      </div>
-      <div class="mt-8 flex flex-wrap gap-3 justify-center">
-        {site.hero.trust.map((t) => <span class="badge badge-lg badge-outline border-white/50 text-white">{t}</span>)}
-      </div>
+  <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/72 to-black/90"></div>
+  <Image
+    src={emblem}
+    alt=""
+    width={520}
+    height={520}
+    densities={[2]}
+    quality={70}
+    class="pointer-events-none absolute -right-16 -top-10 w-[60vw] max-w-xl opacity-[0.06]"
+  />
+
+  <div class="relative z-10 mx-auto flex min-h-[88vh] max-w-5xl flex-col justify-center px-4 py-20 text-center">
+    <p class="font-heading text-sm uppercase tracking-[0.25em] text-marigold">{area} · {ageRange}</p>
+    <h1 class="font-display fluid-display uppercase mt-3">{site.hero.headline}</h1>
+    <div class="mx-auto mt-4 w-40"><Ornament variant="stitch" /></div>
+    <p class="mx-auto mt-6 max-w-2xl text-lg text-white/85">{site.hero.subhead}</p>
+    <p class="mt-4 font-heading text-xl uppercase tracking-wide text-white">{site.hero.tagline}</p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href={site.hero.primaryCta.href} class="btn btn-accent btn-lg">{site.hero.primaryCta.label}</a>
+      <a href={site.hero.secondaryCta.href} class="btn btn-lg btn-outline border-white text-white hover:bg-white hover:text-primary">{site.hero.secondaryCta.label}</a>
     </div>
+    <ul class="mt-10 flex flex-wrap justify-center gap-3">
+      {site.hero.trust.map((t) => (
+        <li class="inline-flex items-center gap-2 rounded-full border border-marigold/40 bg-white/5 px-4 py-1.5 text-sm text-white/90">
+          <Ornament variant="diamond" class="w-3 h-3" />{t}
+        </li>
+      ))}
+    </ul>
   </div>
 </section>
