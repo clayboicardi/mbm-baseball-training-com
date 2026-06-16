@@ -55,11 +55,11 @@
   --color-marigold: #EBB257;
   --font-display: "Big Shoulders Display", "Oswald", system-ui, sans-serif;
   --step-display: clamp(2.75rem, 6vw + 1rem, 5.5rem);
-  --step-h1: clamp(2rem, 3vw + 1rem, 3.5rem);
-  --step-h2: clamp(1.5rem, 1.5vw + 1rem, 2.25rem);
+  --step-lg: clamp(2rem, 3vw + 1rem, 3.5rem);
+  --step-md: clamp(1.5rem, 1.5vw + 1rem, 2.25rem);
 }
 
-:root { --font-heading: "Oswald", system-ui, sans-serif; --font-body: "Inter", system-ui, sans-serif; --marigold: #EBB257; }
+:root { --font-heading: "Oswald", system-ui, sans-serif; --font-body: "Inter", system-ui, sans-serif; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 html { scroll-padding-top: 5rem; }
 body { font-family: var(--font-body); }
@@ -67,9 +67,11 @@ h1, h2, h3, .font-heading { font-family: var(--font-heading); letter-spacing: 0.
 
 /* --- Design-elevation foundation utilities (spec 2026-06-16) --- */
 .font-display { font-family: var(--font-display); font-weight: 700; letter-spacing: 0.01em; }
+/* Type-scale steps — size-semantic (applicable to any element, not bound to a
+   heading level), so resizing one tier never accidentally retargets another. */
 .fluid-display { font-size: var(--step-display); line-height: 0.92; }
-.fluid-h1 { font-size: var(--step-h1); line-height: 1; }
-.fluid-h2 { font-size: var(--step-h2); line-height: 1.1; }
+.fluid-lg { font-size: var(--step-lg); line-height: 1; }
+.fluid-md { font-size: var(--step-md); line-height: 1.1; }
 
 /* Scroll-reveal — opt-in via [data-reveal]. Content is ALWAYS visible unless JS is
    present (.js-reveal, added by the reveal script) AND motion is allowed, so

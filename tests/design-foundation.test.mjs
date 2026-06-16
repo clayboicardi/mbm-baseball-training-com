@@ -11,7 +11,7 @@ test("global.css declares the display font, fluid scale, and surface tokens", ()
   assert.match(css, /@import "@fontsource\/big-shoulders-display\/latin-700\.css"/);
   assert.match(css, /--font-display:/);
   assert.match(css, /--step-display:\s*clamp\(/);
-  assert.match(css, /--step-h1:\s*clamp\(/);
+  assert.match(css, /--step-lg:\s*clamp\(/);
   assert.match(css, /--color-paper:/);
   assert.match(css, /--color-marigold:/);
 });
