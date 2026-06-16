@@ -22,3 +22,14 @@ test("homepage remaining sections use SectionHeading eyebrows", () => {
 test("warm paper surface rhythm is applied (no leftover bg-base-200/50 on home)", () => {
   assert.ok(!home().includes("bg-base-200/50"), "bg-base-200/50 should be replaced by bg-paper");
 });
+
+test("about image ships a responsive srcset (not a single fixed asset)", () => {
+  const h = home();
+  assert.match(h, /coach-with-players[^"]*\.webp\s+\d+w/);
+});
+
+test("contact band uses the display face + marigold eyebrow", () => {
+  const h = home();
+  assert.ok(h.includes("Free First Lesson"));
+  assert.match(h, /<h2[^>]*font-display[^>]*>\s*Ready to Get Started\?/);
+});

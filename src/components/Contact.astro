@@ -1,9 +1,12 @@
 ---
 import site from "../data/site.json";
+import Ornament from "./ui/Ornament.astro";
 ---
 <section id="contact" class="py-20 px-4 bg-primary text-primary-content">
   <div class="max-w-3xl mx-auto text-center">
-    <h2 class="text-3xl font-heading font-bold uppercase">Ready to Get Started?</h2>
+    <p class="font-heading text-sm uppercase tracking-[0.25em] text-marigold">Free First Lesson</p>
+    <h2 class="font-display fluid-lg uppercase mt-2">Ready to Get Started?</h2>
+    <div class="mx-auto mt-4 w-28"><Ornament variant="stitch" /></div>
     <p class="mt-2 text-primary-content/80">Book your free first lesson or reach out with any questions.</p>
     <div class="mt-6 flex flex-wrap gap-4 justify-center">
       <a href={site.business.phoneHref} class="btn btn-accent btn-lg whitespace-normal h-auto">Call / Text {site.business.phone}</a>

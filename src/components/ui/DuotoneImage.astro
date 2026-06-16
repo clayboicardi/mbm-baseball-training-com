@@ -7,6 +7,7 @@ interface Props {
   src: ImageMetadata;
   alt: string;
   width?: number;
+  widths?: number[];
   height?: number;
   quality?: number;
   densities?: number[];
@@ -14,8 +15,12 @@ interface Props {
   loading?: "lazy" | "eager";
   class?: string;
 }
-const { src, alt, width, height, quality, densities, sizes, loading = "lazy", class: className } = Astro.props;
+const { src, alt, width, widths, height, quality, densities, sizes, loading = "lazy", class: className } = Astro.props;
 ---
 <div class:list={["duotone", className]}>
-  <Image src={src} alt={alt} width={width} height={height} quality={quality} densities={densities} sizes={sizes} loading={loading} />
+  {widths ? (
+    <Image src={src} alt={alt} widths={widths} height={height} quality={quality} sizes={sizes} loading={loading} />
+  ) : (
+    <Image src={src} alt={alt} width={width} height={height} quality={quality} densities={densities} sizes={sizes} loading={loading} />
+  )}
 </div>
