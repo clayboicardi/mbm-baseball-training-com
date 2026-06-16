@@ -74,6 +74,9 @@ for (const f of pkgFiles) {
   let data;
   try { data = JSON.parse(readFileSync(join(pkgDir, f), "utf8")); }
   catch (e) { errors.push(`data/package-pages/${f}: invalid JSON — ${e.message}`); continue; }
+  if (!data || typeof data !== "object" || Array.isArray(data)) {
+    errors.push(`data/package-pages/${f}: JSON root must be an object`); continue;
+  }
   const slug = f.replace(/\.json$/, "");
   if (data.tier !== slug)
     errors.push(`data/package-pages/${f}: tier "${data.tier}" must equal filename slug "${slug}"`);
