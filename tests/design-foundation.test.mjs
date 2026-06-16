@@ -42,3 +42,20 @@ test("inline reveal script honors reduced-motion and targets [data-reveal]", () 
   assert.match(h, /js-reveal/);
   assert.match(h, /\[data-reveal\]/);
 });
+
+test("Services uses SectionHeading (display title) + a stitch divider on paper", () => {
+  const h = html();
+  assert.match(h, /What I Coach/);
+  assert.match(h, /font-display/);
+  assert.match(h, /bg-paper/);
+  assert.match(h, /<svg[^>]*aria-hidden="true"[^>]*>[\s\S]*?stroke-dasharray/);
+});
+
+test("About coach photo uses the duotone treatment with explicit dimensions", () => {
+  assert.match(html(), /class="[^"]*\bduotone\b[^"]*"[\s\S]*?<img[^>]*\bwidth="\d+"[^>]*\bheight="\d+"/);
+});
+
+test("two homepage sections are wrapped for scroll-reveal", () => {
+  const count = (html().match(/data-reveal/g) || []).length;
+  assert.ok(count >= 2, `expected >= 2 data-reveal sections, found ${count}`);
+});
