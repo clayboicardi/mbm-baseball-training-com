@@ -1,0 +1,20 @@
+---
+import Ornament from "./Ornament.astro";
+interface Props {
+  eyebrow?: string;
+  title: string;
+  align?: "center" | "left";
+  class?: string;
+}
+const { eyebrow, title, align = "center", class: className } = Astro.props;
+const isCenter = align === "center";
+---
+<div class:list={[isCenter ? "text-center" : "text-left", className]}>
+  {eyebrow && (
+    <p class="font-heading text-sm uppercase tracking-[0.2em] text-brand-red-dark">{eyebrow}</p>
+  )}
+  <h2 class="font-display fluid-lg uppercase text-primary mt-1">{title}</h2>
+  <div class:list={["mt-3 w-24", isCenter && "mx-auto"]}>
+    <Ornament variant="stitch" />
+  </div>
+</div>

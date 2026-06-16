@@ -1,0 +1,15 @@
+---
+// Scroll-reveal wrapper. Marks a [data-reveal] element that the inline script in
+// BaseLayout fades/rises into view. Renders fully visible when JS is off or the
+// user prefers reduced motion (see global.css gating).
+interface Props {
+  as?: string;
+  delay?: number; // ms
+  class?: string;
+}
+const { as: Tag = "div", delay = 0, class: className } = Astro.props;
+const style = delay ? `--reveal-delay:${delay}ms` : undefined;
+---
+<Tag class:list={["reveal", className]} data-reveal {...(style ? { style } : {})}>
+  <slot />
+</Tag>

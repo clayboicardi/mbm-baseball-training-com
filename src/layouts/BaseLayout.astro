@@ -4,6 +4,7 @@ import site from "../data/site.json";
 import StructuredData from "../components/StructuredData.astro";
 import oswald700 from "@fontsource/oswald/files/oswald-latin-700-normal.woff2?url";
 import inter400 from "@fontsource/inter/files/inter-latin-400-normal.woff2?url";
+import bigShoulders700 from "@fontsource/big-shoulders-display/files/big-shoulders-display-latin-700-normal.woff2?url";
 
 interface Props {
   title?: string;
@@ -35,6 +36,17 @@ const isDefaultOg = image === "/mbm-og.png"; // only the default OG image has kn
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="preload" href={oswald700} as="font" type="font/woff2" crossorigin="anonymous" />
     <link rel="preload" href={inter400} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href={bigShoulders700} as="font" type="font/woff2" crossorigin="anonymous" />
+    <script is:inline>
+      // Add js-reveal before first paint so [data-reveal] sections render hidden
+      // from frame one (no visible→hidden flash). Only when motion is allowed AND
+      // IntersectionObserver exists to un-hide them — otherwise leave content
+      // visible (JS-off / reduced-motion / no-IO never get the hidden state).
+      if (window.matchMedia("(prefers-reduced-motion: no-preference)").matches
+          && "IntersectionObserver" in window) {
+        document.documentElement.classList.add("js-reveal");
+      }
+    </script>
     <link rel="canonical" href={canonical} />
     {noindex && <meta name="robots" content="noindex,follow" />}
     <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -71,5 +83,17 @@ const isDefaultOg = image === "/mbm-og.png"; // only the default OG image has kn
       >Skip to content</a
     >
     <slot />
+    <script is:inline>
+      // js-reveal is set in <head> (above) when motion is allowed; here we just
+      // wire the observer that reveals each [data-reveal] as it scrolls in.
+      if (document.documentElement.classList.contains("js-reveal")) {
+        const obs = new IntersectionObserver((entries, o) => {
+          for (const e of entries) {
+            if (e.isIntersecting) { e.target.classList.add("is-visible"); o.unobserve(e.target); }
+          }
+        }, { rootMargin: "0px 0px -10% 0px", threshold: 0.1 });
+        document.querySelectorAll("[data-reveal]").forEach((el) => obs.observe(el));
+      }
+    </script>
   </body>
 </html>

@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+// Wraps an optimized Astro image in the navy/marigold duotone treatment
+// (see .duotone in global.css). Build-time only — no runtime cost.
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  width?: number;
+  height?: number;
+  quality?: number;
+  densities?: number[];
+  sizes?: string;
+  loading?: "lazy" | "eager";
+  class?: string;
+}
+const { src, alt, width, height, quality, densities, sizes, loading = "lazy", class: className } = Astro.props;
+---
+<div class:list={["duotone", className]}>
+  <Image src={src} alt={alt} width={width} height={height} quality={quality} densities={densities} sizes={sizes} loading={loading} />
+</div>

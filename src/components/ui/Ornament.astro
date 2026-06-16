@@ -1,0 +1,38 @@
+---
+// Decorative folk-art motifs (baseball-stitch divider, diamond tick). Inline SVG,
+// no extra requests, always decorative (aria-hidden). Color via the marigold
+// ornament accent. variant "watermark" (emblem) is intentionally deferred to
+// Batch 2 (hero), where the raster emblem is used.
+import { randomUUID } from "node:crypto";
+interface Props {
+  variant: "stitch" | "diamond";
+  class?: string;
+}
+const { variant, class: className } = Astro.props;
+// Unique id so multiple stitch ornaments on one page don't collide on the pattern.
+const stitchId = `stitch-${randomUUID().slice(0, 8)}`;
+---
+{variant === "stitch" && (
+  <svg
+    class:list={["block w-full h-3 text-marigold", className]}
+    aria-hidden="true"
+    focusable="false"
+    role="presentation"
+  >
+    <defs>
+      <pattern id={stitchId} width="24" height="12" patternUnits="userSpaceOnUse">
+        <line x1="1.5" y1="6" x2="12.5" y2="6" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+      </pattern>
+    </defs>
+    <rect width="100%" height="12" fill={`url(#${stitchId})`} />
+  </svg>
+)}
+{variant === "diamond" && (
+  <svg
+    class:list={["block text-marigold", className]}
+    width="18" height="18" viewBox="0 0 18 18"
+    aria-hidden="true" focusable="false" role="presentation"
+  >
+    <polygon points="9,2 16,9 9,16 2,9" fill="none" stroke="currentColor" stroke-width="2" />
+  </svg>
+)}

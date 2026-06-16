@@ -1,11 +1,11 @@
 ---
-import { Image } from "astro:assets";
+import DuotoneImage from "./ui/DuotoneImage.astro";
 import coachPortrait from "../assets/photos/coach-with-players.jpg";
 import site from "../data/site.json";
 ---
 <section id="about" class="py-20 px-4 bg-base-100">
   <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-    <Image src={coachPortrait} alt={`Coach ${site.business.coach} with two young players`} width={520} densities={[2]} quality={70} class="rounded-box shadow-xl w-full object-cover" />
+    <DuotoneImage src={coachPortrait} alt={`Coach ${site.business.coach} with two young players`} width={520} densities={[2]} quality={70} class="rounded-box shadow-xl w-full" />
     <div>
       <h2 class="text-3xl font-heading font-bold text-primary uppercase">Meet Coach Myles</h2>
       <p class="mt-4 text-base-content/80">Baseball has been part of my life for over 20 years. A Long Beach native, I played college ball in West Los Angeles before my talent took me to Florida, where my playing career was based. Back home now, my passion is helping young athletes build confidence, develop their skills, and learn what it takes to succeed both on and off the field.</p>

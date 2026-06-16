@@ -12,6 +12,7 @@ import Footer from "../components/Footer.astro";
 import Pitching from "../components/Pitching.astro";
 import Quotes from "../components/Quotes.astro";
 import Faq from "../components/Faq.astro";
+import Reveal from "../components/ui/Reveal.astro";
 import { SITE, ID } from "../data/schema-global";
 import { webPageNode } from "../data/schema";
 
@@ -33,10 +34,10 @@ const pageSchema = webPageNode({
   <main id="main">
     <Hero />
     <About />
-    <Services />
+    <Reveal><Services /></Reveal>
     <Pitching />
     <Quotes />
-    <Packages />
+    <Reveal><Packages /></Reveal>
     <Booking />
     <Proof />
     <Faq />
