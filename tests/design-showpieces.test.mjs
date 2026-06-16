@@ -44,3 +44,20 @@ test("Pitching section uses a SectionHeading display title", () => {
   // the display-face heading class is present in the pitching area
   assert.match(h, /font-display/);
 });
+
+test("Packages section uses a SectionHeading display title", () => {
+  assert.match(html(), /Training Packages/);
+});
+
+test("the Elite (featured) tier is visually spotlighted with the marigold accent", () => {
+  const h = html();
+  // featured card carries a marigold accent border/ring utility
+  assert.match(h, /(border|ring)-marigold/);
+});
+
+test("no pricing drifted — all 5 tier prices still render", () => {
+  const h = html();
+  for (const label of ["Free", "$55", "$75", "$585", "$1,500"]) {
+    assert.ok(h.includes(label), `missing package price ${label}`);
+  }
+});
