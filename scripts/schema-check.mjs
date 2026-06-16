@@ -39,8 +39,10 @@ export const FORBIDDEN_KEYS = ["aggregateRating", "review"];
 export function expectedExtra(rel) {
   const p = rel.split(sep).join("/");
   if (ROUTE_EXTRA[p]) return ROUTE_EXTRA[p];
-  // Phase 3: /baseball-lessons/<city>/  ·  Phase 4: /pitching/<slug>/
+  // Phase 3: /baseball-lessons/ hub + /baseball-lessons/<city>/
+  if (p === "baseball-lessons/index.html") return ["CollectionPage", "BreadcrumbList"];
   if (/^baseball-lessons\/[^/]+\/index\.html$/.test(p)) return ["Service", "WebPage", "BreadcrumbList"];
+  // Phase 4: /pitching/ hub + /pitching/<slug>/
   if (p === "pitching/index.html") return ["CollectionPage", "BreadcrumbList"];
   if (/^pitching\/[^/]+\/index\.html$/.test(p)) return ["Article", "WebPage", "BreadcrumbList"];
   return null;

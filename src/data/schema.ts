@@ -113,5 +113,30 @@ export function articleNode(opts: ArticleOpts) {
   return node;
 }
 
-/** Absolute URL for a site-relative path, e.g. abs("/hitting-lessons/") . */
+interface CollectionPageOpts {
+  url: string;
+  name: string;
+  description?: string;
+  /** @ids of member entities (e.g. each city page's Service), as cross-page refs. */
+  hasPart?: string[];
+  breadcrumb?: string;
+}
+
+/** CollectionPage node (a WebPage subtype) for hub pages — no separate WebPage
+ *  node needed. */
+export function collectionPageNode(opts: CollectionPageOpts) {
+  const node: Record<string, unknown> = {
+    "@type": "CollectionPage",
+    "@id": webPageIdFor(opts.url),
+    url: opts.url,
+    name: opts.name,
+    isPartOf: { "@id": ID.website },
+  };
+  if (opts.description) node.description = opts.description;
+  if (opts.hasPart?.length) node.hasPart = opts.hasPart.map((id) => ({ "@id": id }));
+  if (opts.breadcrumb) node.breadcrumb = { "@id": opts.breadcrumb };
+  return node;
+}
+
+/** Absolute URL for a site-relative path, e.g. abs("/baseball-lessons/") . */
 export const abs = (path: string) => `${SITE}${path}`;

@@ -1,0 +1,25 @@
+{
+  "city": "Seal Beach",
+  "region": "Orange County",
+  "title": "Private Baseball Lessons in Seal Beach, CA | MBM Baseball Training",
+  "description": "1-on-1 youth baseball lessons in Seal Beach — hitting, fielding, throwing, pitching, and mindset with Coach Myles, about 15 minutes from home base. Free first lesson.",
+  "h1": "Private Baseball Lessons in Seal Beach",
+  "lead": "Seal Beach is about 15 minutes from our Long Beach home base, so it's an easy spot for Coach Myles to meet your player for focused, 1-on-1 training.",
+  "body": [
+    "Seal Beach has a tight-knit baseball community — Seal Beach PONY Baseball alone fields a few hundred kids each season. In a town that size, the players who get individual attention tend to be the ones who jump a level. That's where private lessons come in.",
+    "We coach the full game — hitting, fielding, throwing, pitching, and baseball IQ — and build it on mechanics and the mental side: developing the right way and staying confident through the ups and downs of a season. Sessions are true 1-on-1, meeting your player at a field that works for your family.",
+    "If your player is new to the game or chasing a travel-ball spot, the free first lesson is a low-key way to see how Coach Myles works."
+  ],
+  "fields": [
+    { "name": "Edison Park", "note": "Public Seal Beach park with a ball field on College Park Drive." },
+    { "name": "Arbor Park", "note": "Sports fields on Lampson Avenue in Seal Beach." }
+  ],
+  "scene": "Seal Beach PONY Baseball serves roughly 250 players ages 3–12 (playing at McGaugh Elementary) and partners with the Beach Cities Miracle League for athletes with special needs.",
+  "travel": "About a 13-minute drive from our Long Beach home base.",
+  "faq": [
+    { "q": "Do you travel to Seal Beach?", "a": "Yes — it's about 15 minutes from home base, one of our closest service areas. We meet at a local field." },
+    { "q": "My child plays Seal Beach PONY — can you help in-season?", "a": "For sure. In-season 1-on-1 work is great for ironing out one specific thing — a swing tweak, footwork, or mound confidence." },
+    { "q": "How do I book?", "a": "Start with the free first lesson — a 30-minute evaluation with Coach Myles. From there we'll map out a plan." }
+  ],
+  "order": 4
+}

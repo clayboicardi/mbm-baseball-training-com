@@ -73,6 +73,10 @@ test("expectedExtra: pitch hub expects CollectionPage + BreadcrumbList", () => {
   assert.deepEqual(expectedExtra("pitching/index.html"), ["CollectionPage", "BreadcrumbList"]);
 });
 
+test("expectedExtra: local-pages hub expects CollectionPage + BreadcrumbList", () => {
+  assert.deepEqual(expectedExtra("baseball-lessons/index.html"), ["CollectionPage", "BreadcrumbList"]);
+});
+
 test("deepHasType: detects forbidden FAQPage nested and via @type array", () => {
   assert.equal(deepHasType([{ "@type": "WebPage", x: { "@type": "FAQPage" } }], "FAQPage"), true);
   assert.equal(deepHasType([{ "@type": ["Thing", "Review"] }], "Review"), true);

@@ -1,0 +1,26 @@
+{
+  "city": "Lakewood",
+  "region": "Los Angeles County",
+  "title": "Private Baseball Lessons in Lakewood, CA | MBM Baseball Training",
+  "description": "1-on-1 youth baseball lessons in Lakewood — hitting, fielding, throwing, pitching, and the mental game with Coach Myles, minutes from home base. Free first lesson.",
+  "h1": "Private Baseball Lessons in Lakewood",
+  "lead": "Lakewood sits about 15 minutes from our Long Beach home base, which makes it one of the easiest places for Coach Myles to meet your player for a true 1-on-1 lesson.",
+  "body": [
+    "Lakewood is a baseball town. Between Lakewood Little League and the city's own Lakewood Youth Sports program, there's no shortage of kids playing ball here — which means your player is competing against a deep field every season. Private lessons are how a lot of them find another gear.",
+    "We coach the whole game — hitting, fielding, throwing, pitching, and baseball IQ — but we lead with development and mindset. The aim is steady, healthy progress that holds up under game pressure, not a quick fix that fades by the next weekend.",
+    "Coach Myles travels to you. We'll pick a field nearby and build the session around exactly what your player is working on, whether that's tryout prep, a swing fix, or first-pitch confidence on the mound."
+  ],
+  "fields": [
+    { "name": "Rynerson Park", "note": "Youth baseball and softball diamonds used by Lakewood Little League." },
+    { "name": "Mayfair Park", "note": "Lakewood's flagship rec park and home of the city's Lakewood Youth Sports baseball." },
+    { "name": "Palms Park", "note": "East Lakewood park with ball diamonds and a community center." }
+  ],
+  "scene": "Lakewood is served by Lakewood Little League (playing out of Rynerson Park) and the city-run Lakewood Youth Sports program, which fields baseball, softball, and t-ball for ages 4–17.",
+  "travel": "About a 15-minute drive from our Long Beach home base.",
+  "faq": [
+    { "q": "Do you travel to Lakewood?", "a": "Yes — Lakewood is one of our closest service areas, about 15 minutes from home base. We meet your player at a local field." },
+    { "q": "Can you help with Little League or LYS tryouts?", "a": "Absolutely. A lot of our Lakewood work is tryout and in-season prep — we build the plan around what the coaches are looking for." },
+    { "q": "How long is a session?", "a": "Sessions run 30 or 60 minutes. The free first lesson is a 30-minute evaluation with Coach Myles." }
+  ],
+  "order": 2
+}

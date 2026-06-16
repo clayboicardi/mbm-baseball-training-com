@@ -1,0 +1,130 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+import { abs } from "../../data/schema";
+import { serviceNode, webPageNode, breadcrumbNode, serviceIdFor, breadcrumbIdFor } from "../../data/schema";
+import { relatedLocations } from "../../lib/related-locations.mjs";
+
+export async function getStaticPaths() {
+  const all = (await getCollection("locations")).sort((a, b) => a.data.order - b.data.order);
+  return all.map((entry) => ({ params: { city: entry.id }, props: { entry, all } }));
+}
+
+const { entry, all } = Astro.props;
+const d = entry.data;
+const url = abs(`/baseball-lessons/${entry.id}/`);
+const related = relatedLocations(all, entry.id, 3);
+
+// Per-route nodes: Service (the local offering) + WebPage (about the Service) +
+// BreadcrumbList. The global LocalBusiness/WebSite/Person come from StructuredData.
+const pageSchema = [
+  serviceNode({
+    url,
+    name: `Private Baseball Lessons in ${d.city}`,
+    serviceType: "Youth baseball training",
+    description: d.description,
+    areaServed: { "@type": "City", name: d.city },
+  }),
+  webPageNode({
+    url,
+    name: d.title,
+    description: d.description,
+    about: serviceIdFor(url),
+    breadcrumb: breadcrumbIdFor(url),
+  }),
+  breadcrumbNode(url, [
+    { name: "Home", item: abs("/") },
+    { name: "Areas We Serve", item: abs("/baseball-lessons/") },
+    { name: d.city, item: url },
+  ]),
+];
+---
+<BaseLayout title={d.title} description={d.description} pageSchema={pageSchema}>
+  <Nav />
+  <main id="main">
+    <section class="bg-neutral text-neutral-content py-16 px-4">
+      <div class="max-w-4xl mx-auto">
+        <nav aria-label="Breadcrumb" class="text-sm text-neutral-content/60">
+          <a href="/" class="link link-hover">Home</a>
+          <span aria-hidden="true"> / </span>
+          <a href="/baseball-lessons/" class="link link-hover">Areas We Serve</a>
+          <span aria-hidden="true"> / </span>
+          <span class="text-neutral-content/90">{d.city}</span>
+        </nav>
+        <h1 class="mt-4 text-4xl sm:text-5xl font-heading font-bold uppercase">{d.h1}</h1>
+        <p class="mt-4 text-lg text-neutral-content/85 max-w-2xl">{d.lead}</p>
+        {d.travel && <p class="mt-3 text-sm text-neutral-content/60">{d.travel}</p>}
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="/#book" class="btn btn-accent btn-lg">Claim Your Free First Lesson</a>
+          <a href="/#packages" class="btn btn-lg btn-outline text-white border-white hover:bg-white hover:text-primary">View Packages</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 px-4">
+      <div class="max-w-3xl mx-auto prose prose-headings:font-heading prose-headings:text-primary prose-a:text-primary">
+        {d.body.map((p) => <p>{p}</p>)}
+      </div>
+    </section>
+
+    {(d.fields.length > 0 || d.scene) && (
+      <section class="py-16 px-4 bg-base-200">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-3xl font-heading font-bold text-primary uppercase">Baseball in {d.city}</h2>
+          {d.scene && <p class="mt-4 text-base-content/80">{d.scene}</p>}
+          {d.fields.length > 0 && (
+            <ul class="mt-6 grid sm:grid-cols-2 gap-3">
+              {d.fields.map((f) => (
+                <li class="card bg-base-100 p-4">
+                  <p class="font-semibold text-primary">{f.name}</p>
+                  {f.note && <p class="text-sm text-base-content/70 mt-1">{f.note}</p>}
+                </li>
+              ))}
+            </ul>
+          )}
+          <p class="mt-6 text-sm text-base-content/60">Coach Myles travels to you — we'll meet at a field that works for your family.</p>
+        </div>
+      </section>
+    )}
+
+    <section class="py-16 px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl font-heading font-bold text-primary uppercase">What we work on</h2>
+        <p class="mt-3 text-base-content/80">Hitting, fielding, throwing, pitching, baseball IQ, and the mental game — every session is built around your player.</p>
+        <a href="/#services" class="btn btn-outline btn-primary mt-6">See all services</a>
+      </div>
+    </section>
+
+    {d.faq.length > 0 && (
+      <section class="py-16 px-4 bg-base-100">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-3xl font-heading font-bold text-primary uppercase text-center">{d.city} — Common Questions</h2>
+          <div class="mt-8 space-y-3">
+            {d.faq.map((f) => (
+              <details class="collapse collapse-arrow bg-base-200" name="city-faq">
+                <summary class="collapse-title text-lg font-semibold">{f.q}</summary>
+                <div class="collapse-content"><p class="text-base-content/80">{f.a}</p></div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {related.length > 0 && (
+      <section class="py-16 px-4 bg-base-200">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-2xl font-heading font-bold text-primary uppercase">Also serving nearby</h2>
+          <div class="mt-6 flex flex-wrap gap-3 justify-center">
+            {related.map((r) => (
+              <a href={`/baseball-lessons/${r.id}/`} class="btn btn-outline btn-primary">{r.data.city}</a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+  </main>
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,24 @@
+{
+  "city": "Los Alamitos",
+  "region": "Orange County",
+  "title": "Private Baseball Lessons in Los Alamitos, CA | MBM Baseball Training",
+  "description": "1-on-1 youth baseball lessons in Los Alamitos — hitting, fielding, throwing, pitching, and mindset with Coach Myles, a short drive from home base. Free first lesson.",
+  "h1": "Private Baseball Lessons in Los Alamitos",
+  "lead": "Los Alamitos is a short drive from our Long Beach home base — roughly 15 to 20 minutes — which makes it an easy fit for regular 1-on-1 training with Coach Myles.",
+  "body": [
+    "For a small city, Los Alamitos has a serious youth-baseball culture. Los Alamitos Youth Baseball runs spring and fall seasons off Farquhar Avenue, and the city's own programs keep even the youngest players in the game. That depth is exactly why private reps matter — they're how a player stands out.",
+    "Coach Myles coaches hitting, fielding, throwing, pitching, and baseball IQ, but the foundation is always mechanics and mindset: developing the right way as a young athlete and learning to compete with confidence. We meet your player at a field nearby and build every session around their goals.",
+    "Whether your player is chasing a starting spot, prepping for tryouts, or just fell in love with the game, the free first lesson is a no-pressure way to see what a real 1-on-1 plan looks like."
+  ],
+  "fields": [
+    { "name": "Little Cottonwood Park", "note": "Public park on Farquhar Avenue with a baseball diamond, near the Los Alamitos Youth Baseball fields." }
+  ],
+  "scene": "Los Alamitos Youth Baseball — a PONY-affiliated league for ages 4–12 — runs spring and fall seasons on Farquhar Avenue, and the city offers its own programs for younger players.",
+  "travel": "Roughly a 15 to 20 minute drive from our Long Beach home base.",
+  "faq": [
+    { "q": "Do you travel to Los Alamitos?", "a": "Yes — it's a short drive from home base. We meet your player at a convenient local field." },
+    { "q": "My child plays Los Alamitos Youth Baseball — can you help between games?", "a": "Definitely. Private 1-on-1 sessions are ideal for sharpening a specific skill between games without the wait of a group practice." },
+    { "q": "What will the first lesson cover?", "a": "A skill evaluation, a quick development-plan preview, and time to ask Coach Myles anything — free, 30 minutes, no obligation." }
+  ],
+  "order": 3
+}
