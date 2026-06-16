@@ -20,8 +20,11 @@ const tiers = (packagesData.tiers as Tier[]).map((t) => ({
     <p class="text-center mt-2 text-base-content/70">Start with a free lesson. Train at your pace.</p>
     <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 items-stretch">
       {tiers.map((t) => (
-        <PackageCard name={t.name} price={t.price} currency={packagesData.currency} priceLabel={t.priceLabel} priceNote={t.priceNote} duration={t.duration} features={t.features} addOns={t.resolvedAddOns} featured={t.featured} cta={t.cta} />
+        <PackageCard name={t.name} price={t.price} currency={packagesData.currency} priceLabel={t.priceLabel} priceNote={t.priceNote} duration={t.duration} features={t.features} addOns={t.resolvedAddOns} featured={t.featured} cta={t.cta} detailHref={`/packages/${t.id}/`} />
       ))}
+    </div>
+    <div class="text-center mt-10">
+      <a href="/packages/" class="btn btn-outline btn-primary">Compare all packages</a>
     </div>
   </div>
 </section>

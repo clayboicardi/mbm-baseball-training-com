@@ -1,0 +1,24 @@
+{
+  "tier": "free-first-lesson",
+  "serviceType": "Free youth baseball evaluation lesson",
+  "title": "Free First Baseball Lesson in Long Beach & Orange County | MBM",
+  "description": "Start with a free 30-minute first lesson with Coach Myles — a real skill evaluation, a training-plan preview, and Q&A. No obligation. Long Beach & Orange County, ages 8–18.",
+  "h1": "Free First Lesson",
+  "lead": "Every player starts here. The free first lesson is a real 30-minute session — not a sales pitch — where Coach Myles gets eyes on your player, evaluates where they are, and shows you exactly how he'd build them up. No cost, no obligation.",
+  "body": [
+    "The goal of the first lesson is simple: figure out where your player is and where they want to go. Coach Myles watches them hit, throw, or field, asks what they're working toward, and points out the one or two things that will make the biggest difference fastest. You leave with a clear, honest read on your player's game.",
+    "You'll also get a preview of the training plan — how Coach Myles would structure the work, which skills to prioritize, and what realistic progress looks like over a season. It's the same individualized approach every MBM player gets, so you can decide whether it's the right fit before spending a dollar.",
+    "There's genuinely no obligation. Some families book a session or a package on the spot; others take the feedback and think it over. Either way you walk away with useful, specific guidance on your player's development."
+  ],
+  "bestFor": [
+    "Families new to MBM who want to meet Coach Myles before committing",
+    "Players unsure which skills to focus on first",
+    "Parents who want an honest evaluation of where their player stands"
+  ],
+  "faq": [
+    { "q": "Is the first lesson really free?", "a": "Yes — a full 30-minute evaluation session at no cost and with no obligation to book anything afterward." },
+    { "q": "What should my player bring?", "a": "Their own glove and bat if they have them, plus cleats or athletic shoes and water. If you're missing gear, just let Coach Myles know ahead of time." },
+    { "q": "Where does the free lesson happen?", "a": "Coach Myles travels to you across Long Beach and Orange County — a field or facility that works for your family." }
+  ],
+  "order": 1
+}

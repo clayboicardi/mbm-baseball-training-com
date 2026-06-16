@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { readFileSync, readdirSync, statSync } from "node:fs"; // readdirSync also used for package-pages 1:1 check
 import { fileURLToPath } from "node:url";
 import { join, dirname } from "node:path";
 
@@ -61,6 +61,30 @@ for (const tier of packages.tiers ?? []) {
   for (const k of tier.addOns ?? [])
     if (!catalogKeys.has(k)) errors.push(`packages.json tier "${tier.id}": addOn "${k}" not in addOnsCatalog`);
 }
+
+// Package detail pages must map 1:1 to packages.json tiers: every page joins a
+// real tier id, and every tier has exactly one page (so /packages/<slug> can't
+// drift out of sync with the locked pricing data).
+const tierIds = new Set((packages.tiers ?? []).map((t) => t.id));
+const pageTiers = new Map(); // tier id -> page filename
+const pkgDir = join(SRC, "data", "package-pages");
+let pkgFiles = [];
+try { pkgFiles = readdirSync(pkgDir).filter((f) => f.endsWith(".json")); } catch { /* none yet */ }
+for (const f of pkgFiles) {
+  let data;
+  try { data = JSON.parse(readFileSync(join(pkgDir, f), "utf8")); }
+  catch (e) { errors.push(`data/package-pages/${f}: invalid JSON — ${e.message}`); continue; }
+  const slug = f.replace(/\.json$/, "");
+  if (data.tier !== slug)
+    errors.push(`data/package-pages/${f}: tier "${data.tier}" must equal filename slug "${slug}"`);
+  if (!tierIds.has(data.tier))
+    errors.push(`data/package-pages/${f}: tier "${data.tier}" is not a packages.json tier id`);
+  if (pageTiers.has(data.tier))
+    errors.push(`data/package-pages/${f}: duplicate page for tier "${data.tier}" (also ${pageTiers.get(data.tier)})`);
+  pageTiers.set(data.tier, f);
+}
+for (const id of tierIds)
+  if (!pageTiers.has(id)) errors.push(`packages.json tier "${id}" has no matching data/package-pages/${id}.json`);
 
 if (errors.length) { console.error("Content check FAILED:\n" + errors.join("\n")); process.exit(1); }
 console.log("Content check passed.");
