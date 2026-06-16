@@ -1,0 +1,22 @@
+---
+// Accessible breadcrumb trail. Items are ordered; the LAST item is the current
+// page (rendered as text with aria-current, not a link). Same DOM/semantics as
+// the inline copies it replaces.
+interface Crumb { label: string; href?: string; }
+interface Props { items: Crumb[]; class?: string; }
+const { items, class: className } = Astro.props;
+---
+<nav aria-label="Breadcrumb" class:list={["text-sm", className]}>
+  <ol class="flex flex-wrap items-center gap-1 text-base-content/60">
+    {items.map((c, i) => (
+      <li class="flex items-center gap-1">
+        {c.href && i < items.length - 1 ? (
+          <a href={c.href} class="link link-hover">{c.label}</a>
+        ) : (
+          <span aria-current="page" class="text-base-content/80">{c.label}</span>
+        )}
+        {i < items.length - 1 && <span aria-hidden="true" class="px-1">/</span>}
+      </li>
+    ))}
+  </ol>
+</nav>
