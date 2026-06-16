@@ -3,15 +3,14 @@ import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
+import { SITE } from "../../data/schema-global";
+import { abs, articleNode, webPageNode, breadcrumbNode, breadcrumbIdFor } from "../../data/schema";
 
-// Spec 1 renderer (docs/content/myles-content-roadmap.md). One page per published
-// pitch at /pitching/<slug>. Drafts are excluded, so a pitch goes live only when
-// its frontmatter sets draft:false (after Myles confirms the cue). With every stub
-// draft:true today, this builds ZERO routes — infra is staged, nothing is live.
+// One page per published pitch at /pitching/<slug>. Drafts are excluded in prod
+// (import.meta.env.DEV previews them under `astro dev`), so a pitch goes live
+// only once its frontmatter sets draft:false.
 export async function getStaticPaths() {
   const posts = (await getCollection("pitches"))
-    // DEV-only: preview drafts under `astro dev`. Production `astro build` sets
-    // import.meta.env.DEV=false, so drafts stay excluded from live routes.
     .filter((p) => import.meta.env.DEV || !p.data.draft)
     .sort((a, b) => a.data.order - b.data.order);
   return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
@@ -19,24 +18,43 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const { title, description, pitch, cue } = post.data;
+const { title, description, pitch } = post.data;
 
-// noBusinessSchema: the LocalBusiness entity lives once on the homepage (its @id
-// is /#localbusiness). Article pages opt out to avoid duplicating that entity
-// across URLs. (Future: add Article/HowTo schema here.)
+const url = abs(`/pitching/${post.id}/`);
+const iso = post.data.updated ? post.data.updated.toISOString() : undefined;
+// Per-route nodes: Article (the post) + WebPage (about the Article) +
+// BreadcrumbList. Global LocalBusiness/WebSite/Person come from StructuredData.
+const pageSchema = [
+  articleNode({ url, headline: title, description, image: `${SITE}/mbm-og.png`, datePublished: iso, dateModified: iso }),
+  webPageNode({ url, name: title, description, about: `${url}#article`, breadcrumb: breadcrumbIdFor(url) }),
+  breadcrumbNode(url, [
+    { name: "Home", item: abs("/") },
+    { name: "Pitching", item: abs("/pitching/") },
+    { name: pitch, item: url },
+  ]),
+];
 ---
-<BaseLayout title={`${pitch} — Pitching Development | MBM`} description={description}>
+<BaseLayout title={`${pitch} — Pitching Development | MBM`} description={description} pageSchema={pageSchema}>
   <Nav />
   <main id="main" class="py-16 px-4">
-    <article class="prose max-w-3xl mx-auto prose-headings:font-heading prose-headings:text-primary prose-a:text-primary">
+    <nav aria-label="Breadcrumb" class="max-w-3xl mx-auto text-sm text-base-content/60">
+      <a href="/" class="link link-hover">Home</a>
+      <span aria-hidden="true"> / </span>
+      <a href="/pitching/" class="link link-hover">Pitching</a>
+      <span aria-hidden="true"> / </span>
+      <span class="text-base-content/80">{pitch}</span>
+    </nav>
+    <article class="prose max-w-3xl mx-auto mt-4 prose-headings:font-heading prose-headings:text-primary prose-a:text-primary">
       <p class="text-sm font-heading uppercase tracking-wide text-brand-red-dark">Pitching Development</p>
       <h1>{title}</h1>
-      <p class="text-lg italic text-base-content/70">“{cue}” — Coach Myles</p>
       <Content />
       <p class="not-prose mt-10">
         <a href="/#book" class="btn btn-accent">Claim Your Free First Lesson</a>
       </p>
     </article>
+    <p class="max-w-3xl mx-auto mt-8 text-sm text-base-content/60">
+      ← Back to <a href="/pitching/" class="link link-primary">all pitching guides</a>
+    </p>
   </main>
   <Footer />
 </BaseLayout>

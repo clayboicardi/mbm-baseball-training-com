@@ -2,26 +2,27 @@
 title: "How Coach Myles Teaches the Fastball"
 pitch: "Fastball"
 cue: "Establish it first"
-description: "Why the fastball is the foundation of every young pitcher's arsenal — and how Coach Myles builds command from the legs up. Private lessons in Long Beach & Orange County."
+description: "Why the fastball is the foundation of every young pitcher's arsenal — proper mechanics, healthy development, and mound mindset. Private lessons in Long Beach & Orange County."
 targetKeyword: "youth fastball mechanics"
 order: 1
-draft: true
+draft: false
+updated: 2026-06-15
 ---
 
-The fastball is where every outing starts. Establish it, command it, then build the rest of the arsenal off it.
+The fastball is where every outing starts. Before a young pitcher worries about a single secondary pitch, the fastball has to be there — so it's where Coach Myles starts every pitcher he works with.
 
-## What it does
+## Proper mechanics
 
-<!-- seed: the pitch you set the count with and that every secondary plays off -->
+A good fastball is built from the ground up, not from the arm down. The power starts in the legs and works forward through the hips and torso, with the arm coming through last. The goal is a balanced, repeatable delivery: a controlled leg lift, a direct move toward the plate, square hips at release, and a finish that lands in fielding position. When the lower half does the work, the arm stays loose and the same delivery repeats pitch after pitch — and command comes from repeatability, not from steering the ball.
 
-## How Coach Myles teaches it
+## Developing it the right way
 
-Built from the legs and forward — no wasted motion, no double-hitch. Command it middle-middle before you expand.
+For a young athlete, command beats velocity every time. The right order of operations is simple: learn to repeat the delivery, learn to throw strikes to both sides of the plate, then let velocity come naturally as the body grows and gets stronger. Chasing radar-gun numbers before the mechanics are clean is how young arms get hurt and how bad habits set in. Build the fastball first; the whole rest of the arsenal plays off it.
 
-<!-- TODO (after Myles confirms cue): grip, arm action, intent -->
+## The mindset
 
-## The common flaw he fixes
+The fastball is a conviction pitch. You're not aiming it — you're committing to a target and trusting the work you've put in. A pitcher who believes in his fastball pitches ahead in the count, and pitching ahead changes everything.
 
-The "double-clutch" in the delivery — squared hips, elbow up, balanced finish, so the motion repeats under pressure.
+One cue Coach Myles comes back to: **establish it first.** Command the fastball before you ever try to expand the zone or add a secondary.
 
-Ready to build a real fastball? [Claim a free first lesson](/#book).
+Every pitcher is different, and a real plan is built around your athlete. [Claim a free first lesson](/#book) and we'll start with the foundation.

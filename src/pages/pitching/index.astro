@@ -1,0 +1,65 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+import { abs, collectionPageNode, breadcrumbNode, breadcrumbIdFor } from "../../data/schema";
+
+const posts = (await getCollection("pitches"))
+  .filter((p) => import.meta.env.DEV || !p.data.draft)
+  .sort((a, b) => a.data.order - b.data.order);
+const url = abs("/pitching/");
+const title = "Pitching Development Guides | MBM Baseball Training";
+const description =
+  "How Coach Myles develops young pitchers — proper mechanics, healthy development, and mound mindset, pitch by pitch. Private lessons in Long Beach & Orange County.";
+
+const pageSchema = [
+  collectionPageNode({
+    url,
+    name: "Pitching Development Guides",
+    description,
+    hasPart: posts.map((p) => `${abs(`/pitching/${p.id}/`)}#article`),
+    breadcrumb: breadcrumbIdFor(url),
+  }),
+  breadcrumbNode(url, [
+    { name: "Home", item: abs("/") },
+    { name: "Pitching", item: url },
+  ]),
+];
+---
+<BaseLayout title={title} description={description} pageSchema={pageSchema}>
+  <Nav />
+  <main id="main">
+    <section class="bg-neutral text-neutral-content py-16 px-4">
+      <div class="max-w-4xl mx-auto">
+        <nav aria-label="Breadcrumb" class="text-sm text-neutral-content/60">
+          <a href="/" class="link link-hover">Home</a>
+          <span aria-hidden="true"> / </span>
+          <span class="text-neutral-content/90">Pitching</span>
+        </nav>
+        <h1 class="mt-4 text-4xl sm:text-5xl font-heading font-bold uppercase">Pitching Development Guides</h1>
+        <p class="mt-4 text-lg text-neutral-content/85 max-w-2xl">{description}</p>
+      </div>
+    </section>
+    <section class="py-16 px-4">
+      <div class="max-w-4xl mx-auto">
+        {posts.length === 0 ? (
+          <p class="text-center text-base-content/60">Guides coming soon.</p>
+        ) : (
+          <div class="grid sm:grid-cols-2 gap-4">
+            {posts.map((p) => (
+              <a href={`/pitching/${p.id}/`} class="card bg-base-200 p-6 hover:bg-base-300 transition-colors">
+                <h2 class="text-xl font-heading font-bold text-primary uppercase">{p.data.pitch}</h2>
+                <p class="mt-2 text-sm text-base-content/70">{p.data.description}</p>
+              </a>
+            ))}
+          </div>
+        )}
+        <div class="text-center mt-10">
+          <a href="/#book" class="btn btn-accent btn-lg">Claim Your Free First Lesson</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
