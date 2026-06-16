@@ -1,12 +1,14 @@
 ---
 import { Icon } from "astro-icon/components";
-interface Props { title: string; blurb: string; icon: string; }
-const { title, blurb, icon } = Astro.props;
+interface Props { title: string; blurb: string; icon: string; href?: string; }
+const { title, blurb, icon, href } = Astro.props;
+const Tag = href ? "a" : "div";
 ---
-<div class="card bg-base-200 hover:shadow-lg transition-shadow">
+<Tag {...(href ? { href } : {})} class:list={["card bg-base-200 transition-all", href ? "hover:shadow-lg hover:bg-base-300" : "hover:shadow-lg"]}>
   <div class="card-body items-center text-center">
     <Icon name={icon} class="w-10 h-10 text-accent" aria-hidden="true" />
     <h3 class="card-title font-heading">{title}</h3>
     <p class="text-sm text-base-content/70">{blurb}</p>
+    {href && <span class="mt-1 text-sm font-semibold text-primary">Learn more →</span>}
   </div>
-</div>
+</Tag>

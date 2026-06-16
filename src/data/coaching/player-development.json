@@ -1,0 +1,26 @@
+{
+  "skill": "Player Development",
+  "icon": "lucide:trending-up",
+  "serviceType": "Youth baseball player development coaching",
+  "title": "Youth Player Development Coaching in Long Beach & OC | MBM",
+  "description": "Private player development with Coach Myles — confidence, accountability, and a growth mindset on and off the field. A long-term plan built around your athlete, ages 8–18.",
+  "h1": "Player Development",
+  "lead": "Skills matter, but who a player becomes matters more. Coach Myles develops the whole athlete — confidence, work ethic, accountability, and a growth mindset — with a long-term plan built around where each player is and where they want to go.",
+  "body": [
+    "Development is about more than mechanics. Confidence, composure, and ownership are coached right alongside the physical skills, because the player who believes in their preparation is the one who performs when it counts. Every athlete is different, so the plan, the pace, and the coaching are built to the individual.",
+    "Real growth is a long game, not a quick fix. Coach Myles builds habits, sets clear goals, and gives honest feedback — tough when it needs to be, encouraging on every good rep — and revisits progress over time. Players and parents always know where things stand and what comes next, through growth spurts, slumps, and breakthroughs alike.",
+    "The game teaches lessons that outlast it. Accountability, handling failure, competing the right way, and leading teammates are the skills that carry off the field and into the rest of a player's life. Coach Myles partners with families to develop those just as deliberately as a swing or a throw."
+  ],
+  "focus": [
+    { "name": "Confidence & composure", "note": "Belief that holds up in big moments, built on real preparation." },
+    { "name": "Work ethic & accountability", "note": "Owning the work and the results, in practice and in games." },
+    { "name": "Growth mindset", "note": "Treating failure as feedback and competing to get better every rep." },
+    { "name": "A plan built to the athlete", "note": "Goals, pace, and coaching tailored to the individual player." },
+    { "name": "Honest feedback", "note": "Tough when it needs to be, encouraging on every good rep." }
+  ],
+  "faq": [
+    { "q": "What does 'player development' actually mean here?", "a": "Developing the whole athlete — confidence, accountability, and mindset — alongside the physical skills, with a plan built around your player." },
+    { "q": "How is progress tracked?", "a": "Through honest, ongoing feedback and clear goals revisited over time, so players and parents always know where things stand." }
+  ],
+  "order": 5
+}

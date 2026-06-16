@@ -4,30 +4,35 @@
   "arsenal": [
     {
       "name": "Fastball",
+      "slug": "fastball",
       "cue": "Establish it first",
       "blurb": "The foundation every other pitch plays off — command it first, built from the legs and forward.",
       "icon": "lucide:flame"
     },
     {
       "name": "Two-Seam",
+      "slug": "two-seam",
       "cue": "Don't aim it — rip it",
       "blurb": "A movement fastball with late, heavy run.",
       "icon": "lucide:wind"
     },
     {
       "name": "Changeup",
+      "slug": "changeup",
       "cue": "Same arm action",
       "blurb": "Mirrors the fastball's arm action so the hitter can't read it — kills timing.",
       "icon": "lucide:gauge"
     },
     {
       "name": "Cutter",
+      "slug": "cutter",
       "cue": "Your swing-and-miss pitch",
       "blurb": "Looks like a fastball, breaks late — a true strikeout pitch.",
       "icon": "lucide:scissors"
     },
     {
       "name": "Knuckle Curve",
+      "slug": "knuckle-curve",
       "cue": "More tumble",
       "blurb": "A breaking ball with depth, dropped into the zone for a called strike.",
       "icon": "lucide:spline"

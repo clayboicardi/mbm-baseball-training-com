@@ -45,6 +45,9 @@ export function expectedExtra(rel) {
   // Phase 4: /pitching/ hub + /pitching/<slug>/
   if (p === "pitching/index.html") return ["CollectionPage", "BreadcrumbList"];
   if (/^pitching\/[^/]+\/index\.html$/.test(p)) return ["Article", "WebPage", "BreadcrumbList"];
+  // "What I Coach": /coaching/ hub + /coaching/<slug>/
+  if (p === "coaching/index.html") return ["CollectionPage", "BreadcrumbList"];
+  if (/^coaching\/[^/]+\/index\.html$/.test(p)) return ["Service", "WebPage", "BreadcrumbList"];
   return null;
 }
 

@@ -1,0 +1,27 @@
+{
+  "skill": "Throwing Mechanics",
+  "icon": "lucide:move-up-right",
+  "serviceType": "Youth baseball throwing mechanics instruction",
+  "title": "Throwing Mechanics & Arm Care Lessons in Long Beach & OC | MBM",
+  "description": "Private throwing lessons with Coach Myles — clean arm action, accuracy, and velocity built on healthy, arm-care-first mechanics. Ages 8–18, Long Beach & Orange County.",
+  "h1": "Throwing Mechanics",
+  "lead": "Every throw on the field starts with the same thing: clean, repeatable arm action. Coach Myles teaches throwing the healthy way — accuracy and velocity built on sound mechanics and arm care, so players throw harder without throwing themselves into trouble.",
+  "body": [
+    "Throwing is a full-body movement, not an arm movement. Coach Myles works on the footwork and direction to the target, the glove side, a clean and efficient arm path, and a balanced follow-through. When the body lines up and the sequence repeats, accuracy follows — and velocity becomes a byproduct of clean mechanics and a strong, well-cared-for arm rather than something a young player muscles up for.",
+    "Arm care comes first, always. Proper warm-up routines, sensible throwing programs, and real respect for workload and rest keep young arms healthy, in line with MLB Pitch Smart guidelines for youth pitchers. Long-toss and velocity work have their place, but only once mechanics are clean and the arm is prepared for it.",
+    "These fundamentals serve every player on the field. Position players get more accurate and more durable; pitchers build on the same foundation with mound-specific work. The order of operations is the same for everyone: clean mechanics and accuracy first, then let strength and velocity come as the athlete grows."
+  ],
+  "focus": [
+    { "name": "Arm path & sequence", "note": "A clean, repeatable arm action sequenced off the lower half and trunk." },
+    { "name": "Footwork & direction", "note": "Lining the body up to the target for accuracy and effortless carry." },
+    { "name": "Arm care & warm-up", "note": "Throwing programs and routines that build durability, in line with Pitch Smart guidelines." },
+    { "name": "Accuracy on the move", "note": "Repeating mechanics from different angles and footwork." },
+    { "name": "Velocity the right way", "note": "Letting velo come from clean mechanics and strength as the athlete matures." }
+  ],
+  "faq": [
+    { "q": "Is this only for pitchers?", "a": "No. Clean throwing mechanics help every position. Pitchers get mound-specific work on top of these same fundamentals." },
+    { "q": "How do you protect young arms?", "a": "Arm care comes first — proper warm-ups, sensible workloads, and rest, following MLB Pitch Smart guidelines. We build durability before chasing velocity." },
+    { "q": "Can throwing mechanics really add velocity?", "a": "Over time, yes — safely. Velocity is a byproduct of clean mechanics and strength that develops as the athlete grows, never something we force at a young arm's expense." }
+  ],
+  "order": 3
+}

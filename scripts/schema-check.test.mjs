@@ -83,6 +83,19 @@ test("expectedExtra: local-pages hub expects CollectionPage + BreadcrumbList", (
   assert.deepEqual(expectedExtra("baseball-lessons/index.html"), ["CollectionPage", "BreadcrumbList"]);
 });
 
+test("routeTypeFailures: coaching skill page pattern passes", () => {
+  const types = new Set([...IDENTITY, "Service", "WebPage", "BreadcrumbList"]);
+  assert.deepEqual(routeTypeFailures("coaching/hitting/index.html", types), []);
+});
+
+test("expectedExtra: coaching hub expects CollectionPage + BreadcrumbList", () => {
+  assert.deepEqual(expectedExtra("coaching/index.html"), ["CollectionPage", "BreadcrumbList"]);
+});
+
+test("expectedExtra: coaching skill page expects Service + WebPage + BreadcrumbList", () => {
+  assert.deepEqual(expectedExtra("coaching/throwing-mechanics/index.html"), ["Service", "WebPage", "BreadcrumbList"]);
+});
+
 test("deepHasType: detects forbidden FAQPage nested and via @type array", () => {
   assert.equal(deepHasType([{ "@type": "WebPage", x: { "@type": "FAQPage" } }], "FAQPage"), true);
   assert.equal(deepHasType([{ "@type": ["Thing", "Review"] }], "Review"), true);

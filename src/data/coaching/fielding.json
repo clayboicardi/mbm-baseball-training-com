@@ -1,0 +1,27 @@
+{
+  "skill": "Fielding",
+  "icon": "lucide:shield",
+  "serviceType": "Youth baseball fielding instruction",
+  "title": "Baseball Fielding & Defense Lessons in Long Beach & OC | MBM",
+  "description": "Private fielding lessons with Coach Myles — footwork, glovework, and reads that lock down the defense. Infield and outfield, ages 8–18, Long Beach & Orange County.",
+  "h1": "Fielding",
+  "lead": "Defense wins close games, and it's the most coachable part of the field. Coach Myles builds clean footwork, soft hands, and the pre-pitch reads that let a player get to the ball under control and make the routine play every time.",
+  "body": [
+    "Good defense is footwork first. Coach Myles teaches players to get to the ball under control and field through it instead of waiting on it — a clean approach, soft hands that funnel to the middle, and a quick, repeatable transfer. The routine play, made every time, is worth more than the occasional highlight.",
+    "The reads matter as much as the hands. Before every pitch a good fielder knows the situation, takes a ready first step, and already knows where the play is. From there it's accurate throwing off a balanced base — to a bag, a cut, or a relay — done the same way every time.",
+    "The work is tailored to the position and the player. Infield, outfield, and the corners each ask for different footwork and angles, and a younger player building glove confidence needs something different than an older one adding range and arm strength. Every session meets the player where they are."
+  ],
+  "focus": [
+    { "name": "Footwork & approach", "note": "Getting to the ball under control and fielding through it, not waiting on it." },
+    { "name": "Glovework & transfers", "note": "Soft hands, a clean funnel, and a quick exchange to the throwing hand." },
+    { "name": "Pre-pitch reads & positioning", "note": "Knowing the situation and the first step before the ball is hit." },
+    { "name": "Throwing on the move", "note": "Accurate, repeatable throws from a balanced base — infield and outfield." },
+    { "name": "Position-specific work", "note": "Drills tailored to where the player actually plays." }
+  ],
+  "faq": [
+    { "q": "Do you coach both infield and outfield?", "a": "Yes. Footwork, reads, and throwing differ by spot, and Coach Myles tailors the work to where the player plays." },
+    { "q": "My player is nervous about hard ground balls — can that change?", "a": "Absolutely. Confidence comes from reps with proper technique. We start where the player is and build glove confidence step by step." },
+    { "q": "Where do fielding lessons happen?", "a": "Coach Myles travels to you across Long Beach and Orange County — a field or facility that works for your family." }
+  ],
+  "order": 2
+}
