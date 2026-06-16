@@ -1,0 +1,26 @@
+{
+  "skill": "Baseball IQ",
+  "icon": "lucide:brain",
+  "serviceType": "Youth baseball IQ and situational coaching",
+  "title": "Baseball IQ Coaching in Long Beach & Orange County | MBM",
+  "description": "Private baseball IQ coaching with Coach Myles — situational awareness, decision-making, and the mental game that win baseball games. Ages 8–18, Long Beach & Orange County.",
+  "h1": "Baseball IQ",
+  "lead": "The best players think the game a step ahead. Coach Myles coaches baseball IQ — knowing the situation, anticipating the play, and making the right decision before the ball is hit — the part of the game that separates good players from winning ones.",
+  "body": [
+    "It starts with situational awareness. Count, outs, runners, score — a smart player knows all of it and knows their job on every single pitch, on offense and on defense. Coach Myles teaches players to slow the game down so they're never caught guessing once the ball is in play.",
+    "From awareness comes better decision-making. Pre-pitch planning, base-running reads, defensive positioning, and picking up cues from the pitcher and the defense all get built through reps and conversation — not lectures. Coach Myles talks through real situations with a player until the right read becomes automatic.",
+    "Baseball IQ and the mental game go hand in hand. Composure, focus, controlling what you can control, and bouncing back after a mistake are coachable skills, and they're where preparation turns into confidence. A player who knows what to do plays faster, calmer, and a step ahead of everyone else."
+  ],
+  "focus": [
+    { "name": "Situational awareness", "note": "Knowing count, outs, runners, and your job before every pitch." },
+    { "name": "Base running", "note": "Reads, secondary leads, and smart, aggressive decisions on the bases." },
+    { "name": "Defensive decisions", "note": "Where the play is, where to be, and where the ball goes." },
+    { "name": "Pre-pitch routine", "note": "A consistent way of preparing for every pitch on offense and defense." },
+    { "name": "The mental game", "note": "Composure, focus, and a short memory under pressure." }
+  ],
+  "faq": [
+    { "q": "Can baseball IQ actually be taught?", "a": "Yes. It's built through reps and talking through real game situations until the right read becomes second nature." },
+    { "q": "Is this useful for younger players?", "a": "Very. Building awareness and good habits early pays off at every level as the game speeds up." }
+  ],
+  "order": 4
+}

@@ -42,4 +42,25 @@ const locations = defineCollection({
   }),
 });
 
-export const collections = { pitches, locations };
+// "What I Coach" skill pages. One JSON file per coaching area, served at
+// /coaching/<slug>. Same honesty gate as locations: every page carries real,
+// useful instruction (lead + 2+ body paragraphs + 3+ focus areas + 2+ FAQ are
+// required), so no thin "service" stub can ship.
+const coaching = defineCollection({
+  loader: glob({ pattern: "*.json", base: "./src/data/coaching" }),
+  schema: z.object({
+    skill: z.string(), // display name, e.g. "Throwing Mechanics"
+    icon: z.string(), // lucide icon (mirrors services.json)
+    serviceType: z.string(), // schema.org Service.serviceType
+    title: z.string(), // SEO <title>
+    description: z.string(), // meta description
+    h1: z.string(),
+    lead: z.string(), // intro paragraph under the H1
+    body: z.array(z.string()).min(2), // genuinely useful instruction
+    focus: z.array(z.object({ name: z.string(), note: z.string().optional() })).min(3), // what we work on
+    faq: z.array(z.object({ q: z.string(), a: z.string() })).min(2),
+    order: z.number().default(99),
+  }),
+});
+
+export const collections = { pitches, locations, coaching };

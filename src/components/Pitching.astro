@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon/components";
 import pitching from "../data/pitching.json";
 
-interface Pitch { name: string; cue: string; blurb: string; icon: string; }
+interface Pitch { name: string; slug: string; cue: string; blurb: string; icon: string; }
 interface Method { title: string; blurb: string; }
 const { intro, arsenalNote, arsenal, method } = pitching as {
   intro: string;
@@ -20,14 +20,15 @@ const { intro, arsenalNote, arsenal, method } = pitching as {
     <p class="max-w-3xl mx-auto text-center mt-2 text-sm text-base-content/70">{arsenalNote}</p>
     <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {arsenal.map((p) => (
-        <div class="card bg-base-200 hover:shadow-lg transition-shadow">
+        <a href={`/pitching/${p.slug}/`} class="card bg-base-200 hover:shadow-lg hover:bg-base-300 transition-all">
           <div class="card-body items-center text-center">
             <Icon name={p.icon} class="w-10 h-10 text-accent" aria-hidden="true" />
             <h4 class="card-title font-heading">{p.name}</h4>
             <p class="text-sm font-semibold uppercase tracking-wide text-brand-red-dark">“{p.cue}”</p>
             <p class="text-sm text-base-content/70">{p.blurb}</p>
+            <span class="mt-1 text-sm font-semibold text-primary">Read the guide →</span>
           </div>
-        </div>
+        </a>
       ))}
     </div>
 

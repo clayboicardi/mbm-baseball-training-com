@@ -20,9 +20,9 @@
 # whose deprecated APIs (Shared Storage, StorageType.persistent, Protected
 # Audience) were tanking the Lighthouse Best Practices score. This replicates
 # CF's default HTML cache policy and adds no-transform. HTML routes only — NOT
-# /_astro (those stay immutable). The /baseball-lessons/* and /pitching/*
-# wildcards cover the dynamic city + pitch pages, so new ones are protected
-# automatically; add a line for any new top-level HTML route.
+# /_astro (those stay immutable). The /baseball-lessons/*, /pitching/*, and
+# /coaching/* wildcards cover the dynamic city + pitch + coaching pages, so new
+# ones are protected automatically; add a line for any new top-level HTML route.
 /
   Cache-Control: public, max-age=0, must-revalidate, no-transform
 /privacy/
@@ -32,4 +32,6 @@
 /baseball-lessons/*
   Cache-Control: public, max-age=0, must-revalidate, no-transform
 /pitching/*
+  Cache-Control: public, max-age=0, must-revalidate, no-transform
+/coaching/*
   Cache-Control: public, max-age=0, must-revalidate, no-transform

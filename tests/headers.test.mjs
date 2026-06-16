@@ -33,8 +33,9 @@ test("/_astro assets are cached immutably for a year", () => {
 });
 
 test("no-transform cache policy covers the dynamic HTML sections", () => {
-  // Without these the new city/pitch pages would let Cloudflare inject its
-  // JS-Detections script and regress the Lighthouse Best Practices score.
+  // Without these the new city/pitch/coaching pages would let Cloudflare inject
+  // its JS-Detections script and regress the Lighthouse Best Practices score.
   assert.match(headers, /\/baseball-lessons\/\*[\s\S]*?no-transform/);
   assert.match(headers, /\/pitching\/\*[\s\S]*?no-transform/);
+  assert.match(headers, /\/coaching\/\*[\s\S]*?no-transform/);
 });

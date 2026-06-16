@@ -1,0 +1,27 @@
+{
+  "skill": "Hitting",
+  "icon": "lucide:zap",
+  "serviceType": "Youth baseball hitting instruction",
+  "title": "Baseball Hitting Lessons in Long Beach & Orange County | MBM",
+  "description": "Private youth hitting lessons with Coach Myles — swing mechanics, timing, and a repeatable approach that carries into real at-bats. Long Beach & Orange County, ages 8–18.",
+  "h1": "Hitting",
+  "lead": "A good swing is simple, repeatable, and built to hold up under pressure. Coach Myles teaches hitting from the ground up — balance and load first, then bat path, then the timing and approach that turn good cage swings into real at-bats.",
+  "body": [
+    "Clean mechanics start below the hands. A balanced stance, an on-time load, and a short, direct move into the swing let the lower half do the work so the barrel stays in the zone longer. Coach Myles doesn't rebuild a swing for the sake of it — he finds the two or three things actually holding a hitter back and fixes those, keeping what already works.",
+    "Mechanics get a hitter ready to hit; approach decides what they do with it. Once the swing repeats, the work moves to timing the pitcher, recognizing pitches early, hitting to all fields, and competing with two strikes. That's the difference between a hitter who looks good in the cage and one who produces in the box.",
+    "The plan is built to the athlete and to the age. Younger players (8–12) build an athletic, fundamentally sound swing and learn to barrel the ball with confidence; older players (13–18) refine their mechanics, add strength and bat speed, and sharpen situational hitting. Every step is paced to where the player is right now."
+  ],
+  "focus": [
+    { "name": "Setup & load", "note": "A balanced stance and an on-time load so the swing starts from a strong, repeatable position." },
+    { "name": "Swing path & sequence", "note": "Connecting the lower half to the hands so the barrel stays in the zone longer." },
+    { "name": "Timing & pitch recognition", "note": "Reading the pitcher and the ball early enough to be on time and selective." },
+    { "name": "Two-strike approach", "note": "Shortening up, protecting the zone, and competing once you're down in the count." },
+    { "name": "Tee, toss & live reps", "note": "Layered work from tee to front-toss to live arms so changes hold up in a game." }
+  ],
+  "faq": [
+    { "q": "What age should a player start hitting lessons?", "a": "Ages 8–18. Younger players build an athletic, fundamentally sound swing; older players refine mechanics and add strength and situational hitting." },
+    { "q": "Will you rebuild my player's whole swing?", "a": "Only if it's truly needed. Most of the time we identify the few things limiting a hitter and fix those, keeping what already works." },
+    { "q": "Where do hitting lessons happen?", "a": "Coach Myles travels to you across Long Beach and Orange County — a field, cage, or facility that works for your family." }
+  ],
+  "order": 1
+}
