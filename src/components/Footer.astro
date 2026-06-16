@@ -22,7 +22,7 @@ const skills = (await getCollection("coaching")).sort((a, b) => a.data.order - b
     {skills.length > 0 && (
       <div class="mt-4 flex flex-col items-center gap-1">
         <p class="text-xs uppercase tracking-wide text-neutral-content/50">What Coach Myles teaches</p>
-        <nav class="flex flex-wrap gap-x-4 gap-y-1 justify-center text-sm">
+        <nav aria-label="Coaching skills" class="flex flex-wrap gap-x-4 gap-y-1 justify-center text-sm">
           <a href="/coaching/" class="link link-hover text-neutral-content/70">All coaching</a>
           {skills.map((s) => (
             <a href={`/coaching/${s.id}/`} class="link link-hover text-neutral-content/70">{s.data.skill}</a>
@@ -33,7 +33,7 @@ const skills = (await getCollection("coaching")).sort((a, b) => a.data.order - b
     {cities.length > 0 && (
       <div class="mt-4 flex flex-col items-center gap-1">
         <p class="text-xs uppercase tracking-wide text-neutral-content/50">Baseball lessons near you</p>
-        <nav class="flex flex-wrap gap-x-4 gap-y-1 justify-center text-sm">
+        <nav aria-label="Service areas" class="flex flex-wrap gap-x-4 gap-y-1 justify-center text-sm">
           <a href="/baseball-lessons/" class="link link-hover text-neutral-content/70">Areas we serve</a>
           {cities.map((c) => (
             <a href={`/baseball-lessons/${c.id}/`} class="link link-hover text-neutral-content/70">{c.data.city}</a>
@@ -41,14 +41,14 @@ const skills = (await getCollection("coaching")).sort((a, b) => a.data.order - b
         </nav>
       </div>
     )}
-    <nav class="mt-2 flex flex-wrap gap-4 text-sm text-neutral-content/60 justify-center">
+    <nav aria-label="Site links" class="mt-2 flex flex-wrap gap-4 text-sm text-neutral-content/60 justify-center">
       <a href="/pitching/" class="link link-hover">Pitching guides</a>
       <a href="/privacy" class="link link-hover">Privacy</a>
       <a href="/terms" class="link link-hover">Terms</a>
     </nav>
     <div class="mt-4 flex flex-col items-center gap-1">
       <p class="text-xs uppercase tracking-wide text-neutral-content/50">Resources for players &amp; parents</p>
-      <nav class="flex flex-wrap gap-x-4 gap-y-1 justify-center text-sm">
+      <nav aria-label="Resources for players and parents" class="flex flex-wrap gap-x-4 gap-y-1 justify-center text-sm">
         <a href="https://www.mlb.com/pitch-smart" target="_blank" rel="noopener noreferrer" class="link link-hover text-neutral-content/70">Pitch Smart — youth arm care<span class="sr-only"> (opens in a new tab)</span></a>
         <a href="https://www.usabaseball.com" target="_blank" rel="noopener noreferrer" class="link link-hover text-neutral-content/70">USA Baseball<span class="sr-only"> (opens in a new tab)</span></a>
         <a href="https://www.littleleague.org" target="_blank" rel="noopener noreferrer" class="link link-hover text-neutral-content/70">Little League<span class="sr-only"> (opens in a new tab)</span></a>

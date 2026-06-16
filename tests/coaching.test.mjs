@@ -55,6 +55,17 @@ test("coaching pages have an accessible breadcrumb with aria-current", () => {
   assert.match(html, /aria-current="page"/);
 });
 
+test("footer nav landmarks each have a unique aria-label", () => {
+  const html = readFileSync(join(dist, "index.html"), "utf8");
+  // Scope to the <footer> so we don't pick up breadcrumb / header navs.
+  const footer = html.match(/<footer[\s\S]*?<\/footer>/)?.[0] ?? "";
+  const navs = [...footer.matchAll(/<nav\b([^>]*)>/g)].map((m) => m[1]);
+  assert.ok(navs.length >= 4, `expected 4+ footer navs, found ${navs.length}`);
+  const labels = navs.map((attrs) => attrs.match(/aria-label="([^"]+)"/)?.[1]);
+  assert.ok(labels.every(Boolean), "every footer nav must have an aria-label");
+  assert.equal(new Set(labels).size, labels.length, "footer nav aria-labels must be unique");
+});
+
 test("coaching hub is a CollectionPage", () => {
   const file = join(dist, "coaching", "index.html");
   assert.ok(existsSync(file), "missing /coaching/ hub");
