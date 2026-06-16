@@ -69,6 +69,13 @@ export function localBusinessNode() {
       addressRegion: "CA",
       addressCountry: "US",
     },
+    // Home-base park (Heartwell Park, Long Beach) per Myles via Clay 2026-06-16.
+    // A coarse anchor for a service-area business; no public street address.
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 33.8313,
+      longitude: -118.1206,
+    },
     areaServed: AREA_SERVED,
     sameAs: [site.business.instagram],
     founder: { "@id": ID.coach },
@@ -85,6 +92,14 @@ export function localBusinessNode() {
     },
     // Min non-zero tier ($55) to top tier ($1,500); tracks packages.json.
     priceRange: "$55–$1,500",
+    // Myles's stated availability: any day, 6am–7pm (summer). By-appointment
+    // within this window (Myles via Clay 2026-06-16).
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      opens: "06:00",
+      closes: "19:00",
+    },
   };
 }
 
