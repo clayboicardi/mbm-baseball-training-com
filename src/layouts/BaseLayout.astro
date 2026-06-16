@@ -39,9 +39,11 @@ const isDefaultOg = image === "/mbm-og.png"; // only the default OG image has kn
     <link rel="preload" href={bigShoulders700} as="font" type="font/woff2" crossorigin="anonymous" />
     <script is:inline>
       // Add js-reveal before first paint so [data-reveal] sections render hidden
-      // from frame one (no visible→hidden flash). Only when motion is allowed;
-      // JS-off / reduced-motion never get the hidden state (see global.css).
-      if (window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {
+      // from frame one (no visible→hidden flash). Only when motion is allowed AND
+      // IntersectionObserver exists to un-hide them — otherwise leave content
+      // visible (JS-off / reduced-motion / no-IO never get the hidden state).
+      if (window.matchMedia("(prefers-reduced-motion: no-preference)").matches
+          && "IntersectionObserver" in window) {
         document.documentElement.classList.add("js-reveal");
       }
     </script>
