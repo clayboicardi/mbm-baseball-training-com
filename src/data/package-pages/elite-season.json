@@ -1,0 +1,24 @@
+{
+  "tier": "elite-season",
+  "serviceType": "Season-long elite youth baseball development program",
+  "title": "Elite Season Baseball Program in Long Beach & Orange County | MBM",
+  "description": "Coach Myles's season-long elite program — 30 private 60-minute sessions, priority scheduling, game-film review, and a custom development plan at the best per-session value. Long Beach & OC.",
+  "h1": "Elite Season Program",
+  "lead": "The Elite Season Program is the deepest level of training MBM offers — 30 one-on-one sessions across a full season, built into a single custom development program with priority scheduling, game-film review, and the best per-session value. It's for the player who's all in.",
+  "body": [
+    "A full season of coached development is a different thing than a stack of lessons. With 30 sessions to work with, Coach Myles builds a season-long arc: a clear plan, measurable goals, and the room to develop mechanics, strength, and the mental game in the right order — then revisit and sharpen as the season unfolds.",
+    "The program includes priority scheduling so your player's training fits around games and school, video analysis to make progress visible, and game-film review — sitting down with real at-bats and innings to coach decisions and approach, not just mechanics. At roughly $50 a session, it's also the best per-session value MBM offers.",
+    "This is a commitment, and Coach Myles treats it like one: tough when it needs to be, encouraging on every good rep, and honest with players and parents about where things stand. It's the right fit for serious players chasing a specific goal — making a team, earning a starting role, or competing at the next level. Apply and Coach Myles will talk through fit before anyone commits."
+  ],
+  "bestFor": [
+    "Serious players chasing a specific goal over a full season",
+    "Families ready for the deepest training investment",
+    "Players who want game-film review and a season-long plan"
+  ],
+  "faq": [
+    { "q": "What makes the Elite Program different?", "a": "It's a full season — 30 sessions — built as one custom program with priority scheduling, video analysis, and game-film review, at the best per-session value (~$50/session)." },
+    { "q": "Is there monthly pricing?", "a": "Ask about monthly options when you apply — Coach Myles will walk through what works for your family before any commitment." },
+    { "q": "How do I start?", "a": "Reach out through the Elite Program inquiry and Coach Myles will talk through your player's goals and whether the program is the right fit." }
+  ],
+  "order": 5
+}

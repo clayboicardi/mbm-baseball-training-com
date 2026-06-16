@@ -1,0 +1,24 @@
+{
+  "tier": "session-30",
+  "serviceType": "30-minute private youth baseball lesson",
+  "title": "30-Minute Private Baseball Lesson in Long Beach & OC | MBM",
+  "description": "A focused 30-minute 1-on-1 baseball lesson with Coach Myles — hitting, fielding, throwing, or baseball IQ. A quick tune-up between games. Long Beach & Orange County, ages 8–18.",
+  "h1": "30-Minute Session",
+  "lead": "The 30-minute session is focused, 1-on-1 time built around a single priority. It's the quick tune-up — sharpen a swing, clean up footwork, or fix one thing before the weekend's games — without committing to a longer block.",
+  "body": [
+    "Because the time is short, the work is deliberate. You and Coach Myles pick one focus — hitting, fielding, throwing, or baseball IQ — and spend the session drilling it with real reps and immediate feedback. It's ideal when your player has a specific thing to work on rather than a full-game overhaul.",
+    "Plenty of players use the 30-minute session as a regular tune-up between games or practices, dropping in to keep a mechanic sharp during the season. If your player wants to cover more ground in one visit, the 60-minute session gives room for multiple skills plus a video clip.",
+    "Want frame-by-frame detail on a swing or delivery? Add the Swing/Mechanics Video Breakdown — slow-motion video with coach feedback and a couple of focus drills to take home."
+  ],
+  "bestFor": [
+    "Players with one specific skill or mechanic to sharpen",
+    "Quick in-season tune-ups between games",
+    "Families who want a shorter, lower-commitment session"
+  ],
+  "faq": [
+    { "q": "What can we cover in 30 minutes?", "a": "One focus area — hitting, fielding, throwing, or baseball IQ — worked deliberately with real reps and feedback. For multiple skills in one visit, the 60-minute session fits better." },
+    { "q": "Can I add a video breakdown?", "a": "Yes. The Swing/Mechanics Video Breakdown add-on gives you slow-motion video with frame-by-frame feedback and 2–3 take-home drills." },
+    { "q": "Where do sessions happen?", "a": "Coach Myles travels to you across Long Beach and Orange County — a field or facility that works for your family." }
+  ],
+  "order": 2
+}

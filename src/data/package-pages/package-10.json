@@ -1,0 +1,24 @@
+{
+  "tier": "package-10",
+  "serviceType": "10-session youth baseball training package",
+  "title": "10-Session Baseball Training Package in Long Beach & OC | MBM",
+  "description": "Ten 60-minute 1-on-1 baseball sessions with Coach Myles at about 10% off the single-session rate — a consistent development plan, video breakdown included. Long Beach & Orange County.",
+  "h1": "10-Session Package",
+  "lead": "The 10-Session Package is where real development happens. Ten 60-minute sessions at about 22% off the single-session rate, tied together by one consistent plan instead of ten disconnected lessons — so each session builds on the last.",
+  "body": [
+    "Skill development is cumulative. With ten sessions mapped out, Coach Myles can sequence the work the right way: build the foundation first, layer on complexity, and revisit and reinforce as your player grows. That continuity is the single biggest reason players on a package improve faster than players booking one-offs.",
+    "The package includes a video breakdown so progress is visible, flexible scheduling that works around your season and school calendar, and a development plan your player and family can actually follow. You're not just buying ten lessons — you're buying a coached arc of improvement.",
+    "It's the right fit for committed players who train year-round or want a focused block heading into a season. If your player is ready for the deepest level of investment — 30 sessions, priority scheduling, and game-film review — the Elite Season Program is the step up."
+  ],
+  "bestFor": [
+    "Committed players who train consistently",
+    "Families who want a structured plan, not one-off lessons",
+    "Anyone preparing for a season or tryouts over several weeks"
+  ],
+  "faq": [
+    { "q": "How much do I save versus single sessions?", "a": "Ten 60-minute sessions work out to $58.50 each versus $75 booked individually — about $165 in savings — plus a video breakdown and a development plan across the ten sessions." },
+    { "q": "How long do I have to use the sessions?", "a": "Scheduling is flexible and works around your season and school calendar — Coach Myles will set a cadence that fits your player. Ask about timing when you book." },
+    { "q": "What's the difference from the Elite Season Program?", "a": "The Elite Program is a full-season commitment — 30 sessions with priority scheduling, game-film review, and a season-long plan at the best per-session value." }
+  ],
+  "order": 4
+}

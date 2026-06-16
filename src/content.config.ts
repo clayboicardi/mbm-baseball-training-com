@@ -63,4 +63,25 @@ const coaching = defineCollection({
   }),
 });
 
-export const collections = { pitches, locations, coaching };
+// Package detail pages. One JSON file per pricing tier, served at
+// /packages/<slug>. EDITORIAL PROSE ONLY — price/duration/features/add-ons stay
+// in the locked src/data/packages.json and are joined by `tier` (the slug ===
+// the packages.json tier id). check-content.mjs enforces a 1:1 tier<->page map.
+// Honesty gate: lead + 2+ body paragraphs + 2+ "best for" points + 2+ FAQ.
+const packagePages = defineCollection({
+  loader: glob({ pattern: "*.json", base: "./src/data/package-pages" }),
+  schema: z.object({
+    tier: z.string(), // MUST equal a packages.json tier id (join key)
+    serviceType: z.string(), // schema.org Service.serviceType
+    title: z.string(), // SEO <title>
+    description: z.string(), // meta description
+    h1: z.string(),
+    lead: z.string(), // intro paragraph under the H1
+    body: z.array(z.string()).min(2), // genuinely useful detail
+    bestFor: z.array(z.string()).min(2), // who this tier fits
+    faq: z.array(z.object({ q: z.string(), a: z.string() })).min(2),
+    order: z.number().default(99),
+  }),
+});
+
+export const collections = { pitches, locations, coaching, packagePages };

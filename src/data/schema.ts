@@ -62,6 +62,25 @@ export function breadcrumbNode(url: string, trail: Crumb[]) {
   };
 }
 
+interface OfferOpts {
+  url: string;
+  /** Price in major currency units (e.g. 55 or 0). Serialized as a string. */
+  price: number;
+  priceCurrency: string;
+}
+
+/** Nested Offer for a purchasable Service (price stays sourced from the locked
+ *  packages.json — never hard-coded here). availability is always InStock. */
+export function offerNode(opts: OfferOpts) {
+  return {
+    "@type": "Offer",
+    price: String(opts.price),
+    priceCurrency: opts.priceCurrency,
+    availability: "https://schema.org/InStock",
+    url: opts.url,
+  };
+}
+
 interface ServiceOpts {
   url: string;
   name: string;
@@ -69,6 +88,8 @@ interface ServiceOpts {
   serviceType?: string;
   /** Override the global areaServed for a location-specific Service. */
   areaServed?: unknown;
+  /** Nested Offer(s) for a purchasable Service (e.g. a pricing tier). */
+  offers?: unknown;
 }
 
 /** Service node. provider always references the global business. */
@@ -83,6 +104,7 @@ export function serviceNode(opts: ServiceOpts) {
   if (opts.serviceType) node.serviceType = opts.serviceType;
   if (opts.description) node.description = opts.description;
   if (opts.areaServed) node.areaServed = opts.areaServed;
+  if (opts.offers) node.offers = opts.offers;
   return node;
 }
 

@@ -11,8 +11,9 @@ interface Props {
   addOns?: AddOn[];
   featured?: boolean;
   cta: { label: string; target: string };
+  detailHref?: string;
 }
-const { name, price, currency, priceLabel, priceNote, duration, features, addOns = [], featured, cta } = Astro.props;
+const { name, price, currency, priceLabel, priceNote, duration, features, addOns = [], featured, cta, detailHref } = Astro.props;
 const money = new Intl.NumberFormat("en-US", { style: "currency", currency, maximumFractionDigits: 0 });
 const displayPrice = priceLabel ?? (price === 0 ? "Free" : money.format(price));
 ---
@@ -31,8 +32,9 @@ const displayPrice = priceLabel ?? (price === 0 ? "Free" : money.format(price));
         {addOns.map((a) => <li class="text-xs text-base-content/70">+ {a.label} — {money.format(a.price)}</li>)}
       </ul>
     )}
-    <div class="card-actions mt-auto pt-6">
+    <div class="card-actions mt-auto pt-6 flex-col gap-2">
       <a href={cta.target} class={`btn w-full ${featured ? "btn-accent" : "btn-primary"}`}>{cta.label}</a>
+      {detailHref && <a href={detailHref} class="link link-hover text-sm text-primary font-semibold">See full details →</a>}
     </div>
   </div>
 </div>

@@ -48,6 +48,10 @@ export function expectedExtra(rel) {
   // "What I Coach": /coaching/ hub + /coaching/<slug>/
   if (p === "coaching/index.html") return ["CollectionPage", "BreadcrumbList"];
   if (/^coaching\/[^/]+\/index\.html$/.test(p)) return ["Service", "WebPage", "BreadcrumbList"];
+  // Package detail pages: /packages/ hub + /packages/<slug>/ (the Service
+  // carries a nested Offer; Offer is not top-level so it isn't listed here).
+  if (p === "packages/index.html") return ["CollectionPage", "BreadcrumbList"];
+  if (/^packages\/[^/]+\/index\.html$/.test(p)) return ["Service", "WebPage", "BreadcrumbList"];
   return null;
 }
 
