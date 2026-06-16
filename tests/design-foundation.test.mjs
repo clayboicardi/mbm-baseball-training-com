@@ -25,3 +25,20 @@ test("duotone treatment is CSS-only (no extra requests)", () => {
   assert.match(css, /\.duotone::after/);
   assert.match(css, /mix-blend-mode:\s*multiply/);
 });
+
+const home = join(root, "dist", "index.html");
+const html = () => {
+  if (!existsSync(home)) throw new Error("dist/index.html missing — run `npm run build`");
+  return readFileSync(home, "utf8");
+};
+
+test("built homepage preloads the display font", () => {
+  assert.match(html(), /rel="preload"[^>]*big-shoulders-display[^>]*as="font"/);
+});
+
+test("inline reveal script honors reduced-motion and targets [data-reveal]", () => {
+  const h = html();
+  assert.match(h, /matchMedia\(["']\(prefers-reduced-motion: no-preference\)["']\)/);
+  assert.match(h, /js-reveal/);
+  assert.match(h, /\[data-reveal\]/);
+});
