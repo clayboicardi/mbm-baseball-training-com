@@ -25,7 +25,7 @@ const { title, description, pitch, cue } = post.data;
 // is /#localbusiness). Article pages opt out to avoid duplicating that entity
 // across URLs. (Future: add Article/HowTo schema here.)
 ---
-<BaseLayout title={`${pitch} — Pitching Development | MBM`} description={description} noBusinessSchema>
+<BaseLayout title={`${pitch} — Pitching Development | MBM`} description={description}>
   <Nav />
   <main id="main" class="py-16 px-4">
     <article class="prose max-w-3xl mx-auto prose-headings:font-heading prose-headings:text-primary prose-a:text-primary">

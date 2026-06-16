@@ -11,6 +11,10 @@
     "preview": "astro preview",
     "check": "astro check",
     "check:content": "node scripts/check-content.mjs",
+    "pretest": "astro build",
+    "test": "node --test",
+    "preschema-check": "astro build",
+    "schema-check": "node scripts/schema-check.mjs",
     "astro": "astro"
   },
   "dependencies": {
