@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import site from "../data/site.json";
 import testimonials from "../data/testimonials.json";
+import SectionHeading from "./ui/SectionHeading.astro";
 
 interface Testimonial { quote: string; author: string; }
 
@@ -25,7 +26,7 @@ const testimonialList = testimonials as Testimonial[];
 ---
 <section id="gallery" class="py-20 px-4 bg-base-100">
   <div class="max-w-6xl mx-auto">
-    <h2 class="text-3xl font-heading font-bold text-primary uppercase text-center">On the Field</h2>
+    <SectionHeading eyebrow="From the Dugout" title="On the Field" />
     <div class="mt-8 grid grid-cols-2 md:grid-cols-3 gap-3">
       {gallery.map((img) => <Image src={img.src} alt={img.alt} width={420} quality={70} class="rounded-box w-full h-48 object-cover" />)}
     </div>

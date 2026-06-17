@@ -5,6 +5,10 @@ import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
 import { abs, serviceNode, webPageNode, breadcrumbNode, serviceIdFor, breadcrumbIdFor } from "../../data/schema";
 import { relatedLocations } from "../../lib/related-locations.mjs";
+import Breadcrumb from "../../components/ui/Breadcrumb.astro";
+import Ornament from "../../components/ui/Ornament.astro";
+import Reveal from "../../components/ui/Reveal.astro";
+import SectionHeading from "../../components/ui/SectionHeading.astro";
 
 export async function getStaticPaths() {
   const all = (await getCollection("locations")).sort((a, b) => a.data.order - b.data.order);
@@ -45,16 +49,10 @@ const pageSchema = [
   <main id="main">
     <section class="bg-neutral text-neutral-content py-16 px-4">
       <div class="max-w-4xl mx-auto">
-        <nav aria-label="Breadcrumb" class="text-sm text-neutral-content/60">
-          <ol class="flex flex-wrap items-center gap-x-2 gap-y-1">
-            <li><a href="/" class="link link-hover">Home</a></li>
-            <li aria-hidden="true">/</li>
-            <li><a href="/baseball-lessons/" class="link link-hover">Areas We Serve</a></li>
-            <li aria-hidden="true">/</li>
-            <li><span class="text-neutral-content/90" aria-current="page">{d.city}</span></li>
-          </ol>
-        </nav>
-        <h1 class="mt-4 text-4xl sm:text-5xl font-heading font-bold uppercase">{d.h1}</h1>
+        <Breadcrumb items={[{label:"Home",href:"/"}, {label:"Areas We Serve", href:"/baseball-lessons/"}, {label:d.city}]} tone="dark" />
+        <p class="mt-4 font-heading text-sm uppercase tracking-[0.25em] text-marigold">Baseball Lessons</p>
+        <h1 class="font-display fluid-lg uppercase text-white mt-2">{d.h1}</h1>
+        <div class="mt-4 w-28"><Ornament variant="stitch" /></div>
         <p class="mt-4 text-lg text-neutral-content/85 max-w-2xl">{d.lead}</p>
         {d.travel && <p class="mt-3 text-sm text-neutral-content/60">{d.travel}</p>}
         <div class="mt-6 flex flex-wrap gap-3">
@@ -64,65 +62,73 @@ const pageSchema = [
       </div>
     </section>
 
-    <section class="py-16 px-4">
+    <section class="py-16 px-4 bg-base-100">
       <div class="max-w-3xl mx-auto prose prose-headings:font-heading prose-headings:text-primary prose-a:text-primary">
         {d.body.map((p) => <p>{p}</p>)}
       </div>
     </section>
 
     {(d.fields.length > 0 || d.scene) && (
-      <section class="py-16 px-4 bg-base-200">
+      <section class="py-16 px-4 bg-paper">
         <div class="max-w-3xl mx-auto">
-          <h2 class="text-3xl font-heading font-bold text-primary uppercase">Baseball in {d.city}</h2>
-          {d.scene && <p class="mt-4 text-base-content/80">{d.scene}</p>}
-          {d.fields.length > 0 && (
-            <ul class="mt-6 grid sm:grid-cols-2 gap-3">
-              {d.fields.map((f) => (
-                <li class="card bg-base-100 p-4">
-                  <p class="font-semibold text-primary">{f.name}</p>
-                  {f.note && <p class="text-sm text-base-content/70 mt-1">{f.note}</p>}
-                </li>
-              ))}
-            </ul>
-          )}
-          <p class="mt-6 text-sm text-base-content/60">Coach Myles travels to you — we'll meet at a field that works for your family.</p>
+          <SectionHeading eyebrow="Local Baseball" title={`Baseball in ${d.city}`} align="left" />
+          <Reveal>
+            {d.scene && <p class="mt-4 text-base-content/80">{d.scene}</p>}
+            {d.fields.length > 0 && (
+              <ul class="mt-6 grid sm:grid-cols-2 gap-3">
+                {d.fields.map((f) => (
+                  <li class="card bg-base-100 p-4">
+                    <p class="font-semibold text-primary">{f.name}</p>
+                    {f.note && <p class="text-sm text-base-content/70 mt-1">{f.note}</p>}
+                  </li>
+                ))}
+              </ul>
+            )}
+            <p class="mt-6 text-sm text-base-content/60">Coach Myles travels to you — we'll meet at a field that works for your family.</p>
+          </Reveal>
         </div>
       </section>
     )}
 
-    <section class="py-16 px-4">
+    <section class="py-16 px-4 bg-base-100">
       <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl font-heading font-bold text-primary uppercase">What we work on</h2>
-        <p class="mt-3 text-base-content/80">Hitting, fielding, throwing, pitching, baseball IQ, and the mental game — every session is built around your player.</p>
-        <a href="/#services" class="btn btn-outline btn-primary mt-6">See all services</a>
+        <SectionHeading eyebrow="The Work" title="What we work on" align="center" />
+        <Reveal>
+          <p class="mt-3 text-base-content/80">Hitting, fielding, throwing, pitching, baseball IQ, and the mental game — every session is built around your player.</p>
+          <a href="/#services" class="btn btn-outline btn-primary mt-6">See all services</a>
+        </Reveal>
       </div>
     </section>
 
     {d.faq.length > 0 && (
-      <section class="py-16 px-4 bg-base-100">
+      <section class="py-16 px-4 bg-paper">
         <div class="max-w-3xl mx-auto">
-          <h2 class="text-3xl font-heading font-bold text-primary uppercase text-center">{d.city} — Common Questions</h2>
-          <div class="mt-8 space-y-3">
-            {d.faq.map((f) => (
-              <details class="collapse collapse-arrow bg-base-200" name="city-faq">
-                <summary class="collapse-title text-lg font-semibold">{f.q}</summary>
-                <div class="collapse-content"><p class="text-base-content/80">{f.a}</p></div>
-              </details>
-            ))}
-          </div>
+          <SectionHeading eyebrow="Common Questions" title={`${d.city} — Common Questions`} align="center" />
+          <Reveal>
+            <div class="mt-8 space-y-3">
+              {d.faq.map((f) => (
+                <details class="collapse collapse-arrow bg-base-200" name="city-faq">
+                  <summary class="collapse-title text-lg font-semibold">{f.q}</summary>
+                  <div class="collapse-content"><p class="text-base-content/80">{f.a}</p></div>
+                </details>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
     )}
 
     {related.length > 0 && (
-      <section class="py-16 px-4 bg-base-200">
+      <section class="py-16 px-4 bg-base-100">
         <div class="max-w-4xl mx-auto text-center">
-          <h2 class="text-2xl font-heading font-bold text-primary uppercase">Also serving nearby</h2>
-          <div class="mt-6 flex flex-wrap gap-3 justify-center">
-            {related.map((r) => (
-              <a href={`/baseball-lessons/${r.id}/`} class="btn btn-outline btn-primary">{r.data.city}</a>
-            ))}
-          </div>
+          <SectionHeading eyebrow="Keep Exploring" title="Also serving nearby" align="center" />
+          <Reveal>
+            <div class="mt-6 flex flex-wrap gap-3 justify-center">
+              {related.map((r) => (
+                <a href={`/baseball-lessons/${r.id}/`} class="btn btn-outline btn-primary">{r.data.city}</a>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
     )}

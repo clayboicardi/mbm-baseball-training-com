@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import site from "../data/site.json";
 import footerLogo from "../assets/brand/mbm-lockup-stacked-dark.png";
+import Ornament from "./ui/Ornament.astro";
 const year = new Date().getFullYear();
 // Sitewide hubs linking every landing page (hub-and-spoke internal links).
 const cities = (await getCollection("locations")).sort(
@@ -12,6 +13,7 @@ const skills = (await getCollection("coaching")).sort((a, b) => a.data.order - b
 ---
 <footer class="footer footer-center bg-neutral text-neutral-content p-10">
   <aside>
+    <div class="mx-auto mb-8 w-32"><Ornament variant="stitch" /></div>
     <Image src={footerLogo} alt={site.business.name} width={200} height={113} class="w-40 h-auto mx-auto" />
     <p class="text-neutral-content/70">{site.business.location}</p>
     <div class="flex flex-wrap gap-4 mt-2 justify-center">

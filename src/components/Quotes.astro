@@ -1,13 +1,14 @@
 ---
 import quotes from "../data/quotes.json";
+import SectionHeading from "./ui/SectionHeading.astro";
 
 interface Quote { quote: string; }
 const items = quotes as Quote[];
 ---
-<section id="coach-voice" class="py-20 px-4 bg-base-200/50">
+<section id="coach-voice" class="py-20 px-4 bg-paper">
   <div class="max-w-5xl mx-auto">
-    <h2 class="text-3xl font-heading font-bold text-primary uppercase text-center">In His Own Words</h2>
-    <p class="text-center mt-2 text-base-content/70">Real cues from real sessions on the mound.</p>
+    <SectionHeading eyebrow="Coaching Philosophy" title="In His Own Words" />
+    <p class="text-center mt-4 text-base-content/70">Real cues from real sessions on the mound.</p>
     <div class="mt-10 grid gap-6 sm:grid-cols-2">
       {items.map((q) => (
         <figure class="card bg-base-100 shadow-sm">
