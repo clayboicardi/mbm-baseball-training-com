@@ -22,7 +22,13 @@ test("hero uses the display headline + a decorative emblem watermark", () => {
 
 test("hero keeps the LCP images eager + high priority (photo + emblem watermark)", () => {
   const h = html();
-  assert.match(h, /fetchpriority="high"/);
+  // the full-bleed coach photo must stay eager + high priority
+  const photo = h.match(/<img\b[^>]*alt="Coach Myles Berniard-Mendez[^>]*>/);
+  assert.ok(photo, "hero coach photo img not found");
+  assert.match(photo[0], /fetchpriority="high"/);
+  assert.match(photo[0], /loading="eager"/);
+  assert.doesNotMatch(photo[0], /loading="lazy"/);
+
   // the emblem watermark (opacity-[0.06]) is the measured LCP on mobile — it must
   // be eager + high priority, never lazy (Lighthouse LCP request discovery).
   const emblem = h.match(/<img\b[^>]*opacity-\[0\.06\][^>]*>/);
