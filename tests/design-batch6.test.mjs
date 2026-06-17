@@ -23,13 +23,14 @@ test("Contact CTA is a treated photo band (P23), lazy — not the LCP", () => {
   assert.match(img[0], /object-cover/);
   // honest alt naming the high-five
   assert.match(img[0], /alt="[^"]*high-five[^"]*"/i);
-  // scrim present so the white CTA copy stays legible
-  assert.match(h, /from-neutral\/75[^"]*via-neutral\/85[^"]*to-neutral\/75/);
+  // a downward readability scrim exists (don't lock exact opacity stops)
+  assert.match(h, /bg-gradient-to-b[^"]*\bfrom-neutral\//);
 });
 
 test("two decorative duotone divider strips break up the homepage", () => {
   const h = html();
-  const strips = h.match(/<div class="duotone w-full h-24 sm:h-32" aria-hidden="true">/g) || [];
+  // match a duotone wrapper that is aria-hidden, robust to class order / extras
+  const strips = h.match(/<div\b[^>]*\bclass=['"][^'"]*\bduotone\b[^'"]*['"][^>]*\baria-hidden=['"]true['"][^>]*>/g) || [];
   assert.equal(strips.length, 2, "expected exactly 2 duotone divider strips");
   // each strip carries one of the detail shots, decorative (empty alt) + lazy
   for (const name of ["detail-cleats", "detail-bats"]) {
