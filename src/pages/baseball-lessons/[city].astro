@@ -9,6 +9,14 @@ import Breadcrumb from "../../components/ui/Breadcrumb.astro";
 import Ornament from "../../components/ui/Ornament.astro";
 import Reveal from "../../components/ui/Reveal.astro";
 import SectionHeading from "../../components/ui/SectionHeading.astro";
+import { Image } from "astro:assets";
+import fieldLongbeach from "../../assets/photos/field-longbeach.jpg";
+import fieldCages from "../../assets/photos/field-cages.jpg";
+
+// One shared, people-free golden-hour field photo behind every city hero —
+// honest (a quiet local diamond, no stadium/crowd), so the alt is generic.
+const heroAlt = "A quiet local baseball field at golden hour with palm trees beyond the outfield";
+const ctaAlt = "Empty batting cages at dusk under the lights";
 
 export async function getStaticPaths() {
   const all = (await getCollection("locations")).sort((a, b) => a.data.order - b.data.order);
@@ -47,14 +55,16 @@ const pageSchema = [
 <BaseLayout title={d.title} description={d.description} pageSchema={pageSchema}>
   <Nav />
   <main id="main">
-    <section class="bg-neutral text-neutral-content py-16 px-4">
-      <div class="max-w-4xl mx-auto">
+    <section class="relative overflow-hidden bg-neutral text-neutral-content py-16 px-4">
+      <Image src={fieldLongbeach} alt={heroAlt} widths={[640, 960, 1264]} sizes="100vw" format="webp" loading="eager" fetchpriority="high" quality={64} class="absolute inset-0 h-full w-full object-cover object-center" />
+      <div class="absolute inset-0 bg-gradient-to-r from-neutral/80 via-neutral/50 to-neutral/22"></div>
+      <div class="relative z-10 max-w-4xl mx-auto">
         <Breadcrumb items={[{label:"Home",href:"/"}, {label:"Areas We Serve", href:"/baseball-lessons/"}, {label:d.city}]} tone="dark" />
-        <p class="mt-4 font-heading text-sm uppercase tracking-[0.25em] text-marigold">Baseball Lessons</p>
-        <h1 class="font-display fluid-lg uppercase text-white mt-2">{d.h1}</h1>
+        <p class="mt-4 font-heading text-sm uppercase tracking-[0.25em] text-marigold [text-shadow:0_2px_12px_#0b1f338c]">Baseball Lessons</p>
+        <h1 class="font-display fluid-lg uppercase text-white mt-2 [text-shadow:0_2px_16px_#0b1f33a6]">{d.h1}</h1>
         <div class="mt-4 w-28"><Ornament variant="stitch" /></div>
-        <p class="mt-4 text-lg text-neutral-content/85 max-w-2xl">{d.lead}</p>
-        {d.travel && <p class="mt-3 text-sm text-neutral-content/60">{d.travel}</p>}
+        <p class="mt-4 text-lg text-neutral-content/85 max-w-2xl [text-shadow:0_2px_12px_#0b1f338c]">{d.lead}</p>
+        {d.travel && <p class="mt-3 text-sm text-neutral-content/70 [text-shadow:0_2px_12px_#0b1f338c]">{d.travel}</p>}
         <div class="mt-6 flex flex-wrap gap-3">
           <a href="/#book" class="btn btn-accent btn-lg">Claim Your Free First Lesson</a>
           <a href="/#packages" class="btn btn-lg btn-outline text-white border-white hover:bg-white hover:text-primary">View Packages</a>
@@ -90,12 +100,16 @@ const pageSchema = [
       </section>
     )}
 
-    <section class="py-16 px-4 bg-base-100">
-      <div class="max-w-3xl mx-auto text-center">
-        <SectionHeading eyebrow="The Work" title="What we work on" align="center" />
+    <section class="relative overflow-hidden bg-neutral text-neutral-content py-16 px-4">
+      <Image src={fieldCages} alt={ctaAlt} widths={[640, 960, 1264]} sizes="100vw" format="webp" loading="lazy" quality={62} class="absolute inset-0 h-full w-full object-cover object-center" />
+      <div class="absolute inset-0 bg-gradient-to-b from-neutral/75 via-neutral/85 to-neutral/75"></div>
+      <div class="relative z-10 max-w-3xl mx-auto text-center">
+        <p class="font-heading text-sm uppercase tracking-[0.2em] text-accent [text-shadow:0_2px_12px_#0b1f338c]">The Work</p>
+        <h2 class="font-display fluid-lg uppercase text-white mt-1 [text-shadow:0_2px_16px_#0b1f33a6]">What we work on</h2>
+        <div class="mt-3 w-24 mx-auto"><Ornament variant="stitch" /></div>
         <Reveal>
-          <p class="mt-3 text-base-content/80">Hitting, fielding, throwing, pitching, baseball IQ, and the mental game — every session is built around your player.</p>
-          <a href="/#services" class="btn btn-outline btn-primary mt-6">See all services</a>
+          <p class="mt-4 text-neutral-content/90 [text-shadow:0_2px_12px_#0b1f338c]">Hitting, fielding, throwing, pitching, baseball IQ, and the mental game — every session is built around your player.</p>
+          <a href="/#services" class="btn btn-lg btn-outline text-white border-white hover:bg-white hover:text-primary mt-6">See all services</a>
         </Reveal>
       </div>
     </section>
