@@ -7,14 +7,15 @@ import SectionHeading from "./ui/SectionHeading.astro";
 
 interface Testimonial { quote: string; author: string; }
 
-// Filename -> descriptive alt for the gallery photos. Keep in sync when the
-// photos change; an unmapped file falls back to alt="" (treated decorative).
+// Filename -> descriptive alt for the gallery photos. The numeric prefixes set
+// the curated display order (the grid renders in filename sort order). Keep in
+// sync when the photos change; an unmapped file falls back to alt="" (decorative).
 const altTexts: Record<string, string> = {
-  "gallery-huddle.jpg": "Coach Myles holds a mound meeting with young baseball players at a Long Beach field",
-  "gallery-fielding.jpg": "Coach Myles coaches fielding positioning with young players during practice",
-  "gallery-game.jpg": "A youth baseball game in progress at a local Long Beach field, with the coach watching from the foreground",
-  "gallery-batter.jpg": "A young batter waits for the pitch at the plate during a local youth game",
-  "gallery-base.jpg": "Coach Myles guides a young base runner during an Orange County youth game",
+  "01-gallery-huddle.jpg": "Coach Myles holds a mound meeting with young baseball players at a Long Beach field",
+  "02-gallery-fielding.jpg": "Coach Myles coaches fielding positioning with young players during practice",
+  "03-gallery-game.jpg": "A youth baseball game in progress at a local Long Beach field, with the coach watching from the foreground",
+  "04-gallery-batter.jpg": "A young batter waits for the pitch at the plate during a local youth game",
+  "05-gallery-base.jpg": "Coach Myles guides a young base runner during an Orange County youth game",
 };
 
 const galleryMods = import.meta.glob<{ default: ImageMetadata }>("../assets/photos/gallery/*.{jpg,jpeg,png}", { eager: true });
