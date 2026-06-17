@@ -19,6 +19,9 @@ const ctaAlt = "Coach Myles and a young player sharing a high-five at the field"
       <a href={site.business.phoneHref} class="btn btn-accent btn-lg whitespace-normal h-auto">Call / Text {site.business.phone}</a>
       <a href={`mailto:${site.business.email}`} class="btn btn-lg btn-outline border-white text-white hover:bg-white hover:text-primary">Email Coach Myles</a>
     </div>
-    <p class="mt-4 text-neutral-content/90 [text-shadow:0_2px_12px_#0b1f338c]">{site.business.serviceArea}</p>
+    <div class="mt-6 text-neutral-content/90 [text-shadow:0_2px_12px_#0b1f338c]">
+      <p>{site.business.serviceArea}</p>
+      <p class="mt-1 text-sm text-neutral-content/80">{site.business.hours} · <a href={site.business.phoneHref} class="link link-hover">{site.business.phone}</a></p>
+    </div>
   </div>
 </section>
