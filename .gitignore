@@ -11,3 +11,12 @@ dist/
 assets-incoming/brand/mbm-emblem-master.png
 assets-incoming/brand/mbm-emblem-on-white.png
 assets-incoming/brand/_preview/
+
+# Local working files — photo-prep staging + scratch docs (not site code)
+docs/photo-preview/
+docs/mbm-font-ab.html
+docs/mbm-photo-shotlist.html
+
+# Claude Code local working dir (worktrees + local settings)
+.claude/worktrees/
+.claude/settings.local.json
