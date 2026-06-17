@@ -15,6 +15,7 @@
     "test": "node --test",
     "preschema-check": "astro build",
     "schema-check": "node scripts/schema-check.mjs",
+    "indexnow": "node scripts/indexnow-submit.mjs",
     "astro": "astro"
   },
   "dependencies": {
