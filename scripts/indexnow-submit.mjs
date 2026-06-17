@@ -19,19 +19,35 @@ const ENDPOINT = "https://api.indexnow.org/indexnow";
 const dryRun = process.argv.includes("--dry-run");
 
 async function fetchText(url) {
-  const res = await fetch(url, { headers: { "User-Agent": "mbm-indexnow/1.0" } });
+  const res = await fetch(url, {
+    headers: { "User-Agent": "mbm-indexnow/1.0" },
+    signal: AbortSignal.timeout(10000),
+  });
   if (!res.ok) throw new Error(`GET ${url} → ${res.status} ${res.statusText}`);
   return res.text();
 }
 
+const decodeXmlEntities = (s) =>
+  s
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/&amp;/g, "&");
+
 const extractLocs = (xml) =>
-  [...xml.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)].map((m) => m[1]);
+  [...xml.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)].map((m) => decodeXmlEntities(m[1]));
 
 async function collectUrls() {
-  const childSitemaps = extractLocs(await fetchText(SITEMAP_INDEX));
+  const xml = await fetchText(SITEMAP_INDEX);
   const urls = new Set();
-  for (const sm of childSitemaps) {
-    for (const u of extractLocs(await fetchText(sm))) urls.add(u);
+  // Support both a <sitemapindex> (fetch each child sitemap) and a flat <urlset>.
+  if (xml.includes("<sitemapindex")) {
+    for (const sm of extractLocs(xml)) {
+      for (const u of extractLocs(await fetchText(sm))) urls.add(u);
+    }
+  } else {
+    for (const u of extractLocs(xml)) urls.add(u);
   }
   return [...urls];
 }
@@ -51,6 +67,7 @@ async function main() {
     method: "POST",
     headers: { "Content-Type": "application/json; charset=utf-8" },
     body: JSON.stringify({ host: HOST, key: KEY, keyLocation: KEY_LOCATION, urlList }),
+    signal: AbortSignal.timeout(15000),
   });
   const txt = await res.text().catch(() => "");
   console.log(`IndexNow ${ENDPOINT} → ${res.status} ${res.statusText}${txt ? `\n${txt}` : ""}`);
