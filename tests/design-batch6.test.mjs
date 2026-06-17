@@ -27,16 +27,18 @@ test("Contact CTA is a treated photo band (P23), lazy — not the LCP", () => {
   assert.match(h, /bg-gradient-to-b[^"]*\bfrom-neutral\//);
 });
 
-test("two decorative duotone divider strips break up the homepage", () => {
+test("two duotone divider strips break up the homepage, lazy + described", () => {
   const h = html();
-  // match a duotone wrapper that is aria-hidden, robust to class order / extras
-  const strips = h.match(/<div\b[^>]*\bclass=['"][^'"]*\bduotone\b[^'"]*['"][^>]*\baria-hidden=['"]true['"][^>]*>/g) || [];
+  // match the duotone wrappers, robust to class order / extras
+  const strips = h.match(/<div\b[^>]*\bclass=['"][^'"]*\bduotone\b[^'"]*['"][^>]*>/g) || [];
   assert.equal(strips.length, 2, "expected exactly 2 duotone divider strips");
-  // each strip carries one of the detail shots, decorative (empty alt) + lazy
+  // each strip carries one of the detail shots, lazy + a real (non-empty) alt
+  // so it earns image-search visibility instead of being decorative-only
   for (const name of ["detail-cleats", "detail-bats"]) {
     const img = h.match(new RegExp(`<img\\b[^>]*${name}[^>]*>`));
     assert.ok(img, `${name} divider img not found`);
     assert.match(img[0], /loading="lazy"/);
-    assert.match(img[0], /\balt(=""|(?=[\s>]))/); // empty/decorative alt
+    assert.match(img[0], /alt="[^"]*baseball[^"]*"/i); // described, mentions baseball
+    assert.doesNotMatch(img[0], /alt=""/); // not decorative anymore
   }
 });
