@@ -15,9 +15,11 @@ test("hero uses the display headline + a decorative emblem watermark", () => {
   const h = html();
   // the H1 carries the display face + fluid display size
   assert.match(h, /<h1[^>]*\bfont-display\b[^>]*\bfluid-display\b|<h1[^>]*\bfluid-display\b[^>]*\bfont-display\b/);
-  // the watermark emblem is decorative (empty alt — Astro emits a bare `alt`
-  // attribute for alt="", which is valid and ignored by screen readers).
-  assert.match(h, /<img\b[^>]*\balt(=""|(?=[\s>]))/);
+  // the watermark emblem is decorative (empty alt — WCAG-correct for a low-opacity
+  // background mark; Astro emits a bare `alt` for alt="", ignored by screen readers).
+  const emblem = h.match(/<img\b[^>]*opacity-\[0\.06\][^>]*>/);
+  assert.ok(emblem, "emblem watermark img not found");
+  assert.match(emblem[0], /\balt(=""|(?=[\s>]))/);
 });
 
 test("hero keeps the LCP images eager + high priority (photo + emblem watermark)", () => {

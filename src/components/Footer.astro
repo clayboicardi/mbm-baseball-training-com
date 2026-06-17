@@ -20,6 +20,9 @@ const skills = (await getCollection("coaching")).sort((a, b) => a.data.order - b
       <a href={site.business.phoneHref} class="link link-hover">{site.business.phone}</a>
       <a href={`mailto:${site.business.email}`} class="link link-hover">Email</a>
       <a href={site.business.instagram} target="_blank" rel="noopener noreferrer" class="link link-hover">Instagram</a>
+      {site.business.googleBusiness && (
+        <a href={site.business.googleBusiness} target="_blank" rel="noopener noreferrer" class="link link-hover">Google</a>
+      )}
     </div>
     {skills.length > 0 && (
       <div class="mt-4 flex flex-col items-center gap-1">
