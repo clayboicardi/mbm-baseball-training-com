@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import site from "../data/site.json";
 import Ornament from "./ui/Ornament.astro";
-import heroImg from "../assets/photos/coach-huddle.jpg";
+import heroImg from "../assets/photos/hero-team.jpg";
 import emblem from "../assets/brand/mbm-emblem.png";
 
 // Eyebrow reuses the area + age-range trust items so the two stay in sync
@@ -13,15 +13,15 @@ const [, ageRange, area] = site.hero.trust;
   <Image
     src={heroImg}
     alt="Coach Myles Berniard-Mendez leading a youth baseball training session in Long Beach"
-    widths={[400, 600]}
+    widths={[640, 960, 1376]}
     sizes="100vw"
     format="webp"
     loading="eager"
     fetchpriority="high"
-    quality={55}
-    class="absolute inset-0 h-full w-full object-cover opacity-40 grayscale"
+    quality={64}
+    class="absolute inset-0 h-full w-full object-cover object-center"
   />
-  <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/72 to-black/90"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-neutral/42 via-neutral/55 to-neutral/78"></div>
   <Image
     src={emblem}
     alt=""
@@ -34,7 +34,7 @@ const [, ageRange, area] = site.hero.trust;
     class="pointer-events-none absolute -right-16 -top-10 w-[60vw] max-w-xl opacity-[0.06]"
   />
 
-  <div class="relative z-10 mx-auto flex min-h-[88vh] max-w-5xl flex-col justify-center px-4 py-20 text-center">
+  <div class="relative z-10 mx-auto flex min-h-[88vh] max-w-5xl flex-col justify-center px-4 py-20 text-center [text-shadow:0_2px_16px_#0b1f338c]">
     <p class="font-heading text-sm uppercase tracking-[0.25em] text-marigold">{area} · {ageRange}</p>
     <h1 class="font-display fluid-display uppercase mt-3">{site.hero.headline}</h1>
     <div class="mx-auto mt-4 w-40"><Ornament variant="stitch" /></div>
