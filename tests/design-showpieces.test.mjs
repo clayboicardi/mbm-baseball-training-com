@@ -11,13 +11,14 @@ const html = () => {
   return readFileSync(home, "utf8");
 };
 
-test("hero uses the display headline + a decorative emblem watermark", () => {
+test("hero uses the display headline + a branded emblem watermark", () => {
   const h = html();
   // the H1 carries the display face + fluid display size
   assert.match(h, /<h1[^>]*\bfont-display\b[^>]*\bfluid-display\b|<h1[^>]*\bfluid-display\b[^>]*\bfont-display\b/);
-  // the watermark emblem is decorative (empty alt — Astro emits a bare `alt`
-  // attribute for alt="", which is valid and ignored by screen readers).
-  assert.match(h, /<img\b[^>]*\balt(=""|(?=[\s>]))/);
+  // the watermark emblem now carries a descriptive brand alt
+  const emblem = h.match(/<img\b[^>]*opacity-\[0\.06\][^>]*>/);
+  assert.ok(emblem, "emblem watermark img not found");
+  assert.match(emblem[0], /alt="[^"]*emblem[^"]*"/i);
 });
 
 test("hero keeps the LCP images eager + high priority (photo + emblem watermark)", () => {
