@@ -29,8 +29,9 @@ test("Contact CTA is a treated photo band (P23), lazy — not the LCP", () => {
 
 test("two duotone divider strips break up the homepage, lazy + described", () => {
   const h = html();
-  // match the duotone wrappers, robust to class order / extras
-  const strips = h.match(/<div\b[^>]*\bclass=['"][^'"]*\bduotone\b[^'"]*['"][^>]*>/g) || [];
+  // match the duotone DIVIDER wrappers specifically (duotone + the strip's
+  // h-24 height), so an unrelated .duotone element elsewhere can't skew the count
+  const strips = h.match(/<div\b[^>]*\bclass=['"][^'"]*\bduotone\b[^'"]*\bh-24\b[^'"]*['"][^>]*>/g) || [];
   assert.equal(strips.length, 2, "expected exactly 2 duotone divider strips");
   // each strip carries one of the detail shots, lazy + a real (non-empty) alt
   // so it earns image-search visibility instead of being decorative-only
