@@ -25,7 +25,7 @@ test("warm paper surface rhythm is applied (no leftover bg-base-200/50 on home)"
 
 test("about image ships a responsive srcset (not a single fixed asset)", () => {
   const h = home();
-  assert.match(h, /coach-portrait[^"]*\.webp\s+\d+w/);
+  assert.match(h, /coach-with-players[^"]*\.webp\s+\d+w/);
 });
 
 test("contact band uses the display face + marigold eyebrow", () => {
