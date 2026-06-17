@@ -51,8 +51,13 @@ test("Services uses SectionHeading (display title) + a stitch divider on paper",
   assert.match(h, /<svg[^>]*aria-hidden="true"[\s\S]*?<pattern[\s\S]*?<line/);
 });
 
-test("About coach photo uses the duotone treatment with explicit dimensions", () => {
-  assert.match(html(), /class="[^"]*\bduotone\b[^"]*"[\s\S]*?<img[^>]*\bwidth="\d+"[^>]*\bheight="\d+"/);
+test("About coach photo is a responsive image with explicit dimensions (CLS-safe)", () => {
+  // The portrait is shown in warm color (the duotone treatment is reserved for the
+  // detail/texture shots). It must still carry explicit width/height to avoid CLS.
+  const img = html().match(/<img[^>]*alt="Coach [^"]*on a Long Beach field[^>]*>/);
+  assert.ok(img, "About coach photo img not found");
+  assert.match(img[0], /\bwidth="\d+"/);
+  assert.match(img[0], /\bheight="\d+"/);
 });
 
 test("two homepage sections are wrapped for scroll-reveal", () => {

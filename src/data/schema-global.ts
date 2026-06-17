@@ -122,6 +122,7 @@ export function coachNode() {
     "@type": "Person",
     "@id": ID.coach,
     name: site.business.coach,
+    image: `${SITE}/coach-headshot.jpg`,
     jobTitle: "Private youth baseball coach",
     worksFor: { "@id": ID.localBusiness },
     sameAs: [site.business.instagram],
