@@ -78,7 +78,7 @@ export function localBusinessNode() {
       longitude: -118.1206,
     },
     areaServed: AREA_SERVED,
-    sameAs: [site.business.instagram, site.business.googleBusiness],
+    sameAs: [site.business.instagram, site.business.googleBusiness].filter(Boolean),
     founder: { "@id": ID.coach },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
