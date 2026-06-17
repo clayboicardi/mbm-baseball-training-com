@@ -13,6 +13,9 @@ import Pitching from "../components/Pitching.astro";
 import Quotes from "../components/Quotes.astro";
 import Faq from "../components/Faq.astro";
 import Reveal from "../components/ui/Reveal.astro";
+import PhotoDivider from "../components/ui/PhotoDivider.astro";
+import dividerCleats from "../assets/photos/detail-cleats.jpg";
+import dividerBats from "../assets/photos/detail-bats.jpg";
 import { SITE, ID } from "../data/schema-global";
 import { webPageNode } from "../data/schema";
 
@@ -37,8 +40,10 @@ const pageSchema = webPageNode({
     <Reveal><Services /></Reveal>
     <Pitching />
     <Quotes />
+    <PhotoDivider src={dividerCleats} widths={[640, 960, 1264, 1920]} />
     <Reveal><Packages /></Reveal>
     <Booking />
+    <PhotoDivider src={dividerBats} />
     <Proof />
     <Faq />
     <Contact />

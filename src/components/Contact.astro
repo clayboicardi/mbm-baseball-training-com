@@ -1,17 +1,24 @@
 ---
 import site from "../data/site.json";
 import Ornament from "./ui/Ornament.astro";
+import { Image } from "astro:assets";
+import ctaCelebrate from "../assets/photos/cta-celebrate.jpg";
+// Honest: a coach and player sharing a high-five at a local field — no
+// stadium/crowd, player seen from the side (non-identifiable).
+const ctaAlt = "Coach Myles and a young player sharing a high-five at the field";
 ---
-<section id="contact" class="py-20 px-4 bg-neutral text-neutral-content">
-  <div class="max-w-3xl mx-auto text-center">
-    <p class="font-heading text-sm uppercase tracking-[0.25em] text-marigold">Free First Lesson</p>
-    <h2 class="font-display fluid-lg uppercase mt-2">Ready to Get Started?</h2>
+<section id="contact" class="relative overflow-hidden py-20 px-4 bg-neutral text-neutral-content">
+  <Image src={ctaCelebrate} alt={ctaAlt} widths={[640, 960, 1264]} sizes="100vw" format="webp" loading="lazy" quality={72} class="absolute inset-0 h-full w-full object-cover object-center" />
+  <div class="absolute inset-0 bg-gradient-to-b from-neutral/75 via-neutral/85 to-neutral/75"></div>
+  <div class="relative z-10 max-w-3xl mx-auto text-center">
+    <p class="font-heading text-sm uppercase tracking-[0.25em] text-marigold [text-shadow:0_2px_12px_#0b1f338c]">Free First Lesson</p>
+    <h2 class="font-display fluid-lg uppercase mt-2 [text-shadow:0_2px_16px_#0b1f33a6]">Ready to Get Started?</h2>
     <div class="mx-auto mt-4 w-28"><Ornament variant="stitch" /></div>
-    <p class="mt-2 text-neutral-content/80">Book your free first lesson or reach out with any questions.</p>
+    <p class="mt-2 text-neutral-content/90 [text-shadow:0_2px_12px_#0b1f338c]">Book your free first lesson or reach out with any questions.</p>
     <div class="mt-6 flex flex-wrap gap-4 justify-center">
       <a href={site.business.phoneHref} class="btn btn-accent btn-lg whitespace-normal h-auto">Call / Text {site.business.phone}</a>
       <a href={`mailto:${site.business.email}`} class="btn btn-lg btn-outline border-white text-white hover:bg-white hover:text-primary">Email Coach Myles</a>
     </div>
-    <p class="mt-4 text-neutral-content/80">{site.business.serviceArea}</p>
+    <p class="mt-4 text-neutral-content/90 [text-shadow:0_2px_12px_#0b1f338c]">{site.business.serviceArea}</p>
   </div>
 </section>
