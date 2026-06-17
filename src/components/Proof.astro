@@ -10,11 +10,11 @@ interface Testimonial { quote: string; author: string; }
 // Filename -> descriptive alt for the gallery photos. Keep in sync when the
 // photos change; an unmapped file falls back to alt="" (treated decorative).
 const altTexts: Record<string, string> = {
-  "1f9aaa02-d568-4dd1-8f93-db47c27bb82a.jpg": "Coach Myles holds a mound meeting with five young baseball players in Long Beach",
-  "c109f697-fd63-4ee9-84fc-5884a7790fe1.jpg": "Baseball coach points out fielding positioning to two teen players during practice",
-  "c2eaf26d-9bc6-4bec-87d4-a7a5585877e7.jpg": "Youth baseball game in progress at a Long Beach Little League field",
-  "c3c279bc-6e5c-4957-b653-81eff8ac225c.jpg": "Young batter at the plate with coach watching from the dugout during a game",
-  "df3b7201-1170-41fb-bb45-6440842f6fe5.jpg": "Coach guides a young player on base during an Orange County youth baseball game",
+  "gallery-huddle.jpg": "Coach Myles holds a mound meeting with young baseball players at a Long Beach field",
+  "gallery-fielding.jpg": "Coach Myles coaches fielding positioning with young players during practice",
+  "gallery-game.jpg": "A youth baseball game in progress at a local Long Beach field, with the coach watching from the foreground",
+  "gallery-batter.jpg": "A young batter waits for the pitch at the plate during a local youth game",
+  "gallery-base.jpg": "Coach Myles guides a young base runner during an Orange County youth game",
 };
 
 const galleryMods = import.meta.glob<{ default: ImageMetadata }>("../assets/photos/gallery/*.{jpg,jpeg,png}", { eager: true });
