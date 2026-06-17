@@ -34,12 +34,12 @@ const [, ageRange, area] = site.hero.trust;
     class="pointer-events-none absolute -right-16 -top-10 w-[60vw] max-w-xl opacity-[0.06]"
   />
 
-  <div class="relative z-10 mx-auto flex min-h-[88vh] max-w-5xl flex-col justify-center px-4 py-20 text-center [text-shadow:0_2px_16px_#0b1f338c]">
-    <p class="font-heading text-sm uppercase tracking-[0.25em] text-marigold">{area} · {ageRange}</p>
-    <h1 class="font-display fluid-display uppercase mt-3">{site.hero.headline}</h1>
+  <div class="relative z-10 mx-auto flex min-h-[88vh] max-w-5xl flex-col justify-center px-4 py-20 text-center">
+    <p class="font-heading text-sm uppercase tracking-[0.25em] text-marigold [text-shadow:0_2px_16px_#0b1f338c]">{area} · {ageRange}</p>
+    <h1 class="font-display fluid-display uppercase mt-3 [text-shadow:0_2px_18px_#0b1f33a6]">{site.hero.headline}</h1>
     <div class="mx-auto mt-4 w-40"><Ornament variant="stitch" /></div>
-    <p class="mx-auto mt-6 max-w-2xl text-lg text-white/85">{site.hero.subhead}</p>
-    <p class="mt-4 font-heading text-xl uppercase tracking-wide text-white">{site.hero.tagline}</p>
+    <p class="mx-auto mt-6 max-w-2xl text-lg text-white/85 [text-shadow:0_2px_16px_#0b1f338c]">{site.hero.subhead}</p>
+    <p class="mt-4 font-heading text-xl uppercase tracking-wide text-white [text-shadow:0_2px_16px_#0b1f338c]">{site.hero.tagline}</p>
     <div class="mt-8 flex flex-wrap justify-center gap-3">
       <a href={site.hero.primaryCta.href} class="btn btn-accent btn-lg">{site.hero.primaryCta.label}</a>
       <a href={site.hero.secondaryCta.href} class="btn btn-lg btn-outline border-white text-white hover:bg-white hover:text-primary">{site.hero.secondaryCta.label}</a>
