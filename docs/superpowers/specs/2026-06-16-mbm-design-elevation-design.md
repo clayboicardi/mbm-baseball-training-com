@@ -212,8 +212,9 @@ before merge. Live deploy only on Clay's explicit OK.
 
 ## Open items
 
-- **Final display-font pick** (Big Shoulders Display vs Anton vs Zilla Slab) —
-  decide on the live Batch-1 preview with Myles (one-token swap).
+- ✅ **Display-font pick — RESOLVED 2026-06-17: Big Shoulders Display.** Myles A/B'd
+  it vs Anton & Zilla Slab on a live preview and chose Big Shoulders with no close
+  second. It was already the live default, so no swap was needed.
 - **Photo sourcing** — higher-res 1-on-1 training shots + a headshot would let the
   duotone treatment shine; launch-able with the current set.
 - **Myles tone sign-off** on the folk-art register once Batch 1/2 is on a preview.
