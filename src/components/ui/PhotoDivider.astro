@@ -1,0 +1,16 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+// A slim, full-bleed duotone (navy + marigold) texture strip used as a
+// decorative breather between homepage sections. Purely atmospheric, so it is
+// hidden from assistive tech (aria-hidden + empty alt) and always lazy-loaded.
+interface Props {
+  src: ImageMetadata;
+  widths?: number[];
+  class?: string;
+}
+const { src, widths = [640, 960, 1264], class: className } = Astro.props;
+---
+<div class:list={["duotone w-full h-24 sm:h-32", className]} aria-hidden="true">
+  <Image src={src} alt="" widths={widths} sizes="100vw" format="webp" loading="lazy" quality={60} />
+</div>
