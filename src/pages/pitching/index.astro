@@ -6,6 +6,8 @@ import Footer from "../../components/Footer.astro";
 import Breadcrumb from "../../components/ui/Breadcrumb.astro";
 import Ornament from "../../components/ui/Ornament.astro";
 import Reveal from "../../components/ui/Reveal.astro";
+import { Image } from "astro:assets";
+import heroImg from "../../assets/photos/pitching-mound.jpg";
 import { abs, collectionPageNode, breadcrumbNode, breadcrumbIdFor } from "../../data/schema";
 
 const posts = (await getCollection("pitches"))
@@ -33,13 +35,15 @@ const pageSchema = [
 <BaseLayout title={title} description={description} pageSchema={pageSchema}>
   <Nav />
   <main id="main">
-    <section class="bg-neutral text-neutral-content py-16 px-4">
-      <div class="max-w-4xl mx-auto">
+    <section class="relative overflow-hidden bg-neutral text-neutral-content py-16 px-4">
+      <Image src={heroImg} alt="Coach Myles coaching a young pitcher on the mound at golden hour" widths={[640, 960, 1264]} sizes="100vw" format="webp" loading="eager" fetchpriority="high" quality={64} class="absolute inset-0 h-full w-full object-cover object-center" />
+      <div class="absolute inset-0 bg-gradient-to-r from-neutral/80 via-neutral/50 to-neutral/22"></div>
+      <div class="relative z-10 max-w-4xl mx-auto">
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Pitching" }]} tone="dark" />
-        <p class="mt-4 font-heading text-sm uppercase tracking-[0.25em] text-marigold">Pitching Development</p>
-        <h1 class="font-display fluid-lg uppercase text-white mt-2">Pitching Development Guides</h1>
+        <p class="mt-4 font-heading text-sm uppercase tracking-[0.25em] text-marigold [text-shadow:0_2px_12px_#0b1f338c]">Pitching Development</p>
+        <h1 class="font-display fluid-lg uppercase text-white mt-2 [text-shadow:0_2px_16px_#0b1f33a6]">Pitching Development Guides</h1>
         <div class="mt-4 w-28"><Ornament variant="stitch" /></div>
-        <p class="mt-4 text-lg text-neutral-content/85 max-w-2xl">{description}</p>
+        <p class="mt-4 text-lg text-neutral-content/85 max-w-2xl [text-shadow:0_2px_12px_#0b1f338c]">{description}</p>
       </div>
     </section>
     <section class="bg-paper py-16 px-4">
