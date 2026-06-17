@@ -74,13 +74,13 @@ const pageSchema = [
       )}
       <div class="relative z-10 max-w-4xl mx-auto">
         <Breadcrumb items={[{label:"Home",href:"/"}, {label:"Coaching", href:"/coaching/"}, {label:d.skill}]} tone="dark" />
-        <p class="mt-4 font-heading text-sm uppercase tracking-[0.25em] text-marigold [text-shadow:0_2px_12px_#0b1f338c]">Private Coaching</p>
+        <p class:list={["mt-4 font-heading text-sm uppercase tracking-[0.25em] text-marigold", hero && "[text-shadow:0_2px_12px_#0b1f338c]"]}>Private Coaching</p>
         <div class="mt-2 flex items-center gap-3">
           <Icon name={d.icon} class="w-9 h-9 text-accent" aria-hidden="true" />
-          <h1 class="font-display fluid-lg uppercase text-white [text-shadow:0_2px_16px_#0b1f33a6]">{d.h1}</h1>
+          <h1 class:list={["font-display fluid-lg uppercase text-white", hero && "[text-shadow:0_2px_16px_#0b1f33a6]"]}>{d.h1}</h1>
         </div>
         <div class="mt-4 w-28"><Ornament variant="stitch" /></div>
-        <p class="mt-4 text-lg text-neutral-content/85 max-w-2xl [text-shadow:0_2px_12px_#0b1f338c]">{d.lead}</p>
+        <p class:list={["mt-4 text-lg text-neutral-content/85 max-w-2xl", hero && "[text-shadow:0_2px_12px_#0b1f338c]"]}>{d.lead}</p>
         <div class="mt-6 flex flex-wrap gap-3">
           <a href="/#book" class="btn btn-accent btn-lg">Claim Your Free First Lesson</a>
           <a href="/#packages" class="btn btn-lg btn-outline text-white border-white hover:bg-white hover:text-primary">View Packages</a>
