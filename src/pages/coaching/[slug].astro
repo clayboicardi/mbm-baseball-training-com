@@ -9,6 +9,13 @@ import Breadcrumb from "../../components/ui/Breadcrumb.astro";
 import Ornament from "../../components/ui/Ornament.astro";
 import Reveal from "../../components/ui/Reveal.astro";
 import SectionHeading from "../../components/ui/SectionHeading.astro";
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import imgHitting from "../../assets/photos/skill-hitting.jpg";
+import imgFielding from "../../assets/photos/skill-fielding.jpg";
+import imgThrowing from "../../assets/photos/skill-throwing.jpg";
+import imgBaseballIq from "../../assets/photos/skill-baseball-iq.jpg";
+import imgPlayerDev from "../../assets/photos/skill-player-development.jpg";
 
 export async function getStaticPaths() {
   const all = (await getCollection("coaching")).sort((a, b) => a.data.order - b.data.order);
@@ -19,6 +26,18 @@ const { entry, all } = Astro.props;
 const d = entry.data;
 const url = abs(`/coaching/${entry.id}/`);
 const others = all.filter((e) => e.id !== entry.id);
+
+// Per-slug treated hero photo: warm color under a light, left-weighted navy
+// scrim (copy legible on the left, photo through on the right). Honest alt
+// per shot; falls back to the solid-navy hero if a slug has no photo.
+const HERO_PHOTOS: Record<string, { src: ImageMetadata; alt: string }> = {
+  "hitting": { src: imgHitting, alt: "A young hitter driving the ball at the cage as Coach Myles guides the swing" },
+  "fielding": { src: imgFielding, alt: "A young infielder fielding a ground ball as Coach Myles coaches footwork" },
+  "throwing-mechanics": { src: imgThrowing, alt: "A young player working through his throwing motion as Coach Myles watches the mechanics" },
+  "baseball-iq": { src: imgBaseballIq, alt: "Coach Myles talking through a game situation with young players near the dugout" },
+  "player-development": { src: imgPlayerDev, alt: "Coach Myles mentoring a young player one-on-one through a drill" },
+};
+const hero = HERO_PHOTOS[entry.id];
 
 // Per-route nodes: Service (the offering) + WebPage (about the Service) +
 // BreadcrumbList. The global LocalBusiness/WebSite/Person come from StructuredData.
@@ -46,16 +65,22 @@ const pageSchema = [
 <BaseLayout title={d.title} description={d.description} pageSchema={pageSchema}>
   <Nav />
   <main id="main">
-    <section class="bg-neutral text-neutral-content py-16 px-4">
-      <div class="max-w-4xl mx-auto">
+    <section class="relative overflow-hidden bg-neutral text-neutral-content py-16 px-4">
+      {hero && (
+        <>
+          <Image src={hero.src} alt={hero.alt} widths={[640, 960, 1264]} sizes="100vw" format="webp" loading="eager" fetchpriority="high" quality={64} class="absolute inset-0 h-full w-full object-cover object-center" />
+          <div class="absolute inset-0 bg-gradient-to-r from-neutral/80 via-neutral/50 to-neutral/22"></div>
+        </>
+      )}
+      <div class="relative z-10 max-w-4xl mx-auto">
         <Breadcrumb items={[{label:"Home",href:"/"}, {label:"Coaching", href:"/coaching/"}, {label:d.skill}]} tone="dark" />
-        <p class="mt-4 font-heading text-sm uppercase tracking-[0.25em] text-marigold">Private Coaching</p>
+        <p class:list={["mt-4 font-heading text-sm uppercase tracking-[0.25em] text-marigold", hero && "[text-shadow:0_2px_12px_#0b1f338c]"]}>Private Coaching</p>
         <div class="mt-2 flex items-center gap-3">
           <Icon name={d.icon} class="w-9 h-9 text-accent" aria-hidden="true" />
-          <h1 class="font-display fluid-lg uppercase text-white">{d.h1}</h1>
+          <h1 class:list={["font-display fluid-lg uppercase text-white", hero && "[text-shadow:0_2px_16px_#0b1f33a6]"]}>{d.h1}</h1>
         </div>
         <div class="mt-4 w-28"><Ornament variant="stitch" /></div>
-        <p class="mt-4 text-lg text-neutral-content/85 max-w-2xl">{d.lead}</p>
+        <p class:list={["mt-4 text-lg text-neutral-content/85 max-w-2xl", hero && "[text-shadow:0_2px_12px_#0b1f338c]"]}>{d.lead}</p>
         <div class="mt-6 flex flex-wrap gap-3">
           <a href="/#book" class="btn btn-accent btn-lg">Claim Your Free First Lesson</a>
           <a href="/#packages" class="btn btn-lg btn-outline text-white border-white hover:bg-white hover:text-primary">View Packages</a>
