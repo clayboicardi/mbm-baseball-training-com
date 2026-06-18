@@ -67,7 +67,7 @@
       ],
       "addOns": [],
       "featured": false,
-      "cta": { "label": "Start a 10-Session Plan", "target": "#book" }
+      "cta": { "label": "Start a 10-Session Plan", "target": "#program-inquiry" }
     },
     {
       "id": "elite-season",
@@ -86,7 +86,7 @@
       ],
       "addOns": [],
       "featured": true,
-      "cta": { "label": "Apply for the Elite Program", "target": "#elite-inquiry" }
+      "cta": { "label": "Apply for the Elite Program", "target": "#program-inquiry" }
     }
   ]
 }
