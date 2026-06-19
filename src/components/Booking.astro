@@ -1,14 +1,14 @@
 ---
 import site from "../data/site.json";
 import SectionHeading from "./ui/SectionHeading.astro";
-const { calcom, tallyEliteEmbed } = site.booking;
+const { calcom, tallyInquiryEmbed } = site.booking;
 const hasCalcom = Boolean(calcom.base);
-const hasTally = Boolean(tallyEliteEmbed);
+const hasTally = Boolean(tallyInquiryEmbed);
 ---
 <section id="book" class="py-20 px-4 bg-paper">
   <div class="max-w-4xl mx-auto text-center">
     <SectionHeading eyebrow="Get on the Schedule" title="Book a Session" />
-    <p class="mt-4 text-base-content/70">Pick a time that works for you — or ask about the Elite program.</p>
+    <p class="mt-4 text-base-content/70">Pick a time that works for you — or ask about a multi-session package or the Elite program.</p>
 
     <div class="mt-8">
       {hasCalcom ? (
@@ -21,12 +21,13 @@ const hasTally = Boolean(tallyEliteEmbed);
       )}
     </div>
 
-    <div id="elite-inquiry" class="mt-12">
-      <h3 class="text-2xl font-heading text-primary">Elite Program Inquiry</h3>
+    <div id="program-inquiry" class="mt-12">
+      <h3 class="text-2xl font-heading text-primary">Package &amp; Program Inquiry</h3>
+      <p class="mt-2 text-base-content/70">Interested in the 10-Session Package or the Elite Season Program? Send a quick inquiry and Coach Myles will follow up with scheduling, pricing, and a plan.</p>
       {hasTally ? (
-        <iframe title="Elite program inquiry" src={`https://tally.so/embed/${tallyEliteEmbed}`} sandbox="allow-scripts allow-forms allow-same-origin allow-popups" referrerpolicy="strict-origin-when-cross-origin" class="w-full rounded-box border border-base-300 mt-4" style="height:500px" loading="lazy"></iframe>
+        <iframe title="Package and program inquiry" src={`https://tally.so/embed/${tallyInquiryEmbed}?hideTitle=1`} sandbox="allow-scripts allow-forms allow-same-origin allow-popups" referrerpolicy="strict-origin-when-cross-origin" class="w-full rounded-box border border-base-300 mt-4" style="height:1350px" loading="lazy"></iframe>
       ) : (
-        <p class="mt-4 text-base-content/70">For the Elite Package, call/text
+        <p class="mt-4 text-base-content/70">For the 10-Session Package or Elite Season Program, call/text
           <a class="link link-primary font-semibold" href={site.business.phoneHref}>{site.business.phone}</a> or email
           <a class="link link-primary font-semibold" href={`mailto:${site.business.email}`}>{site.business.email}</a>.</p>
       )}

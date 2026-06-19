@@ -20,7 +20,7 @@
     { "label": "Packages", "href": "/#packages" },
     { "label": "Book", "href": "/#book" },
     { "label": "FAQ", "href": "/#faq" },
-    { "label": "Contact", "href": "/#contact" }
+    { "label": "Contact", "href": "/contact/" }
   ],
   "hero": {
     "headline": "Private Baseball Training in Long Beach & Orange County",
@@ -31,7 +31,7 @@
     "trust": ["20+ years in the game", "Ages 8–18", "Long Beach & Orange County"]
   },
   "booking": {
-    "calcom": { "base": "" },
-    "tallyEliteEmbed": ""
+    "calcom": { "base": "coach-myles-berniard-mendez" },
+    "tallyInquiryEmbed": "ODr4gp"
   }
 }
