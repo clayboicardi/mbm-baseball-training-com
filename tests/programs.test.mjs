@@ -65,3 +65,12 @@ test("homepage band-picker links each program band", () => {
     assert.match(html, new RegExp(`href="/programs/${slug}/"`), `homepage missing link to /programs/${slug}/`);
   }
 });
+
+test("College & Pro Prep Service declares a PeopleAudience age range", () => {
+  const nodes = graph(readFileSync(join(dist, "programs", "college-prep", "index.html"), "utf8"));
+  const svc = nodes.find((n) => n["@type"] === "Service");
+  assert.ok(svc, "no Service node on /programs/college-prep/");
+  assert.equal(svc.audience?.["@type"], "PeopleAudience");
+  assert.equal(svc.audience?.suggestedMinAge, 16);
+  assert.equal(svc.audience?.suggestedMaxAge, 18);
+});

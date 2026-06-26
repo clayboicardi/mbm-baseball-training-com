@@ -28,6 +28,7 @@ const pageSchema = [
     name: `${d.name} — Baseball Training`,
     serviceType: d.serviceType,
     description: d.description,
+    audience: { "@type": "PeopleAudience", suggestedMinAge: d.ageMin, suggestedMaxAge: d.ageMax },
   }),
   webPageNode({
     url,

@@ -90,6 +90,8 @@ interface ServiceOpts {
   areaServed?: unknown;
   /** Nested Offer(s) for a purchasable Service (e.g. a pricing tier). */
   offers?: unknown;
+  /** Nested audience (e.g. a PeopleAudience age range for age-banded pages). */
+  audience?: unknown;
 }
 
 /** Service node. provider always references the global business. */
@@ -105,6 +107,7 @@ export function serviceNode(opts: ServiceOpts) {
   if (opts.description) node.description = opts.description;
   if (opts.areaServed) node.areaServed = opts.areaServed;
   if (opts.offers) node.offers = opts.offers;
+  if (opts.audience) node.audience = opts.audience;
   return node;
 }
 
