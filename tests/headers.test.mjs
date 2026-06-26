@@ -38,4 +38,7 @@ test("no-transform cache policy covers the dynamic HTML sections", () => {
   assert.match(headers, /\/baseball-lessons\/\*[\s\S]*?no-transform/);
   assert.match(headers, /\/pitching\/\*[\s\S]*?no-transform/);
   assert.match(headers, /\/coaching\/\*[\s\S]*?no-transform/);
+  assert.match(headers, /\/packages\/\*[\s\S]*?no-transform/);
+  assert.match(headers, /\/programs\/\*[\s\S]*?no-transform/);
+  assert.match(headers, /\/contact\/[\s\S]*?no-transform/);
 });

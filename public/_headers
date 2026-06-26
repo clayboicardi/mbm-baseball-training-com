@@ -30,6 +30,8 @@
   Cache-Control: public, max-age=0, must-revalidate, no-transform
 /terms/
   Cache-Control: public, max-age=0, must-revalidate, no-transform
+/contact/
+  Cache-Control: public, max-age=0, must-revalidate, no-transform
 /baseball-lessons/*
   Cache-Control: public, max-age=0, must-revalidate, no-transform
 /pitching/*
@@ -37,4 +39,6 @@
 /coaching/*
   Cache-Control: public, max-age=0, must-revalidate, no-transform
 /packages/*
+  Cache-Control: public, max-age=0, must-revalidate, no-transform
+/programs/*
   Cache-Control: public, max-age=0, must-revalidate, no-transform
