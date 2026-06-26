@@ -1,0 +1,29 @@
+{
+  "name": "College & Pro Prep",
+  "band": "Ages 16–18",
+  "ageMin": 16,
+  "ageMax": 18,
+  "icon": "lucide:graduation-cap",
+  "serviceType": "College baseball preparation coaching (ages 16–18)",
+  "title": "College Baseball Prep Training Ages 16–18 | MBM Long Beach & OC",
+  "description": "Private college baseball prep for ages 16–18 in Long Beach & Orange County. Coach Myles develops the mental game and fine-tuned mechanics to get players college- and pro-ready.",
+  "goal": "Get college- and pro-ready — mostly mental, finely tuned, no wasted reps.",
+  "lead": "These are the years that decide where a player's game can take them. Coach Myles trains 16–18 year-olds for the next level — a college-caliber mental game paired with fine-tuned mechanics — with one aim: getting them as college- and pro-ready as their work will allow.",
+  "body": [
+    "By this age the big mechanical pieces are in place, so the work turns to fine-tuning — the small, specific adjustments that separate a high-school contributor from a college recruit. Every rep has a purpose, and the standard is the level these players are chasing, not the one they're at.",
+    "Above all, this stage is mental. College and pro baseball are won between the ears — preparation, routine, composure under real pressure, and the confidence to compete with anyone. Coach Myles, a former semi-pro, coaches that mindset directly, drawing on what the next level actually demands."
+  ],
+  "focus": [
+    { "name": "A college-caliber mental game", "note": "Preparation, routine, and composure under real pressure — where the next level is won." },
+    { "name": "Fine-tuned mechanics", "note": "The small, specific adjustments that separate a contributor from a recruit." },
+    { "name": "Purposeful reps", "note": "Every rep aimed at the standard these players are chasing — no wasted work." },
+    { "name": "Competing at the next level", "note": "The confidence and approach to compete with anyone, drawn from a former semi-pro's experience." }
+  ],
+  "mentalGame": "At this level the mental game is the game. Coach Myles trains the routines, focus, and composure that hold up under recruiting pressure and college-caliber competition — the difference-maker once everyone can field and hit. It's the throughline of every MBM stage, and here it takes the lead.",
+  "preparingFor": "From here it's about the next level itself — college rosters and pro looks. Coach Myles trains players to a standard built to give them their best possible shot at it.",
+  "faq": [
+    { "q": "Can Coach Myles help with college recruiting readiness?", "a": "Yes. The 16–18 stage is built around getting players college- and pro-ready — a college-caliber mental game plus fine-tuned mechanics, trained to the standard the next level demands." },
+    { "q": "How much of this is mental versus mechanical?", "a": "Mostly mental. The mechanical foundation is fine-tuned rather than rebuilt at this age; the bigger gains come from preparation, routine, and composure under pressure — what actually separates players at the college and pro level." }
+  ],
+  "order": 4
+}

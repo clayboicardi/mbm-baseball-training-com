@@ -84,4 +84,30 @@ const packagePages = defineCollection({
   }),
 });
 
-export const collections = { pitches, locations, coaching, packagePages };
+// Programs by age — docs/content/programs-age-pages-spec.md. One JSON file per
+// age band, served at /programs/<slug>. Same honesty gate as `coaching`:
+// lead + 2+ body + 3+ focus + 2+ FAQ, so no thin stage page can ship.
+const programs = defineCollection({
+  loader: glob({ pattern: "*.json", base: "./src/data/programs" }),
+  schema: z.object({
+    name: z.string(), // short page name, e.g. "Foundations"
+    band: z.string(), // age display, e.g. "Ages 8–10"
+    ageMin: z.number(),
+    ageMax: z.number(),
+    icon: z.string(), // lucide icon
+    serviceType: z.string(), // schema.org Service.serviceType
+    title: z.string(), // SEO <title>
+    description: z.string(), // meta description
+    goal: z.string(), // hero subhead one-liner
+    lead: z.string(), // intro paragraph
+    body: z.array(z.string()).min(2),
+    focus: z.array(z.object({ name: z.string(), note: z.string().optional() })).min(3),
+    mentalGame: z.string(), // the stage-specific mental-game block
+    preparingFor: z.string(), // "what's next" bridge copy
+    nextSlug: z.string().optional(), // slug of the next band up
+    faq: z.array(z.object({ q: z.string(), a: z.string() })).min(2),
+    order: z.number().default(99),
+  }),
+});
+
+export const collections = { pitches, locations, coaching, packagePages, programs };

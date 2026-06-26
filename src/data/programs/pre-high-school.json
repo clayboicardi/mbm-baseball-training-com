@@ -1,0 +1,30 @@
+{
+  "name": "Pre-High-School Prep",
+  "band": "Ages 11–13",
+  "ageMin": 11,
+  "ageMax": 13,
+  "icon": "lucide:wrench",
+  "serviceType": "Youth baseball development coaching (ages 11–13)",
+  "title": "Baseball Training Ages 11–13 (Pre-High-School Prep) | MBM Long Beach & OC",
+  "description": "Private baseball training for ages 11–13 in Long Beach & Orange County. Coach Myles breaks bad habits, sharpens fundamentals, and introduces the mental game to get players ready for high school.",
+  "goal": "Break the habits holding them back — and get ready for high school ball.",
+  "lead": "The years before high school are where good players either level up or get stuck. Coach Myles finds the habits and gaps that will hold a player back at the next level and fixes them now — while sharpening fundamentals and introducing the mental side of the game.",
+  "body": [
+    "By 11 or 12, most players have picked up a few habits that worked in Little League but won't survive faster pitching and tougher competition. This stage is about honest diagnosis and patient correction — cleaning up the swing, the throw, or the footwork that would otherwise cap a player's ceiling in high school.",
+    "It's also where the mental game enters the picture. Coach Myles starts building the habits of preparation, focus, and composure that the older stages lean on heavily — so that when the pressure of high school baseball arrives, the foundation is already there."
+  ],
+  "focus": [
+    { "name": "Breaking bad habits", "note": "Honest diagnosis and patient correction of the mechanics that cap a player's ceiling." },
+    { "name": "Sharper fundamentals", "note": "Hitting, fielding, and throwing refined for faster, more competitive play." },
+    { "name": "Intro to the mental game", "note": "Preparation, focus, and composure — the habits the high-school years demand." },
+    { "name": "Bridging to the next level", "note": "Targeted work on exactly what it takes to make the jump to high school ball." }
+  ],
+  "mentalGame": "This is where the mental game begins in earnest. Coach Myles teaches players to prepare with intention, stay composed when a rep goes wrong, and take ownership of their development — the groundwork for everything the high-school and college stages will ask of them.",
+  "preparingFor": "At 14, the game gets real — tryouts, at-bats that count, and the daily grind of high-school baseball. That's the High School Prep stage.",
+  "nextSlug": "high-school-prep",
+  "faq": [
+    { "q": "My child has some bad habits — is it too late to fix them?", "a": "No, and now is the ideal time. Correcting mechanics before high school is far easier than unlearning them later against faster pitching. Coach Myles diagnoses honestly and fixes patiently." },
+    { "q": "Should an 11–13 year old really work on the mental game?", "a": "Yes — in age-appropriate doses. Building preparation, focus, and composure now means they aren't learning those skills for the first time under the pressure of high-school ball." }
+  ],
+  "order": 2
+}
