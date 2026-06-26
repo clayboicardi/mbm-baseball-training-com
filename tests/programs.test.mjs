@@ -53,3 +53,15 @@ test("program pages have an accessible breadcrumb with aria-current", () => {
   assert.match(html, /<nav aria-label="Breadcrumb"/);
   assert.match(html, /aria-current="page"/);
 });
+
+test("main nav links to the Programs hub", () => {
+  const html = readFileSync(join(dist, "index.html"), "utf8");
+  assert.match(html, /href="\/programs\/"/, "homepage nav missing Programs link");
+});
+
+test("homepage band-picker links each program band", () => {
+  const html = readFileSync(join(dist, "index.html"), "utf8");
+  for (const slug of SLUGS) {
+    assert.match(html, new RegExp(`href="/programs/${slug}/"`), `homepage missing link to /programs/${slug}/`);
+  }
+});

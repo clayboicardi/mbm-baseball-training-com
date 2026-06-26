@@ -4,6 +4,7 @@ import Nav from "../components/Nav.astro";
 import Hero from "../components/Hero.astro";
 import About from "../components/About.astro";
 import Services from "../components/Services.astro";
+import Programs from "../components/Programs.astro";
 import Packages from "../components/Packages.astro";
 import Booking from "../components/Booking.astro";
 import Proof from "../components/Proof.astro";
@@ -38,6 +39,7 @@ const pageSchema = webPageNode({
     <Hero />
     <About />
     <Reveal><Services /></Reveal>
+    <Reveal><Programs /></Reveal>
     <Pitching />
     <Quotes />
     <PhotoDivider src={dividerCleats} widths={[640, 960, 1264, 1920]} alt="Close-up of youth baseball cleats digging into the infield dirt during a training session" />
