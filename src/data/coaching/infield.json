@@ -1,0 +1,24 @@
+{
+  "skill": "Infield",
+  "icon": "lucide:grab",
+  "serviceType": "Youth infield defense coaching",
+  "title": "Infield Defense Coaching in Long Beach & OC | MBM",
+  "description": "Private infield coaching with Coach Myles — footwork, glovework, and the throw across the diamond. Ground-ball fundamentals for players ages 8–18 in Long Beach & Orange County.",
+  "h1": "Infield",
+  "lead": "The infield is where games are decided on routine plays. Coach Myles builds clean footwork, soft hands, and an accurate throw across the diamond, so a player can be counted on to make the play every time it matters.",
+  "body": [
+    "Good infield play starts before the ball is hit. Coach Myles teaches the pre-pitch read, the first-step quickness, and the footwork that puts a fielder in position to field the ball cleanly and throw on balance. Soft, confident hands and the right glove angles turn hard chances into outs.",
+    "From there it's about the throw and the situation. Accuracy across the diamond, the footwork on the double-play turn, and knowing where to go with the ball before it's hit — Coach Myles works the physical skill and the decision-making together, because an infielder has to do both in the same breath."
+  ],
+  "focus": [
+    { "name": "Footwork & first step", "note": "Pre-pitch read and quick, balanced feet that get a fielder to the ball." },
+    { "name": "Soft hands & glovework", "note": "Fielding the ball cleanly with the right glove angles, set or on the move." },
+    { "name": "The throw across", "note": "An accurate, on-balance throw to first under game speed." },
+    { "name": "Double plays & situations", "note": "Turning two, and knowing where the ball goes before it's hit." }
+  ],
+  "faq": [
+    { "q": "What positions does infield coaching cover?", "a": "First, second, short, and third — the footwork, glovework, and throws each demands. Coach Myles tailors the work to where a player plays and where they want to play." },
+    { "q": "My player has trouble with ground balls — can that be fixed?", "a": "Yes. Clean ground-ball fielding comes down to footwork, hand position, and reps — Coach Myles breaks it down and rebuilds the habit so routine plays become automatic." }
+  ],
+  "order": 6
+}

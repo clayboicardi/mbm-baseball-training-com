@@ -1,0 +1,24 @@
+{
+  "skill": "Outfield",
+  "icon": "lucide:wind",
+  "serviceType": "Youth outfield defense coaching",
+  "title": "Outfield Defense Coaching in Long Beach & OC | MBM",
+  "description": "Private outfield coaching with Coach Myles — reads, routes, catching fly balls, and the long throw. Outfield fundamentals for players ages 8–18 in Long Beach & Orange County.",
+  "h1": "Outfield",
+  "lead": "An outfielder covers the most ground on the field, and the best ones make it look easy. Coach Myles coaches the jump, the route, and the throw — turning fly balls and gappers into routine outs and runners held to one base.",
+  "body": [
+    "It starts with the read and the first step. Coach Myles teaches outfielders to track the ball off the bat, take an efficient route, and catch on the move so they're in position to throw. Good footwork and a confident drop step turn would-be extra-base hits into outs.",
+    "Then comes the arm. The crow-hop, the throw to the right base, and hitting the cutoff man are what separate an outfielder who catches the ball from one who controls the game. Coach Myles works the catch and the throw as one continuous, game-speed skill."
+  ],
+  "focus": [
+    { "name": "Reads & jumps", "note": "Tracking the ball off the bat and getting a quick, correct first step." },
+    { "name": "Routes & footwork", "note": "Efficient routes and catching on the move, in position to throw." },
+    { "name": "The long throw", "note": "Crow-hop mechanics and an accurate throw with carry." },
+    { "name": "Hitting the cutoff", "note": "Throwing to the right base and keeping runners from taking the extra base." }
+  ],
+  "faq": [
+    { "q": "My player gets bad jumps on fly balls — is that coachable?", "a": "Very. Reads and jumps come from tracking the ball off the bat and trusting the first step — Coach Myles drills it until the read becomes instinct." },
+    { "q": "Does outfield work include throwing?", "a": "Absolutely. The catch and the throw are coached together — the crow-hop, the long throw with carry, and hitting the cutoff man are core to the position." }
+  ],
+  "order": 7
+}
