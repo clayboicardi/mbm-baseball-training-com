@@ -15,9 +15,8 @@
   },
   "nav": [
     { "label": "About", "href": "/#about" },
-    { "label": "Services", "href": "/#services" },
+    { "label": "Coaching", "href": "/coaching/" },
     { "label": "Programs", "href": "/programs/" },
-    { "label": "Pitching", "href": "/#pitching" },
     { "label": "Packages", "href": "/#packages" },
     { "label": "Book", "href": "/#book" },
     { "label": "FAQ", "href": "/#faq" },

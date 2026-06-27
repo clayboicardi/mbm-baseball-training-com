@@ -1,7 +1,0 @@
-[
-  { "title": "Hitting", "slug": "hitting", "blurb": "Swing mechanics, timing, and approach that carry into real at-bats.", "icon": "lucide:zap" },
-  { "title": "Fielding", "slug": "fielding", "blurb": "Footwork, glovework, and reads that lock down the defense.", "icon": "lucide:shield" },
-  { "title": "Throwing Mechanics", "slug": "throwing-mechanics", "blurb": "Arm care, accuracy, and velocity through clean mechanics.", "icon": "lucide:move-up-right" },
-  { "title": "Baseball IQ", "slug": "baseball-iq", "blurb": "Situational awareness and decision-making that win games.", "icon": "lucide:brain" },
-  { "title": "Player Development", "slug": "player-development", "blurb": "Confidence, accountability, and a growth mindset on and off the field.", "icon": "lucide:trending-up" }
-]

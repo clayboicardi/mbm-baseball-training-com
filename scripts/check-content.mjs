@@ -31,7 +31,7 @@ function checkFile(p) {
     if (!ALLOWED.has(h.toUpperCase())) errors.push(`${p.replace(ROOT, "")}: off-brand hex ${h}`);
   }
 }
-for (const f of ["site.json", "services.json", "packages.json", "testimonials.json"]) {
+for (const f of ["site.json", "packages.json", "testimonials.json"]) {
   try { JSON.parse(readFileSync(join(SRC, "data", f), "utf8")); }
   catch (e) { errors.push(`data/${f}: invalid JSON — ${e.message}`); }
 }

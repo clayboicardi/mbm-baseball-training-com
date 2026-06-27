@@ -43,9 +43,9 @@ test("inline reveal script honors reduced-motion and targets [data-reveal]", () 
   assert.match(h, /\[data-reveal\]/);
 });
 
-test("Services uses SectionHeading (display title) + a stitch divider on paper", () => {
+test("Coaching umbrella uses SectionHeading (display title) + a stitch divider on paper", () => {
   const h = html();
-  assert.match(h, /What I Coach/);
+  assert.match(h, /Private Coaching/);
   assert.match(h, /font-display/);
   assert.match(h, /bg-paper/);
   assert.match(h, /<svg[^>]*aria-hidden="true"[\s\S]*?<pattern[\s\S]*?<line/);

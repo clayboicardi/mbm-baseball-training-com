@@ -54,10 +54,10 @@ test("What I Coach cards are numbered with a decorative diamond tick", () => {
   assert.match(h, /<svg[^>]*aria-hidden="true"[\s\S]*?<polygon/); // diamond Ornament
 });
 
-test("Pitching section uses a SectionHeading display title", () => {
+test("Coaching umbrella section uses a SectionHeading display title", () => {
   const h = html();
-  assert.match(h, /How Coach Myles Builds a Pitcher/);
-  // the display-face heading class is present in the pitching area
+  assert.match(h, /How Coach Myles Builds an Athlete/);
+  // the display-face heading class is present in the coaching umbrella area
   assert.match(h, /font-display/);
 });
 

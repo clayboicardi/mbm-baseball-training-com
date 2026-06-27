@@ -50,3 +50,13 @@ test("/coaching/ hub is the 'How Coach Myles Builds an Athlete' umbrella linking
     assert.ok(html.includes(`href="${p.href}"`), `hub missing link to ${p.href}`);
   }
 });
+
+test("homepage shows the umbrella grid and no longer has Services/Pitching sections", () => {
+  const html = readFileSync(join(dist, "index.html"), "utf8");
+  assert.match(html, /How Coach Myles Builds an Athlete/, "homepage missing umbrella heading");
+  for (const p of pillars) {
+    assert.ok(html.includes(`href="${p.href}"`), `homepage missing pillar link ${p.href}`);
+  }
+  assert.doesNotMatch(html, /id="services"/, "old Services section still present");
+  assert.doesNotMatch(html, /id="pitching"/, "old Pitching section still present");
+});
