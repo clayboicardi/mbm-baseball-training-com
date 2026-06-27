@@ -16,6 +16,7 @@
   "nav": [
     { "label": "About", "href": "/#about" },
     { "label": "Services", "href": "/#services" },
+    { "label": "Programs", "href": "/programs/" },
     { "label": "Pitching", "href": "/#pitching" },
     { "label": "Packages", "href": "/#packages" },
     { "label": "Book", "href": "/#book" },

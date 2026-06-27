@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import { Icon } from "astro-icon/components";
+import SectionHeading from "./ui/SectionHeading.astro";
+
+const bands = (await getCollection("programs")).sort((a, b) => a.data.order - b.data.order);
+---
+<section id="programs" class="py-16 px-4 bg-base-100">
+  <div class="max-w-5xl mx-auto">
+    <SectionHeading eyebrow="Programs by Age" title="Find your player's stage" align="center" />
+    <p class="mt-3 text-center text-base-content/70 max-w-2xl mx-auto">From keeping the game fun at 8 to college- and pro-ready at 18 — training built around exactly what your player needs at their age.</p>
+    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {bands.map((b) => (
+        <a href={`/programs/${b.id}/`} class="group relative block overflow-hidden rounded-box border border-base-300 bg-base-100 p-5 transition-all hover:-translate-y-1 hover:border-marigold/60 hover:shadow-lg">
+          <Icon name={b.data.icon} class="w-8 h-8 text-accent" aria-hidden="true" />
+          <p class="mt-2 font-heading text-xs uppercase tracking-[0.2em] text-accent">{b.data.band}</p>
+          <h3 class="mt-1 text-lg font-heading font-bold text-primary uppercase">{b.data.name}</h3>
+          <p class="mt-2 text-sm text-base-content/70">{b.data.goal}</p>
+          <span class="mt-3 inline-block text-sm font-semibold text-primary opacity-80 transition-opacity group-hover:opacity-100">Learn more →</span>
+        </a>
+      ))}
+    </div>
+    <div class="text-center mt-8">
+      <a href="/programs/" class="btn btn-outline btn-primary">See all programs</a>
+    </div>
+  </div>
+</section>

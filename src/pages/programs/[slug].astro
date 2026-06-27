@@ -1,0 +1,132 @@
+---
+import { getCollection } from "astro:content";
+import { Icon } from "astro-icon/components";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+import { abs, serviceNode, webPageNode, breadcrumbNode, serviceIdFor, breadcrumbIdFor } from "../../data/schema";
+import Breadcrumb from "../../components/ui/Breadcrumb.astro";
+import Ornament from "../../components/ui/Ornament.astro";
+import Reveal from "../../components/ui/Reveal.astro";
+import SectionHeading from "../../components/ui/SectionHeading.astro";
+
+export async function getStaticPaths() {
+  const all = (await getCollection("programs")).sort((a, b) => a.data.order - b.data.order);
+  return all.map((entry) => ({ params: { slug: entry.id }, props: { entry, all } }));
+}
+
+const { entry, all } = Astro.props;
+const d = entry.data;
+const url = abs(`/programs/${entry.id}/`);
+const next = d.nextSlug ? all.find((e) => e.id === d.nextSlug) : undefined;
+
+// Per-route nodes: Service (the offering) + WebPage (about the Service) +
+// BreadcrumbList. Global LocalBusiness/WebSite/Person come from StructuredData.
+const pageSchema = [
+  serviceNode({
+    url,
+    name: `${d.name} — Baseball Training`,
+    serviceType: d.serviceType,
+    description: d.description,
+    audience: { "@type": "PeopleAudience", suggestedMinAge: d.ageMin, suggestedMaxAge: d.ageMax },
+  }),
+  webPageNode({
+    url,
+    name: d.title,
+    description: d.description,
+    about: serviceIdFor(url),
+    breadcrumb: breadcrumbIdFor(url),
+  }),
+  breadcrumbNode(url, [
+    { name: "Home", item: abs("/") },
+    { name: "Programs", item: abs("/programs/") },
+    { name: d.name, item: url },
+  ]),
+];
+---
+<BaseLayout title={d.title} description={d.description} pageSchema={pageSchema}>
+  <Nav />
+  <main id="main">
+    <section class="relative overflow-hidden bg-neutral text-neutral-content py-16 px-4">
+      <div class="relative z-10 max-w-4xl mx-auto">
+        <Breadcrumb items={[{label:"Home",href:"/"}, {label:"Programs", href:"/programs/"}, {label:d.name}]} tone="dark" />
+        <p class="mt-4 font-heading text-sm uppercase tracking-[0.25em] text-marigold">Programs by Age · {d.band}</p>
+        <div class="mt-2 flex items-center gap-3">
+          <Icon name={d.icon} class="w-9 h-9 text-accent" aria-hidden="true" />
+          <h1 class="font-display fluid-lg uppercase text-white">{d.name}</h1>
+        </div>
+        <div class="mt-4 w-28"><Ornament variant="stitch" /></div>
+        <p class="mt-4 text-lg text-neutral-content/85 max-w-2xl">{d.goal}</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="/#book" class="btn btn-accent btn-lg">Claim Your Free First Lesson</a>
+          <a href="/#packages" class="btn btn-lg btn-outline text-white border-white hover:bg-white hover:text-primary">View Packages</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 px-4 bg-base-100">
+      <div class="max-w-3xl mx-auto prose prose-headings:font-heading prose-headings:text-primary prose-a:text-primary">
+        <p class="text-lg">{d.lead}</p>
+        {d.body.map((p) => <p>{p}</p>)}
+      </div>
+    </section>
+
+    <section class="py-16 px-4 bg-paper">
+      <div class="max-w-3xl mx-auto">
+        <SectionHeading eyebrow="The Work" title="What we focus on at this stage" align="left" />
+        <Reveal>
+          <ul class="mt-6 grid sm:grid-cols-2 gap-3">
+            {d.focus.map((f) => (
+              <li class="card bg-base-100 p-4">
+                <p class="font-semibold text-primary">{f.name}</p>
+                {f.note && <p class="text-sm text-base-content/70 mt-1">{f.note}</p>}
+              </li>
+            ))}
+          </ul>
+          <p class="mt-6 text-sm text-base-content/60">Every session is built around your player — Coach Myles travels to you across Long Beach &amp; Orange County.</p>
+        </Reveal>
+      </div>
+    </section>
+
+    <section class="py-16 px-4 bg-base-100">
+      <div class="max-w-3xl mx-auto">
+        <SectionHeading eyebrow="The Mental Game" title="Mindset at this stage" align="left" />
+        <p class="mt-6 text-lg text-base-content/80">{d.mentalGame}</p>
+      </div>
+    </section>
+
+    <section class="py-16 px-4 bg-paper">
+      <div class="max-w-3xl mx-auto">
+        <SectionHeading eyebrow="What's Next" title="Where this leads" align="left" />
+        <p class="mt-6 text-lg text-base-content/80">{d.preparingFor}</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          {next ? (
+            <a href={`/programs/${next.id}/`} class="btn btn-primary">Next: {next.data.name} →</a>
+          ) : (
+            <a href="/#book" class="btn btn-accent">Claim Your Free First Lesson</a>
+          )}
+          <a href="/programs/" class="btn btn-outline btn-primary">All Programs</a>
+        </div>
+      </div>
+    </section>
+
+    {d.faq.length > 0 && (
+      <section class="py-16 px-4 bg-base-100">
+        <div class="max-w-3xl mx-auto">
+          <SectionHeading eyebrow="Common Questions" title={`${d.name} — Common Questions`} align="center" />
+          <Reveal>
+            <div class="mt-8 space-y-3">
+              {d.faq.map((f) => (
+                <details class="collapse collapse-arrow bg-base-200" name="programs-faq">
+                  <summary class="collapse-title text-lg font-semibold">{f.q}</summary>
+                  <div class="collapse-content"><p class="text-base-content/80">{f.a}</p></div>
+                </details>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+    )}
+  </main>
+  <Footer />
+</BaseLayout>

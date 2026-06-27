@@ -1,0 +1,30 @@
+{
+  "name": "High School Prep",
+  "band": "Ages 14–15",
+  "ageMin": 14,
+  "ageMax": 15,
+  "icon": "lucide:flame",
+  "serviceType": "High school baseball preparation coaching (ages 14–15)",
+  "title": "High School Baseball Prep Training Ages 14–15 | MBM Long Beach & OC",
+  "description": "Private high-school baseball prep for ages 14–15 in Long Beach & Orange County. Coach Myles sharpens at-bats, builds mental toughness, and develops players aggressive on offense and defense.",
+  "goal": "Compete and earn your spot — sharp at the plate, aggressive in the field, tough between the ears.",
+  "lead": "High school baseball is a different game — faster, more competitive, and far more demanding mentally. Coach Myles prepares players for it directly: quality at-bats, an aggressive approach on both sides of the ball, and the mental toughness to handle the inevitable ups and downs of a long season.",
+  "body": [
+    "At this stage the work gets specific to performing under real competition. Coach Myles sharpens at-bats — approach, pitch selection, and the ability to make adjustments — and builds an aggressive, confident mindset on offense and defense. The aim is a player who competes for a spot and contributes once they have it.",
+    "Just as important is learning to handle baseball's grind. Good days and bad days come fast in high school ball, and the players who last are the ones who can grind through a slump, shake off an error, and show up the next day ready to work. That resilience is coached here as deliberately as any swing."
+  ],
+  "focus": [
+    { "name": "Quality at-bats", "note": "Approach, pitch selection, and in-game adjustments against real competition." },
+    { "name": "Aggressive on both sides", "note": "A confident, attacking mindset on offense and defense alike." },
+    { "name": "Mental toughness", "note": "Handling the stress of good and bad days across a long high-school season." },
+    { "name": "Grinding through struggle", "note": "Bouncing back from slumps and errors — the resilience high-school ball demands." }
+  ],
+  "mentalGame": "The mental game moves to center stage here. Coach Myles coaches players through the emotional swings of competitive baseball — the slump, the error, the bad call — so they learn to compete with a clear head and a short memory. This is the toughness that separates the players who make the jump from those who don't.",
+  "preparingFor": "For players with college aspirations, 16–18 is where it gets serious — mostly mental, finely tuned, and aimed squarely at the next level. That's the College & Pro Prep stage.",
+  "nextSlug": "college-prep",
+  "faq": [
+    { "q": "Does this help my player make the high-school team?", "a": "That's the goal. Coach Myles prepares players for exactly what tryouts and high-school competition demand — sharper at-bats, an aggressive two-way game, and the mental toughness to perform when it counts." },
+    { "q": "My player struggles after a bad game — can that be coached?", "a": "Absolutely. Handling the highs and lows of a season is a core part of this stage. Coach Myles builds the resilience to grind through slumps and bounce back, which is often what separates players at this level." }
+  ],
+  "order": 3
+}

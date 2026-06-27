@@ -1,0 +1,30 @@
+{
+  "name": "Foundations",
+  "band": "Ages 8–10",
+  "ageMin": 8,
+  "ageMax": 10,
+  "icon": "lucide:sprout",
+  "serviceType": "Youth baseball fundamentals coaching (ages 8–10)",
+  "title": "Youth Baseball Training Ages 8–10 (Foundations) | MBM Long Beach & OC",
+  "description": "Private baseball training for ages 8–10 in Long Beach & Orange County. Coach Myles builds clean mechanics, real confidence, and a love for the game — fundamentals first, fun always.",
+  "goal": "Clean mechanics, real confidence, and a love for the game that lasts.",
+  "lead": "The early years set the tone for everything that follows. Coach Myles builds a rock-solid foundation — sound mechanics, growing confidence, and genuine fun — so young players fall in love with the game while they learn to play it the right way.",
+  "body": [
+    "At this age, how a player feels about baseball matters as much as how they swing. Coach Myles keeps sessions positive and high-energy, teaching the fundamentals of hitting, throwing, and fielding through reps that feel like play, not work. Good habits built now are the ones that hold up for years.",
+    "Every young athlete is in a different place, so the coaching meets them where they are — sharpening the skills they already have and carefully adding new ones at a pace that builds confidence instead of frustration. The goal isn't a perfect nine-year-old; it's a player who trusts themselves and wants to come back tomorrow."
+  ],
+  "focus": [
+    { "name": "Sound mechanics from day one", "note": "Hitting, throwing, and fielding taught the right way, before bad habits form." },
+    { "name": "Confidence through small wins", "note": "Reps scaled so a player succeeds, then stretches — belief built on real ability." },
+    { "name": "Fundamentals made fun", "note": "High-energy sessions that keep young players loving the game while they learn." },
+    { "name": "Athletic basics", "note": "Balance, coordination, and body control that carry across every part of the game." }
+  ],
+  "mentalGame": "There's no pressure to manufacture at this age — just a focus on effort, attitude, and bouncing back from a missed ball with a smile. Coach Myles models the mindset that makes the later stages possible: mistakes are how you learn, and the next rep is always the one that counts.",
+  "preparingFor": "As players approach 11, the work shifts from building habits to refining them — ironing out the quirks that would hold them back at the next level. That's the Pre-High-School stage.",
+  "nextSlug": "pre-high-school",
+  "faq": [
+    { "q": "Is 8 too young for private baseball lessons?", "a": "Not at all. The early years are when clean mechanics and confidence are easiest to build — Coach Myles keeps it fun and age-appropriate, so young players grow without pressure." },
+    { "q": "Will my child be pushed too hard?", "a": "No. Sessions at this age are positive and energy-first. The aim is a player who loves the game and trusts their ability, not a burned-out nine-year-old." }
+  ],
+  "order": 1
+}
