@@ -10,7 +10,7 @@ import { Image } from "astro:assets";
 import heroImg from "../../assets/photos/pitching-mound.jpg";
 import { abs, collectionPageNode, breadcrumbNode, breadcrumbIdFor } from "../../data/schema";
 import pitchingData from "../../data/pitching.json";
-const { intro, method } = pitchingData as { intro: string; method: { title: string; blurb: string }[] };
+const { intro, arsenalNote, method } = pitchingData as { intro: string; arsenalNote: string; method: { title: string; blurb: string }[] };
 
 const posts = (await getCollection("pitches"))
   .filter((p) => import.meta.env.DEV || !p.data.draft)
@@ -55,16 +55,19 @@ const pageSchema = [
     </section>
     <section class="bg-paper py-16 px-4">
       <div class="max-w-4xl mx-auto">
+        <h2 class="text-xl font-heading font-bold uppercase tracking-wide text-base-content/80 text-center">The Arsenal</h2>
+        <p class="max-w-3xl mx-auto text-center mt-2 text-sm text-base-content/70">{arsenalNote}</p>
         {posts.length === 0 ? (
-          <p class="text-center text-base-content/60">Guides coming soon.</p>
+          <p class="text-center text-base-content/60 mt-8">Guides coming soon.</p>
         ) : (
           <Reveal>
-            <div class="grid sm:grid-cols-2 gap-4">
+            <div class="mt-8 grid sm:grid-cols-2 gap-4">
               {posts.map((p, i) => (
                 <a href={`/pitching/${p.id}/`} class="group relative block overflow-hidden rounded-box border border-base-300 bg-base-100 p-6 transition-all hover:-translate-y-1 hover:border-marigold/60 hover:shadow-lg">
                   <span aria-hidden="true" class="absolute right-4 top-4 text-marigold"><Ornament variant="diamond" class="w-3.5 h-3.5" /></span>
                   <span aria-hidden="true" class="font-display text-base-content/15 text-3xl leading-none">{String(i + 1).padStart(2, "0")}</span>
-                  <h2 class="mt-2 text-xl font-heading font-bold text-primary uppercase">{p.data.pitch}</h2>
+                  <h3 class="mt-2 text-xl font-heading font-bold text-primary uppercase">{p.data.pitch}</h3>
+                  <p class="mt-1 text-sm font-semibold uppercase tracking-wide text-accent">“{p.data.cue}”</p>
                   <p class="mt-2 text-sm text-base-content/70">{p.data.description}</p>
                   <span class="mt-3 inline-block text-sm font-semibold text-primary opacity-80 transition-opacity group-hover:opacity-100">Learn more →</span>
                 </a>

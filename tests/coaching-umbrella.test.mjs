@@ -60,3 +60,10 @@ test("homepage shows the umbrella grid and no longer has Services/Pitching secti
   assert.doesNotMatch(html, /id="services"/, "old Services section still present");
   assert.doesNotMatch(html, /id="pitching"/, "old Pitching section still present");
 });
+
+test("/pitching/ hub carries the Arsenal heading, note, and pitch cues", () => {
+  const html = readFileSync(join(dist, "pitching", "index.html"), "utf8");
+  assert.match(html, /The Arsenal/, "missing The Arsenal heading");
+  assert.match(html, /every arsenal is built to the athlete/, "missing arsenalNote framing");
+  assert.match(html, /Establish it first/, "missing the fastball cue");
+});
