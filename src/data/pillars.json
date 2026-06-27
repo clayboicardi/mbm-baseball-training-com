@@ -1,7 +1,7 @@
 [
   { "name": "Hitting", "blurb": "Swing mechanics, timing, and approach that carry into real at-bats.", "icon": "lucide:zap", "href": "/coaching/hitting/" },
   { "name": "Pitching", "blurb": "Mental-game-first development and a full arsenal, built to the pitcher.", "icon": "lucide:flame", "href": "/pitching/" },
-  { "name": "Infield", "blurb": "Footwork, glovework, and the throw across the diamond.", "icon": "lucide:grab", "href": "/coaching/infield/" },
+  { "name": "Infield", "blurb": "Footwork, glovework, and the throw across the diamond.", "icon": "lucide:hand-grab", "href": "/coaching/infield/" },
   { "name": "Outfield", "blurb": "Reads, routes, catching on the move, and the long throw.", "icon": "lucide:wind", "href": "/coaching/outfield/" },
   { "name": "Catching", "blurb": "Receiving, blocking, throwing out runners, and leading the defense.", "icon": "lucide:shield-check", "href": "/coaching/catching/" },
   { "name": "Throwing & Arm", "blurb": "Arm care, accuracy, and velocity through clean mechanics.", "icon": "lucide:move-up-right", "href": "/coaching/throwing-mechanics/" },
