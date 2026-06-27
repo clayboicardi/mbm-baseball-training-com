@@ -3,6 +3,11 @@
   "main": "./worker.js",
   "account_id": "96f96c920a1b4a88e9ecdefa05688f2e",
   "compatibility_date": "2026-05-01",
+  // Keep per-version Preview URLs enabled across deploys. Without this, wrangler
+  // reconciles the preview setting to the (disabled) workers.dev route on every
+  // `versions upload`, silently turning preview URLs off — so PR preview links
+  // would break until manually re-enabled. This makes them persist.
+  "preview_urls": true,
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
