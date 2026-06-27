@@ -32,3 +32,10 @@ test("each new coaching pillar builds with Service + WebPage + BreadcrumbList", 
     }
   }
 });
+
+test("/pitching/ hub carries the pitching philosophy intro and The Method", () => {
+  const html = readFileSync(join(dist, "pitching", "index.html"), "utf8");
+  assert.match(html, /pitching starts in the mind/, "missing relocated intro");
+  assert.match(html, /The Method/, "missing The Method heading");
+  assert.match(html, /Mental game first/, "missing a Method item");
+});

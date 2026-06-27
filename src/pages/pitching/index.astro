@@ -9,6 +9,8 @@ import Reveal from "../../components/ui/Reveal.astro";
 import { Image } from "astro:assets";
 import heroImg from "../../assets/photos/pitching-mound.jpg";
 import { abs, collectionPageNode, breadcrumbNode, breadcrumbIdFor } from "../../data/schema";
+import pitchingData from "../../data/pitching.json";
+const { intro, method } = pitchingData as { intro: string; method: { title: string; blurb: string }[] };
 
 const posts = (await getCollection("pitches"))
   .filter((p) => import.meta.env.DEV || !p.data.draft)
@@ -46,6 +48,11 @@ const pageSchema = [
         <p class="mt-4 text-lg text-neutral-content/85 max-w-2xl [text-shadow:0_2px_12px_#0b1f338c]">{description}</p>
       </div>
     </section>
+    <section class="py-16 px-4 bg-base-100">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-lg text-base-content/80">{intro}</p>
+      </div>
+    </section>
     <section class="bg-paper py-16 px-4">
       <div class="max-w-4xl mx-auto">
         {posts.length === 0 ? (
@@ -67,6 +74,19 @@ const pageSchema = [
         )}
         <div class="text-center mt-10">
           <a href="/#book" class="btn btn-accent btn-lg">Claim Your Free First Lesson</a>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 px-4 bg-base-100">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-xl font-heading font-bold uppercase tracking-wide text-base-content/80 text-center">The Method</h2>
+        <div class="mt-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {method.map((m) => (
+            <div>
+              <h3 class="font-heading font-bold text-primary">{m.title}</h3>
+              <p class="mt-1 text-sm text-base-content/70">{m.blurb}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
