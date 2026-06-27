@@ -39,3 +39,14 @@ test("/pitching/ hub carries the pitching philosophy intro and The Method", () =
   assert.match(html, /The Method/, "missing The Method heading");
   assert.match(html, /Mental game first/, "missing a Method item");
 });
+
+const pillars = JSON.parse(readFileSync(join(root, "src", "data", "pillars.json"), "utf8"));
+
+test("/coaching/ hub is the 'How Coach Myles Builds an Athlete' umbrella linking every pillar", () => {
+  const html = readFileSync(join(dist, "coaching", "index.html"), "utf8");
+  assert.match(html, /How Coach Myles Builds an Athlete/);
+  assert.ok(graphTypes(html).has("CollectionPage"));
+  for (const p of pillars) {
+    assert.ok(html.includes(`href="${p.href}"`), `hub missing link to ${p.href}`);
+  }
+});
