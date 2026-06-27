@@ -47,9 +47,9 @@ test("hero exposes all trust items", () => {
   }
 });
 
-test("What I Coach cards are numbered with a decorative diamond tick", () => {
+test("Coaching umbrella cards are numbered with a decorative diamond tick", () => {
   const h = html();
-  // a 2-digit zero-padded index label appears (01..05) and a decorative diamond svg
+  // a 2-digit zero-padded index label appears (01..08) and a decorative diamond svg
   assert.match(h, /\b0[1-9]\b/);
   assert.match(h, /<svg[^>]*aria-hidden="true"[\s\S]*?<polygon/); // diamond Ornament
 });

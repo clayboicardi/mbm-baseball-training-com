@@ -43,6 +43,7 @@ const pageSchema = [
 
     <section class="bg-paper py-16 px-4">
       <div class="max-w-6xl mx-auto">
+        <h2 class="sr-only">Coaching by skill and position</h2>
         <Reveal>
           <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {pillars.map((p, i) => <ServiceCard title={p.name} blurb={p.blurb} icon={p.icon} href={p.href} index={i} />)}
