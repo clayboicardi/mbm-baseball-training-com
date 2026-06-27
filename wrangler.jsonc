@@ -8,6 +8,11 @@
   // `versions upload`, silently turning preview URLs off — so PR preview links
   // would break until manually re-enabled. This makes them persist.
   "preview_urls": true,
+  // ...but keep PRODUCTION off the workers.dev route (custom domain only).
+  // Without this, enabling preview_urls also flips the workers.dev route on,
+  // publicly mirroring the live site at *.workers.dev. preview_urls above still
+  // provides per-version preview hostnames with this disabled.
+  "workers_dev": false,
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
