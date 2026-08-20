@@ -50,7 +50,7 @@ const coaching = defineCollection({
   loader: glob({ pattern: "*.json", base: "./src/data/coaching" }),
   schema: z.object({
     skill: z.string(), // display name, e.g. "Throwing Mechanics"
-    icon: z.string(), // lucide icon (mirrors services.json)
+    icon: z.string(), // lucide icon
     serviceType: z.string(), // schema.org Service.serviceType
     title: z.string(), // SEO <title>
     description: z.string(), // meta description

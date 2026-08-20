@@ -1,0 +1,69 @@
+import { test } from "node:test";
+import assert from "node:assert/strict";
+import { readFileSync, existsSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { join, dirname } from "node:path";
+
+// `pretest` (astro build) populates dist/ first.
+const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+const dist = join(root, "dist");
+
+const NEW_PILLARS = ["infield", "outfield", "catching", "baserunning"];
+
+const LD_RE = /<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g;
+function graphTypes(html) {
+  const blocks = [...html.matchAll(LD_RE)].map((m) => m[1]);
+  assert.equal(blocks.length, 1, "expected exactly one JSON-LD block");
+  const set = new Set();
+  for (const node of JSON.parse(blocks[0])["@graph"]) {
+    const t = node["@type"];
+    (Array.isArray(t) ? t : [t]).forEach((x) => set.add(x));
+  }
+  return set;
+}
+
+test("each new coaching pillar builds with Service + WebPage + BreadcrumbList", () => {
+  for (const slug of NEW_PILLARS) {
+    const file = join(dist, "coaching", slug, "index.html");
+    assert.ok(existsSync(file), `missing /coaching/${slug}/`);
+    const types = graphTypes(readFileSync(file, "utf8"));
+    for (const t of ["Service", "WebPage", "BreadcrumbList", "LocalBusiness", "WebSite", "Person"]) {
+      assert.ok(types.has(t), `/coaching/${slug}/ missing @type ${t}`);
+    }
+  }
+});
+
+test("/pitching/ hub carries the pitching philosophy intro and The Method", () => {
+  const html = readFileSync(join(dist, "pitching", "index.html"), "utf8");
+  assert.match(html, /pitching starts in the mind/, "missing relocated intro");
+  assert.match(html, /The Method/, "missing The Method heading");
+  assert.match(html, /Mental game first/, "missing a Method item");
+});
+
+const pillars = JSON.parse(readFileSync(join(root, "src", "data", "pillars.json"), "utf8"));
+
+test("/coaching/ hub is the 'How Coach Myles Builds an Athlete' umbrella linking every pillar", () => {
+  const html = readFileSync(join(dist, "coaching", "index.html"), "utf8");
+  assert.match(html, /How Coach Myles Builds an Athlete/);
+  assert.ok(graphTypes(html).has("CollectionPage"));
+  for (const p of pillars) {
+    assert.ok(html.includes(`href="${p.href}"`), `hub missing link to ${p.href}`);
+  }
+});
+
+test("homepage shows the umbrella grid and no longer has Services/Pitching sections", () => {
+  const html = readFileSync(join(dist, "index.html"), "utf8");
+  assert.match(html, /How Coach Myles Builds an Athlete/, "homepage missing umbrella heading");
+  for (const p of pillars) {
+    assert.ok(html.includes(`href="${p.href}"`), `homepage missing pillar link ${p.href}`);
+  }
+  assert.doesNotMatch(html, /id="services"/, "old Services section still present");
+  assert.doesNotMatch(html, /id="pitching"/, "old Pitching section still present");
+});
+
+test("/pitching/ hub carries the Arsenal heading, note, and pitch cues", () => {
+  const html = readFileSync(join(dist, "pitching", "index.html"), "utf8");
+  assert.match(html, /The Arsenal/, "missing The Arsenal heading");
+  assert.match(html, /every arsenal is built to the athlete/, "missing arsenalNote framing");
+  assert.match(html, /Establish it first/, "missing the fastball cue");
+});

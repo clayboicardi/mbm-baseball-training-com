@@ -1,0 +1,17 @@
+---
+import ServiceCard from "./ServiceCard.astro";
+import SectionHeading from "./ui/SectionHeading.astro";
+import pillars from "../data/pillars.json";
+---
+<section id="coaching" class="py-20 px-4 bg-paper">
+  <div class="max-w-6xl mx-auto">
+    <SectionHeading eyebrow="Private Coaching" title="How Coach Myles Builds an Athlete" />
+    <p class="text-center mt-4 text-base-content/70 max-w-2xl mx-auto">From the swing to the mound to the bases — Coach Myles develops the complete player, one tool at a time, for ages 8–18 across Long Beach &amp; Orange County.</p>
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {pillars.map((p, i) => <ServiceCard title={p.name} blurb={p.blurb} icon={p.icon} href={p.href} index={i} />)}
+    </div>
+    <div class="text-center mt-10">
+      <a href="/coaching/" class="btn btn-outline btn-primary">Explore all coaching</a>
+    </div>
+  </div>
+</section>

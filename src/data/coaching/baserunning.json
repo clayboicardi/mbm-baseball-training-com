@@ -1,0 +1,24 @@
+{
+  "skill": "Baserunning & Speed",
+  "icon": "lucide:footprints",
+  "serviceType": "Youth baserunning and speed coaching",
+  "title": "Baserunning & Speed Coaching in Long Beach & OC | MBM",
+  "description": "Private baserunning coaching with Coach Myles — leads, reads, stealing, and smart, aggressive running. Baserunning and speed for players ages 8–18 in Long Beach & Orange County.",
+  "h1": "Baserunning & Speed",
+  "lead": "Baserunning is the tool that wins games when the bats go quiet. Coach Myles turns speed into runs — teaching the leads, reads, and instincts that let a player take the extra base and pressure every defense.",
+  "body": [
+    "Speed matters, but smart speed matters more. Coach Myles coaches the primary and secondary lead, reading the pitcher and the ball off the bat, and the jump that turns a single into a double. Good baserunners force the defense to be perfect — and most aren't.",
+    "From there it's technique and decision-making: efficient turns through the bag, the right slide, when to steal, and when to hold. Coach Myles pairs straight-line speed work with the baseball IQ to use it, so a player runs the bases with both aggression and judgment."
+  ],
+  "focus": [
+    { "name": "Leads & jumps", "note": "Primary and secondary leads, reading the pitcher, and a quick first step." },
+    { "name": "Reads & instincts", "note": "Reading the ball off the bat to take the extra base with confidence." },
+    { "name": "Stealing bases", "note": "The jump, the technique, and the judgment of when to go." },
+    { "name": "Turns, slides & speed", "note": "Efficient turns through the bag, the right slide, and straight-line speed to use it all." }
+  ],
+  "faq": [
+    { "q": "Can baserunning really be coached, or is it just speed?", "a": "It's mostly coachable. The best baserunners aren't always the fastest — they get great jumps, read the game, and take the extra base. Coach Myles builds those instincts alongside straight-line speed." },
+    { "q": "Does this help a slower player?", "a": "Yes. Smart leads, good reads, and clean technique make any player a better baserunner regardless of raw speed — and the speed work helps on top of that." }
+  ],
+  "order": 9
+}

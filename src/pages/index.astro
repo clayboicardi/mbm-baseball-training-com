@@ -3,14 +3,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
 import Hero from "../components/Hero.astro";
 import About from "../components/About.astro";
-import Services from "../components/Services.astro";
+import Coaching from "../components/Coaching.astro";
 import Programs from "../components/Programs.astro";
 import Packages from "../components/Packages.astro";
 import Booking from "../components/Booking.astro";
 import Proof from "../components/Proof.astro";
 import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
-import Pitching from "../components/Pitching.astro";
 import Quotes from "../components/Quotes.astro";
 import Faq from "../components/Faq.astro";
 import Reveal from "../components/ui/Reveal.astro";
@@ -38,9 +37,8 @@ const pageSchema = webPageNode({
   <main id="main">
     <Hero />
     <About />
-    <Reveal><Services /></Reveal>
+    <Reveal><Coaching /></Reveal>
     <Reveal><Programs /></Reveal>
-    <Pitching />
     <Quotes />
     <PhotoDivider src={dividerCleats} widths={[640, 960, 1264, 1920]} alt="Close-up of youth baseball cleats digging into the infield dirt during a training session" />
     <Reveal><Packages /></Reveal>

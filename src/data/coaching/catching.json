@@ -1,0 +1,24 @@
+{
+  "skill": "Catching",
+  "icon": "lucide:shield-check",
+  "serviceType": "Youth catching coaching",
+  "title": "Catcher Coaching in Long Beach & OC | MBM",
+  "description": "Private catching coaching with Coach Myles — receiving, framing, blocking, and throwing out runners. Catcher fundamentals for players ages 8–18 in Long Beach & Orange County.",
+  "h1": "Catching",
+  "lead": "The catcher touches every pitch and runs the field from behind the plate. Coach Myles develops the complete catcher — soft receiving, blocking, a quick release to second, and the leadership that anchors a defense.",
+  "body": [
+    "Receiving comes first. Coach Myles teaches a quiet, confident setup, soft hands that present strikes, and the footwork to receive and block without getting beaten. A catcher who controls the baseball gives their pitcher a strike zone and their team an edge.",
+    "Then it's the throw and the game behind it. A fast, clean transfer and an accurate throw to second keep runners honest, while blocking, plate presence, and managing the game are the leadership skills that make a catcher the quarterback of the field. Coach Myles develops the body and the mind of the position together."
+  ],
+  "focus": [
+    { "name": "Receiving & framing", "note": "A quiet setup and soft hands that present strikes and steal the edges." },
+    { "name": "Blocking", "note": "Footwork and body position to keep the ball in front and runners in place." },
+    { "name": "Throwing out runners", "note": "A quick transfer and an accurate, on-line throw to second." },
+    { "name": "Leadership behind the plate", "note": "Managing the game, the pitcher, and the defense from the best seat on the field." }
+  ],
+  "faq": [
+    { "q": "Is catching too demanding for younger players?", "a": "Coach Myles scales it to the age and the athlete — younger catchers build the fundamentals of receiving and blocking safely, and add the throw and game-management as they're ready." },
+    { "q": "Can you help a catcher's pop time and throw to second?", "a": "Yes. A faster, cleaner transfer and footwork are the biggest levers, and Coach Myles drills them directly to make the throw to second quicker and more accurate." }
+  ],
+  "order": 8
+}
